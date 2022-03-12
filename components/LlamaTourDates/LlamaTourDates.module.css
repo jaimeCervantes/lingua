@@ -1,0 +1,48 @@
+.linguaTourDates {
+  background-color: #950101;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+.header {
+  text-align: center;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.item {
+  cursor: pointer; 
+  opacity: 0;
+  text-transform: capitalize;
+  animation-fill-mode: forwards;
+  color: white;
+  letter-spacing: -1px;
+}
+
+.item:hover {
+  transform: scale(110%);
+}
+
+.enterContainer {
+  margin-top: 2rem;
+  text-align: center;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-delay: 0s;
+  animation-duration: 2s;
+}

@@ -1,0 +1,54 @@
+.logo {
+  display: block;
+  max-inline-size: 100%;
+  align-self: center;
+  opacity: 0;
+  animation-fill-Mode: forwards;
+}
+
+.footer {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: center;
+  background-color: #110000;
+  color: white;
+}
+
+@keyframes backInDown {
+  0% {
+    transform: translateY(-1200px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  80% {
+    transform: translateY(0px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.backInDown {
+  animation-name: backInDown;
+  animation-delay: 0s;
+  animation-duration: 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-delay: 0s;
+  animation-duration: 2s;
+}
