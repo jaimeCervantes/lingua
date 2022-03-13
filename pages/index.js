@@ -45,9 +45,10 @@ export async function getStaticProps() {
           fields: ['formats', 'url']
         }
       },
-      fields: ['title', 'cols', 'rows', 'size']
+      fields: ['title', 'cols', 'rows', 'size'],
+      sort: ['id']
     }),
-    fetchAPI('/tours/', { fields: ['title'] }),
+    fetchAPI('/tours/', { fields: ['title'], sort: ['id'] }),
     fetchAPI('/index/')
   ]);
 
