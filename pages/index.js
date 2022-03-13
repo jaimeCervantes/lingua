@@ -66,9 +66,7 @@ function mapHomeImagesToUI(images) {
 
     return {
       title: item.attributes.title,
-      img: getStrapiMedia(formats.medium.url), 
-      width: formats.medium.width,
-      height: formats.medium.height,
+      img: getStrapiMedia(formats.medium.url),
       cols: item.attributes.cols,
       rows: item.attributes.rows
     };

@@ -20,7 +20,7 @@ export async function fetchAPI(path, urlParamsObject = {}, options = {}) {
     `/api${path}${queryString ? `?${queryString}` : ""}`
   )}`
 
-  const response = await fetch(requestUrl, mergedOptions)
+  const response = await fetch(requestUrl, mergedOptions);
 
   if (!response.ok) {
     console.error(response.statusText)
