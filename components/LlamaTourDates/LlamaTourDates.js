@@ -12,15 +12,17 @@ export default function LlamaTourDates({ tours, title, bookText, enterText }) {
           variant="h2"
         >
           {title}
-          <Button
-            sx={{ marginLeft: '1.5rem', height: '60px'}}
-            variant="contained"
-            color="secondary"
-            size="large"
-            startIcon={<CalendarMonthIcon fontSize="large"/>}
-          >
-            {bookText}
-          </Button>
+          <Link href="/booking">
+            <Button
+              sx={{ marginLeft: '1.5rem', height: '60px'}}
+              variant="contained"
+              color="secondary"
+              size="large"
+              startIcon={<CalendarMonthIcon fontSize="large"/>}
+            >
+              {bookText}
+            </Button>
+          </Link>
         </Typography>
       </header>
 
@@ -28,14 +30,16 @@ export default function LlamaTourDates({ tours, title, bookText, enterText }) {
         {tours.map((item) => (
           <Grid item xs={12} sm={6} key={item.title}>
             <Typography variant="h5" component="p" sx={{textAlign: 'center'}}>
-              <Button
-                className={`${styles.item} ${styles.fadeIn}`}
-                variant="outlined"
-                size="large"
-                sx={{ fontSize: '1.4rem', textTransform: 'capitalize', transitionDuration: '0.4s', transitionProperty: 'transform' }}
-              >
-                {item.title}
-              </Button>
+              <Link href="/booking">
+                <Button
+                  className={`${styles.item} ${styles.fadeIn}`}
+                  variant="outlined"
+                  size="large"
+                  sx={{ fontSize: '1.4rem', textTransform: 'capitalize', transitionDuration: '0.4s', transitionProperty: 'transform' }}
+                >
+                  {item.title}
+                </Button>
+              </Link>
             </Typography>
           </Grid>
         ))}
