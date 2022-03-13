@@ -12,8 +12,6 @@ export default function LlamaImageList({ images }) {
   const theme = useTheme();
   const isLessSm = useMediaQuery(theme.breakpoints.down('sm'));
 
-  console.log(isLessSm)
-
   return (
     <ImageList
       variant="quilted"

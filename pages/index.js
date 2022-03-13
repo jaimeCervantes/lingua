@@ -42,10 +42,10 @@ export async function getStaticProps() {
     fetchAPI('/home-images/', {
       populate: {
         Image: {
-          fields: ['formats']
+          fields: ['formats', 'url']
         }
       },
-      fields: ['title', 'cols', 'rows']
+      fields: ['title', 'cols', 'rows', 'size']
     }),
     fetchAPI('/tours/', { fields: ['title'] }),
     fetchAPI('/index/')
@@ -63,10 +63,11 @@ export async function getStaticProps() {
 function mapHomeImagesToUI(images) {
   return images.map(item => {
     const formats = item.attributes.Image.data.attributes.formats;
+    const url = formats[item.attributes.size]?.url;
 
     return {
       title: item.attributes.title,
-      img: getStrapiMedia(formats.medium.url),
+      img: getStrapiMedia(url || item.attributes.Image.data.attributes.url),
       cols: item.attributes.cols,
       rows: item.attributes.rows
     };
