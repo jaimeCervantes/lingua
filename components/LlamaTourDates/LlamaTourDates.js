@@ -1,18 +1,17 @@
 import { Typography, Grid, Button, Box } from "@mui/material";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import DoorSlidingIcon from '@mui/icons-material/DoorSliding';
+import Link from 'next/link'
 import styles from './LlamaTourDates.module.css';
 
-import tours from './tours';
-
-export default function LlamaTourDates() {
+export default function LlamaTourDates({ tours, title, bookText, enterText }) {
   return (
     <section className={styles.linguaTourDates}>
       <header className={`${styles.header} ${styles.fadeIn}`}>
         <Typography 
           variant="h2"
         >
-          Tour Dates
+          {title}
           <Button
             sx={{ marginLeft: '1.5rem', height: '60px'}}
             variant="contained"
@@ -20,7 +19,7 @@ export default function LlamaTourDates() {
             size="large"
             startIcon={<CalendarMonthIcon fontSize="large"/>}
           >
-            Book now  +1 201 838 0698
+            {bookText}
           </Button>
         </Typography>
       </header>
@@ -43,15 +42,17 @@ export default function LlamaTourDates() {
       </Grid>
       
       <Box className={`${styles.enterContainer} ${styles.fadeIn}`}>
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          sx={{ height: '60px' }}
-          startIcon={<DoorSlidingIcon />}
-        >
-          Enter site
-        </Button>
+        <Link href="/home">
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            sx={{ height: '60px' }}
+            startIcon={<DoorSlidingIcon />}
+          >
+            {enterText}
+          </Button>
+        </Link>
       </Box>
     </section>
   );

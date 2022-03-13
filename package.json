@@ -15,6 +15,7 @@
     "@mui/material": "latest",
     "next": "latest",
     "prop-types": "latest",
+    "qs": "^6.10.3",
     "react": "latest",
     "react-dom": "latest"
   },

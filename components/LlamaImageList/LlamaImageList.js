@@ -3,15 +3,16 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
-import images from './images.js';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import styles from './LlamaImageList.module.css';
 
-export default function LlamaImageList() {
+export default function LlamaImageList({ images }) {
   const theme = useTheme();
   const isLessSm = useMediaQuery(theme.breakpoints.down('sm'));
+
+  console.log(isLessSm)
 
   return (
     <ImageList
@@ -23,7 +24,7 @@ export default function LlamaImageList() {
           sx={{ overflow: 'hidden' }}
         >
           <img
-            {...srcset(item.img, 250, item.rows, item.cols)}
+            src={item.img}
             alt={item.title}
             className={styles.img}
           />
@@ -43,11 +44,4 @@ export default function LlamaImageList() {
       ))}
     </ImageList>
   );
-}
-
-function srcset(image, size, rows = 1, cols = 1) {
-  return {
-    src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
-    srcSet: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format&dpr=2 2x`,
-  };
 }
