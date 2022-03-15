@@ -6,14 +6,6 @@
   animation-fill-Mode: forwards;
 }
 
-.footer {
-  padding-top: 16px;
-  padding-bottom: 16px;
-  text-align: center;
-  background-color: #110000;
-  color: white;
-}
-
 @keyframes backInDown {
   0% {
     transform: translateY(-1200px) scale(0.7);
@@ -51,4 +43,12 @@
   animation-name: fadeIn;
   animation-delay: 0s;
   animation-duration: 2s;
+}
+
+.enterContainer {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  opacity: 0;
+  animation-fill-mode: forwards;
 }

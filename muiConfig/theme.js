@@ -4,10 +4,13 @@ import { red } from '@mui/material/colors';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#ffffff',
+      main: '#950101',
     },
     secondary: {
-      main: '#FFC900',
+      main: '#110000',
+    },
+    warning: {
+      main: '#FFC900'
     },
     error: {
       main: red.A400,
@@ -27,8 +30,7 @@ const theme = createTheme({
     ].join(','),
     h2: {
       fontWeight: 700,
-      letterSpacing: '-4px',
-      color: '#ffffff'
+      letterSpacing: '-4px'
     }
   },
 });

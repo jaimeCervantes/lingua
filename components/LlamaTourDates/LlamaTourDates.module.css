@@ -1,14 +1,11 @@
 .linguaTourDates {
-  background-color: #950101;
-  padding-bottom: 2rem;
-  padding-top: 2rem;
+  padding: 1rem;
 }
 
-.header {
+.footer {
   text-align: center;
   font-weight: 700;
-  color: white;
-  margin-bottom: 1.5rem;
+  padding: 1rem;
 }
 
 .item {
@@ -16,19 +13,11 @@
   opacity: 0;
   text-transform: capitalize;
   animation-fill-mode: forwards;
-  color: white;
   letter-spacing: -1px;
 }
 
 .item:hover {
   transform: scale(110%);
-}
-
-.enterContainer {
-  margin-top: 2rem;
-  text-align: center;
-  opacity: 0;
-  animation-fill-mode: forwards;
 }
 
 @keyframes fadeIn {
