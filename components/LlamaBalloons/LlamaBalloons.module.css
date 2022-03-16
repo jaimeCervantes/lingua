@@ -1,0 +1,102 @@
+.llamaBalloons {
+  position: relative;
+  margin: 0 auto;
+  width: 400px;
+  opacity: 0;
+  animation-fill-Mode: forwards;
+}
+
+.balloon {
+  position: absolute;
+  background-color: #110000;
+  width: 150px;
+  height: 4rem;
+  border-radius: 20px;
+}
+
+.middleTop {
+  top: 40px;
+  left: 50%;
+  margin-left: -100px;
+}
+
+.rightMiddle {
+  top: 50%;
+  left: -50%;
+  margin-left: 15px;
+}
+
+.triangle {
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.triangleRight {
+  border-top: 15px solid transparent;
+  border-left: 30px solid #110000;
+  border-bottom: 15px solid transparent;
+  left: 100%;
+  top: 50%;
+  margin-top: -15px;
+  margin-left: -2px;
+}
+
+.text {
+  left: 50%;
+  position: absolute;
+  width: 150px;
+  text-align: center;
+  margin-left: -75px;
+  top: 50;
+  margin-top: 0.5rem;
+  color: white;
+  font-size: 2rem;
+  font-family: Bangers;
+}
+
+.text:link {
+  text-decoration: none;
+}
+
+.leftMiddle {
+  top: 50%;
+  left: 100%;
+  margin-left: 15px;
+}
+
+.triangleLeft {
+  border-top: 15px solid transparent;
+  border-right: 30px solid #110000;
+  border-bottom: 15px solid transparent;
+  left: 0;
+  top: 50%;
+  margin-top: -15px;
+  margin-left: -29px;
+}
+
+
+@keyframes backInDown {
+  0% {
+    transform: translateY(-1200px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  80% {
+    transform: translateY(0px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.backInDown {
+  animation-name: backInDown;
+  animation-delay: 0s;
+  animation-duration: 1s;
+}
+

@@ -39,7 +39,6 @@ export default function LlamaTourDates({ tours, title, bookText }) {
           size="large"
           startIcon={<CalendarMonthIcon fontSize="large"/>}
           href="https://linguallama-store.mailchimpsites.com/"
-          target="_blank"
         >
           {bookText}
         </Button>

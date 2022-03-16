@@ -2,31 +2,7 @@
   display: block;
   max-inline-size: 100%;
   align-self: center;
-  opacity: 0;
-  animation-fill-Mode: forwards;
-}
-
-@keyframes backInDown {
-  0% {
-    transform: translateY(-1200px) scale(0.7);
-    opacity: 0.7;
-  }
-
-  80% {
-    transform: translateY(0px) scale(0.7);
-    opacity: 0.7;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.backInDown {
-  animation-name: backInDown;
-  animation-delay: 0s;
-  animation-duration: 1s;
+  margin: 0 auto;
 }
 
 @keyframes fadeIn {
