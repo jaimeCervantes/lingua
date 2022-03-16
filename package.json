@@ -11,6 +11,7 @@
     "@emotion/react": "latest",
     "@emotion/server": "latest",
     "@emotion/styled": "latest",
+    "@fontsource/bangers": "^4.5.3",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "next": "latest",

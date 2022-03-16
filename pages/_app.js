@@ -9,6 +9,8 @@ import createEmotionCache from '../muiConfig/createEmotionCache';
 import Generic from "../components/layouts/Generic";
 import { GlobalProvider } from '../components/GlobalContext';
 import { fetchAPI } from '../util/api';
+
+import '../styles/styles.js';
 import '../styles/global.css';
 
 // Client-side cache, shared for the whole session of the user in the browser.

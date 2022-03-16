@@ -13,8 +13,6 @@
   opacity: 0;
   text-transform: capitalize;
   animation-fill-mode: forwards;
-  letter-spacing: -1px;
-  font-weight: 900;
 }
 
 .item:hover {

@@ -24,7 +24,7 @@ const theme = createTheme({
       '-apple-system',
       'BlinkMacSystemFont',
       '"Segoe UI"',
-      'Ubuntu',
+      '"Bangers"',
       '"Helvetica Neue"',
       'Arial',
     ].join(','),
