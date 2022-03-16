@@ -49,7 +49,6 @@
   width: 150px;
   text-align: center;
   margin-left: -75px;
-  top: 50;
   margin-top: 0.5rem;
   color: white;
   font-size: 2rem;
@@ -107,5 +106,13 @@
 
 .balloon:hover {
   transform: scale(110%);
+}
+
+@media (max-width: 735px) {
+  .rightMiddle, .leftMiddle {
+    position: relative;
+    left: unset;
+    margin: 20px auto 0 auto;
+  }
 }
 
