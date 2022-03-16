@@ -1,7 +1,7 @@
 .llamaBalloons {
   position: relative;
   margin: 0 auto;
-  width: 400px;
+  width: 464px;
   opacity: 0;
   animation-fill-Mode: forwards;
 }
@@ -20,10 +20,10 @@
   margin-left: -100px;
 }
 
-.rightMiddle {
+.leftMiddle {
   top: 50%;
   left: -50%;
-  margin-left: 15px;
+  margin-left: 40px;
 }
 
 .triangle {
@@ -59,7 +59,7 @@
   text-decoration: none;
 }
 
-.leftMiddle {
+.rightMiddle {
   top: 50%;
   left: 100%;
   margin-left: 15px;
@@ -113,6 +113,10 @@
     position: relative;
     left: unset;
     margin: 20px auto 0 auto;
+  }
+
+  .llamaBalloons {
+    width: 100%;
   }
 }
 
