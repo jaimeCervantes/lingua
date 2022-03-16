@@ -118,5 +118,9 @@
   .llamaBalloons {
     width: 100%;
   }
+
+  .middleTop {
+    top: 10px;
+  }
 }
 
