@@ -44,7 +44,6 @@ export default function Index({ homeImages, tours, index }) {
               sx={{ height: '60px' }}
               startIcon={<DoorSlidingIcon />}
               href="https://linguallama-store.mailchimpsites.com/"
-              target="_blank"
             >
               {index.enterText}
             </Button>

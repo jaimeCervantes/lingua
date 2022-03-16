@@ -9,7 +9,6 @@ export default function LlamaBallons({ children }) {
         <a
           className={styles.text}
           href="https://linguallama-store.mailchimpsites.com/english-classes"
-          target="_blank"
         >English</a>
       </div>
 
@@ -20,7 +19,6 @@ export default function LlamaBallons({ children }) {
         <a
           className={styles.text}
           href="https://linguallama-store.mailchimpsites.com/spanish-classes"
-          target="_blank"
         >Spanish</a>
       </div>
 
@@ -29,7 +27,6 @@ export default function LlamaBallons({ children }) {
         <a
           className={styles.text}
           href="https://linguallama-store.mailchimpsites.com/italian-classes"
-          target="_blank"
         >Italian</a>
       </div>
     </div>
