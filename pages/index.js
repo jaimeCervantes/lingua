@@ -1,6 +1,7 @@
-import { Stack, Box, Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import LlamaImageList from '../components/LlamaImageList/LlamaImageList';
 import LlamaTourDates from '../components/LlamaTourDates/LlamaTourDates';
+import LlamaBalloons from '../components/LlamaBalloons/LlamaBalloons';
 import LlamaFooter from '../components/LlamaFooter/LlamaFooter';
 import DoorSlidingIcon from '@mui/icons-material/DoorSliding';
 
@@ -16,9 +17,9 @@ export default function Index({ homeImages, tours, index }) {
   return (
     <>
       <header style={{ paddingBottom: '0' }}>
-        <Stack>
-          <img src="/logo.png" alt="Logo" className={`${styles.logo} ${styles.backInDown}`}/>
-        </Stack>
+        <LlamaBalloons className={styles.backInDown}>
+          <img src="/logo.png" alt="Logo" className={styles.logo}/>
+        </LlamaBalloons>
       </header>
 
       <main style={{ padding: '0' }}>
