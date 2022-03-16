@@ -37,6 +37,7 @@ export default function Index({ homeImages, tours, index }) {
         <Box className={`${styles.enterContainer} ${styles.fadeIn}`}>
           <Link href="/home">
             <Button
+              className="text-bold"
               variant="contained"
               color="primary"
               size="large"

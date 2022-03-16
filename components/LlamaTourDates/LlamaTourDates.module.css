@@ -13,6 +13,7 @@
   opacity: 0;
   text-transform: capitalize;
   animation-fill-mode: forwards;
+  font-family: Bangers;
 }
 
 .item:hover {

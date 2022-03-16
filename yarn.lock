@@ -196,6 +196,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource/bangers/-/bangers-4.5.3.tgz#64751badcbc5d59ac120baf678e25a14533e11b1"
   integrity sha512-XdUaL8ViWDjDwKvQXuLdAphn/9MImg7K+f4d2NLWgN8Bfb4OWzs+Ebh8h2DZjhExaRcsgpwo2CFhgA/dREZPVw==
 
+"@fontsource/ubuntu@^4.5.4":
+  version "4.5.4"
+  resolved "https://registry.yarnpkg.com/@fontsource/ubuntu/-/ubuntu-4.5.4.tgz#fe694cb5aab6b599475c5958f208b87aaf9920bd"
+  integrity sha512-wekWBF7Mj0GOyoLHnsSXgKZyO7gfS1KzQXOqxEOUUO9wj4ligv4QAWj/hnDqKDtYdBXxBAVKr5B7Yp3LrI6/mw==
+
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.3"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.9.3.tgz#f2564c744b387775b436418491f15fce6601f63e"

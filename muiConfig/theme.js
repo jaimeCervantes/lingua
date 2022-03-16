@@ -24,6 +24,7 @@ const theme = createTheme({
       '-apple-system',
       'BlinkMacSystemFont',
       '"Segoe UI"',
+      'Ubuntu',
       '"Bangers"',
       '"Helvetica Neue"',
       'Arial',
@@ -31,7 +32,7 @@ const theme = createTheme({
     h2: {
       fontWeight: 700,
       letterSpacing: '-4px'
-    }
+    },
   },
 });
 

@@ -32,6 +32,7 @@ export default function LlamaTourDates({ tours, title, bookText }) {
 
       <footer className={`${styles.footer} ${styles.fadeIn}`}>
         <Button
+          className="text-bold"
           sx={{ marginLeft: '1.5rem', height: '60px'}}
           variant="contained"
           color="warning"
