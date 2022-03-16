@@ -100,3 +100,12 @@
   animation-duration: 1s;
 }
 
+.balloon {
+  transition-property: transform;
+  transition-duration: 0.5s;
+}
+
+.balloon:hover {
+  transform: scale(110%);
+}
+
