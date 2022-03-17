@@ -24,6 +24,17 @@ export default function Lingua(props) {
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <title>{global.seo.metaTitle}</title>
+        <meta name="robots" content={global.seo.metaRobots} />
+        <meta name="description" content={global.seo.metaDescription} />
+        <meta property="og:locale" content="en" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={global.seo.metaTitle} />
+        <meta property="og:description" content={global.seo.metaDescription} />
+        <meta property="og:url" content="https://www.linguallama.org" />
+        <meta property="og:site_name" content="Lingua Llama" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href="https://www.linguallama.org/" key="canonical" />
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
@@ -37,11 +48,20 @@ export default function Lingua(props) {
 }
 
 Lingua.getInitialProps = async function getInitialProps(appContext) {
-  const global = await fetchAPI('/global/');
+  const global = await fetchAPI('/global/', {
+    populate: [
+      'seo',
+      'seo.metaSocial'
+    ]
+  });
 
   const appProps = await App.getInitialProps(appContext);
 
-  return { global: global.data.attributes,  ...appProps };
+  return { global: {
+      copyRight: global.data.attributes.copyRight, 
+      seo: global.data.attributes.seo
+    },
+    ...appProps };
 };
 
 Lingua.propTypes = {
