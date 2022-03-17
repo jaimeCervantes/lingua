@@ -33,6 +33,7 @@ export default function Lingua(props) {
         <meta property="og:description" content={global.seo.metaDescription} />
         <meta property="og:url" content="https://www.linguallama.org" />
         <meta property="og:site_name" content="Lingua Llama" />
+        <meta property="og:image" content={global.seo.metaImage.url} />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="canonical" href={global.seo.canonicalUrl} key="canonical" />
       </Head>
@@ -51,7 +52,7 @@ Lingua.getInitialProps = async function getInitialProps(appContext) {
   const global = await fetchAPI('/global/', {
     populate: [
       'seo',
-      'seo.metaSocial'
+      'seo.metaImage',
     ]
   });
 
@@ -59,7 +60,10 @@ Lingua.getInitialProps = async function getInitialProps(appContext) {
 
   return { global: {
       copyRight: global.data.attributes.copyRight, 
-      seo: global.data.attributes.seo
+      seo:  {
+        ...global.data.attributes.seo,
+        metaImage: global.data.attributes.seo.metaImage.data.attributes
+      }
     },
     ...appProps };
 };
