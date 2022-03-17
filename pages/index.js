@@ -34,7 +34,7 @@ const languages =  [
   },
   {
     label: 'Portuguese',
-    link: 'https://linguallama-store.mailchimpsites.com/portuguese-classes',
+    link: 'https://linguallama-store.mailchimpsites.com/portuguese',
     code: 'pt'
   },
   {
