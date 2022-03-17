@@ -34,7 +34,7 @@ export default function Lingua(props) {
         <meta property="og:url" content="https://www.linguallama.org" />
         <meta property="og:site_name" content="Lingua Llama" />
         <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href="https://www.linguallama.org/" key="canonical" />
+        <link rel="canonical" href={global.seo.canonicalUrl} key="canonical" />
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
