@@ -59,6 +59,11 @@
   text-decoration: none;
 }
 
+.smallerText {
+  font-size: 1.6rem;
+  line-height: 1; 
+}
+
 .rightMiddle {
   top: 50%;
   left: 100%;
@@ -147,6 +152,11 @@
   .text {
     font-size: 1.3rem;
     margin-top: 0.3rem;
+  }
+
+  .smallerText {
+    font-size: 1rem;
+    line-height: 1; 
   }
 
   .triangleRight {

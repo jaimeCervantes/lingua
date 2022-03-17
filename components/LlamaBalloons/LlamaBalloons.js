@@ -26,9 +26,9 @@ export default function LlamaBallons({ children }) {
         <div className={`${styles.balloon} ${styles.leftMiddle}`}>
           <span className={`${styles.triangle} ${styles.triangleRight}`}></span>
           <a
-            className={styles.text}
-            href="https://linguallama-store.mailchimpsites.com/italian-classes"
-          >Italian</a>
+            className={`${styles.text} ${styles.smallerText}`}
+            href="https://linguallama-store.mailchimpsites.com"
+          >More <br/>languages</a>
         </div>
       </div>
       
