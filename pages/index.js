@@ -23,7 +23,7 @@ export default function Index({ homeImages, tours, index }) {
       </header>
 
       <main style={{ padding: '0' }}>
-        <div className={styles.fadeIn} style={{ marginTop: '1.5rem' }}>
+        <div className={styles.fadeIn}>
           <LlamaTourDates
             tours={tours}
             title={index.title}
