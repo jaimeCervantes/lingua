@@ -114,13 +114,20 @@
 }
 
 .flex {
-  display: flex;
+  text-align: center;
 }
 
 @media (max-width: 735px) {
   .flex {
-    justify-content: space-evenly;
+    display: flex;
+    justify-content: space-between;
     margin-top: 1rem;
+  }
+
+  .balloon {
+    width: 100px;
+    height: 2.5rem;
+    border-radius: 10px;
   }
 
   .rightMiddle, .leftMiddle {
@@ -129,6 +136,7 @@
     display: inline-flex;
     margin-left: unset;
     align-self: center;
+    width: 70px;
   }
 
   .rightMiddle {
@@ -143,20 +151,21 @@
     left: 60%;
   }
 
-  .balloon {
-    width: 100px;
-    height: 2.5rem;
-    border-radius: 10px;
-  }
-
   .text {
     font-size: 1.3rem;
     margin-top: 0.3rem;
   }
 
+  .rightMiddle .text,
+  .leftMiddle .text {
+    width: 100%;
+    margin-left: unset;
+    left: unset;
+  }
+
   .smallerText {
-    font-size: 1rem;
-    line-height: 1; 
+    font-size: 0.95rem;
+    line-height: 1;
   }
 
   .triangleRight {
@@ -167,11 +176,13 @@
   }
 
   .triangleLeft  {
-    border-top-width: 10px;
-    border-bottom-width: 10px;
-    border-right-width: 15px;
-    margin-left: -14px;
-    margin-top: -10px;
+    border-bottom: 15px solid #110000;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    left: 50%;
+    top: -74%;
+    margin-left: -10px;
+    margin-top: unset;
   }
 
 }

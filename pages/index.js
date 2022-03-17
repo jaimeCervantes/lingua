@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { Box, Button } from '@mui/material';
 import LlamaImageList from '../components/LlamaImageList/LlamaImageList';
 import LlamaTourDates from '../components/LlamaTourDates/LlamaTourDates';
 import LlamaBalloons from '../components/LlamaBalloons/LlamaBalloons';
+import LlamaLanguages from '../components/LlamaLanguages/LlamaLanguages';
 import LlamaFooter from '../components/LlamaFooter/LlamaFooter';
 import DoorSlidingIcon from '@mui/icons-material/DoorSliding';
+import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 
 import Link from 'next/link';
 
@@ -13,14 +16,69 @@ import { getStrapiMedia } from '../util/media';
 
 import styles from './index.module.css';
 
+const languages =  [
+  {
+    label: 'English',
+    link: 'https://linguallama-store.mailchimpsites.com/english-classes',
+    code: 'us'
+  },
+  {
+    label: 'Spanish',
+    link: 'https://linguallama-store.mailchimpsites.com/spanish-classes',
+    code: 'es'
+  },
+  {
+    label: 'Italian',
+    link: 'https://linguallama-store.mailchimpsites.com/italian-classes',
+    code: 'it'
+  },
+  {
+    label: 'Portuguese',
+    link: 'https://linguallama-store.mailchimpsites.com/portuguese-classes',
+    code: 'pt'
+  },
+  {
+    label: 'French',
+    link: 'https://linguallama-store.mailchimpsites.com/french-classes',
+    code: 'fr'
+  }
+];
+
 export default function Index({ homeImages, tours, index }) {
+  const [ language, setLanguage ] = useState(languages[0]);
+  const [ isOpen, setIsOpen ] = useState(false);
+
   return (
     <>
       <header style={{ paddingBottom: '0' }}>
-        <LlamaBalloons className={styles.backInDown}>
-          <img src="/logo.png" alt="Logo" className={styles.logo}/>
+        <LlamaBalloons
+          className={styles.backInDown}
+          style={{ textAlign: 'center' }}
+          moreLanguages={
+            <Button
+              className={styles.languagesButton}
+              variant="contained"
+              color="secondary"
+              onClick={() => setIsOpen(!isOpen)}
+              endIcon={isOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
+            >
+              {`I'm learning ${language ? language.label : ''}`}
+            </Button>
+          }
+        >
+          <img src="/logo.png" alt="Logo" className={styles.logo}/>  
         </LlamaBalloons>
       </header>
+
+      <LlamaLanguages
+        className={styles.LlamaLanguages}
+        languages={languages}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        value={language}
+        setValue={setLanguage}
+      >
+      </LlamaLanguages>
 
       <main style={{ padding: '0' }}>
         <div className={styles.fadeIn}>

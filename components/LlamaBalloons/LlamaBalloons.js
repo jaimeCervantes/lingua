@@ -1,6 +1,6 @@
 import styles from './LlamaBalloons.module.css';
 
-export default function LlamaBallons({ children }) {
+export default function LlamaBallons({ children, moreLanguages }) {
   return (
     <div className={`${styles.llamaBalloons} ${styles.backInDown}`}>
       
@@ -30,6 +30,8 @@ export default function LlamaBallons({ children }) {
             href="https://linguallama-store.mailchimpsites.com/more-languages"
           >More <br/>languages</a>
         </div>
+
+        {moreLanguages}
       </div>
       
     </div>

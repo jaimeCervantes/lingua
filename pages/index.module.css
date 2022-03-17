@@ -28,3 +28,7 @@
   opacity: 0;
   animation-fill-mode: forwards;
 }
+
+.languagesButton {
+  font-family: Bangers;
+}
