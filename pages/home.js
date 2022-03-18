@@ -1,7 +1,9 @@
+import { Box } from "@mui/material";
+
 export default function Home() {
   return (
-    <>
-      <h1>Home</h1>
-    </>
+      <Box sx={{ mt: 7 }}>
+        <h1>Home</h1>
+      </Box>
   );
 }
