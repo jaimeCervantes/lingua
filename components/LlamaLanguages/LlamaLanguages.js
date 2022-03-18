@@ -7,9 +7,17 @@ import {
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 
 import styles from './LlamaLanguages.module.css';
+import { useEffect, useState } from "react";
 
 
 export default function LlamaLanguages({ languages, isOpen, setIsOpen, value, setValue }) {
+  const [searchValue, setSearchValue] = useState('');
+
+  useEffect(() => {
+    if(isOpen) {
+      setSearchValue('');
+    }
+  }, [isOpen, setSearchValue]);
 
   return (
     <Autocomplete
@@ -22,6 +30,10 @@ export default function LlamaLanguages({ languages, isOpen, setIsOpen, value, se
           setValue(newValue);
           setIsOpen(false);
         }
+      }}
+      inputValue={searchValue}
+      onInputChange={(event, newInputValue) => {
+        setSearchValue(newInputValue);
       }}
       options={languages}
       autoHighlight
@@ -51,6 +63,7 @@ export default function LlamaLanguages({ languages, isOpen, setIsOpen, value, se
             label="Search target language"
             variant="filled"
             sx={{ visibility: isOpen ? 'visible' : 'hidden' }}
+            focused={isOpen}
           />
         )
       }}
