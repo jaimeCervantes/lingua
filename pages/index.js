@@ -11,9 +11,10 @@ import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 import Link from 'next/link';
 
 import styles from './index.module.css';
-import { getLayout } from './index/pageFunctions';
 
-export { getStaticProps } from './index/pageFunctions';
+import { getLayout } from '../pagesFn/index/functions';
+
+export { getStaticProps } from '../pagesFn/index/functions';
 
 export default function Index({ homeImages, tours, index, languages }) {
   const [ language, setLanguage ] = useState(() => languages[0]);
