@@ -10,11 +10,10 @@ import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 
 import Link from 'next/link';
 
-import { fetchAPI } from '../util/api';
-import { getStrapiMedia } from '../util/media';
-
-
 import styles from './index.module.css';
+import { getLayout } from './index/pageFunctions';
+
+export { getStaticProps } from './index/pageFunctions';
 
 export default function Index({ homeImages, tours, index, languages }) {
   const [ language, setLanguage ] = useState(() => languages[0]);
@@ -86,74 +85,4 @@ export default function Index({ homeImages, tours, index, languages }) {
   );
 }
 
-Index.getLayout = function getLayout(page) {
-  return (
-    <>
-      {page}
-    </>
-  );
-}
-
-export async function getStaticProps() {
-  const [images, tours, index, languages ] = await Promise.all([
-    fetchAPI('/home-images/', {
-      populate: {
-        Image: {
-          fields: ['formats', 'url']
-        }
-      },
-      fields: ['title', 'cols', 'rows', 'size'],
-      sort: ['id']
-    }),
-    fetchAPI('/tours/', { fields: ['title'], sort: ['id'] }),
-    fetchAPI('/index/'),
-    fetchAPI('/languages/', {
-      fields: ['name', 'countryFlagCode', 'link'],
-      populate: {
-        Image: {
-          fields: ['url']
-        }
-      }
-    })
-  ]);
-
-  return {
-    props: {
-      homeImages: mapHomeImagesToUI(images.data),
-      tours: toursMapToUI(tours.data),
-      index: index.data.attributes,
-      languages: languagesMapToUI(languages.data)
-    }
-  }
-}
-
-function mapHomeImagesToUI(images) {
-  return images.map(item => {
-    const formats = item.attributes.Image.data.attributes.formats;
-    const url = formats[item.attributes.size]?.url;
-
-    return {
-      title: item.attributes.title,
-      img: getStrapiMedia(url || item.attributes.Image.data.attributes.url),
-      cols: item.attributes.cols,
-      rows: item.attributes.rows
-    };
-  });
-}
-
-function toursMapToUI(tours) {
-  return tours.map(item => ({ title: item.attributes.title }));
-}
-
-function languagesMapToUI(languages) {
-  return languages.map(item => {
-    const img = item.attributes.Image.data?.attributes.url;
-
-    return {
-      label: item.attributes.name,
-      flagCode: item.attributes.countryFlagCode,
-      link: item.attributes.link,
-      img: img ? getStrapiMedia(img) : null
-    }
-  });
-}
+Index.getLayout = getLayout;
