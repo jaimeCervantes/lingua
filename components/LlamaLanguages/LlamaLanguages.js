@@ -4,12 +4,12 @@ import {
   Box
 } from "@mui/material";
 
+import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+
 import styles from './LlamaLanguages.module.css';
 
 
 export default function LlamaLanguages({ languages, isOpen, setIsOpen, value, setValue }) {
-
-
 
   return (
     <Autocomplete
@@ -42,6 +42,9 @@ export default function LlamaLanguages({ languages, isOpen, setIsOpen, value, se
       )}
       open={isOpen}
       renderInput={(params) => {
+
+        params.InputProps.startAdornment = (<TravelExploreIcon />)
+
         return (
           <TextField
             {...params}
