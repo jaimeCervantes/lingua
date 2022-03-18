@@ -16,36 +16,8 @@ import { getStrapiMedia } from '../util/media';
 
 import styles from './index.module.css';
 
-const languages =  [
-  {
-    label: 'English',
-    link: 'https://linguallama-store.mailchimpsites.com/english-classes',
-    code: 'us'
-  },
-  {
-    label: 'Spanish',
-    link: 'https://linguallama-store.mailchimpsites.com/spanish-classes',
-    code: 'es'
-  },
-  {
-    label: 'Italian',
-    link: 'https://linguallama-store.mailchimpsites.com/italian-classes',
-    code: 'it'
-  },
-  {
-    label: 'Portuguese',
-    link: 'https://linguallama-store.mailchimpsites.com/portuguese',
-    code: 'pt'
-  },
-  {
-    label: 'French',
-    link: 'https://linguallama-store.mailchimpsites.com/french-classes',
-    code: 'fr'
-  }
-];
-
-export default function Index({ homeImages, tours, index }) {
-  const [ language, setLanguage ] = useState(languages[0]);
+export default function Index({ homeImages, tours, index, languages }) {
+  const [ language, setLanguage ] = useState(() => languages[0]);
   const [ isOpen, setIsOpen ] = useState(false);
 
   return (
@@ -123,7 +95,7 @@ Index.getLayout = function getLayout(page) {
 }
 
 export async function getStaticProps() {
-  const [images, tours, index ] = await Promise.all([
+  const [images, tours, index, languages ] = await Promise.all([
     fetchAPI('/home-images/', {
       populate: {
         Image: {
@@ -134,14 +106,23 @@ export async function getStaticProps() {
       sort: ['id']
     }),
     fetchAPI('/tours/', { fields: ['title'], sort: ['id'] }),
-    fetchAPI('/index/')
+    fetchAPI('/index/'),
+    fetchAPI('/languages/', {
+      fields: ['name', 'countryFlagCode', 'link'],
+      populate: {
+        Image: {
+          fields: ['url']
+        }
+      }
+    })
   ]);
 
   return {
     props: {
       homeImages: mapHomeImagesToUI(images.data),
       tours: toursMapToUI(tours.data),
-      index: index.data.attributes
+      index: index.data.attributes,
+      languages: languagesMapToUI(languages.data)
     }
   }
 }
@@ -162,4 +143,17 @@ function mapHomeImagesToUI(images) {
 
 function toursMapToUI(tours) {
   return tours.map(item => ({ title: item.attributes.title }));
+}
+
+function languagesMapToUI(languages) {
+  return languages.map(item => {
+    const img = item.attributes.Image.data?.attributes.url;
+
+    return {
+      label: item.attributes.name,
+      flagCode: item.attributes.countryFlagCode,
+      link: item.attributes.link,
+      img: img ? getStrapiMedia(img) : null
+    }
+  });
 }
