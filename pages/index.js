@@ -66,19 +66,17 @@ export default function Index({ homeImages, tours, index, languages }) {
         </div>
 
         <Box className={`${styles.enterContainer} ${styles.fadeIn}`}>
-          <Link href="/home">
-            <Button
-              className="text-bold"
-              variant="contained"
-              color="primary"
-              size="large"
-              sx={{ height: '60px' }}
-              startIcon={<DoorSlidingIcon />}
-              href="https://linguallama-store.mailchimpsites.com/"
-            >
-              {index.enterText}
-            </Button>
-          </Link>
+          <Button
+            className="text-bold"
+            variant="contained"
+            color="primary"
+            size="large"
+            sx={{ height: '60px' }}
+            startIcon={<DoorSlidingIcon />}
+            href="https://linguallama-store.mailchimpsites.com/"
+          >
+            {index.enterText}
+          </Button>
         </Box>
       </main>
       <LlamaFooter copyRight={index.copyRight} hasFadeIn/>
