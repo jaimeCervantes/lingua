@@ -22,7 +22,7 @@ export default function Index({ homeImages, tours, index, languages }) {
 
   return (
     <>
-      <header style={{ paddingBottom: '0' }}>
+      <header style={{ padding: '1rem', paddingBottom: 0 }}>
         <LlamaBalloons
           className={styles.backInDown}
           style={{ textAlign: 'center' }}
@@ -38,7 +38,7 @@ export default function Index({ homeImages, tours, index, languages }) {
             </Button>
           }
         >
-          <img src="/logo.png" alt="Logo" className={styles.logo}/>  
+          <img src="/logo.svg" alt="Logo" className={styles.logo} style={{ marginBottom: '0.5rem' }}/>  
         </LlamaBalloons>
       </header>
 
