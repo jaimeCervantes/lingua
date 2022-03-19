@@ -15,7 +15,7 @@ export default function HideAppBar(props) {
   return (
     <>
       <HideOnScroll {...props}>
-        <AppBar>
+        <AppBar sx={{ backgroundColor: 'rgb(85, 0, 0)'}}>
           <Toolbar disableGutters sx={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
             <img src="/logo-white.svg" height="40" />
             <Box sx={{ flexGrow: 1, display: 'flex', paddingLeft: '1rem' }}>
