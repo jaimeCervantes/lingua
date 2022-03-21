@@ -5,7 +5,7 @@ export default function Generic({ children }) {
   return (
     <>
       <LLamaHeader></LLamaHeader>
-      <main>{children}</main>
+      <main style={{ backgroundColor: 'white' }}>{children}</main>
       <LlamaFooter></LlamaFooter>
     </>
   );
