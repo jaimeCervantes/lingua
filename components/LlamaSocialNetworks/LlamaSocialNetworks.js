@@ -1,4 +1,4 @@
-import { Box, IconButton, Button } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 import { 
   Facebook as FacebookIcon,
   YouTube as YouTubeIcon,

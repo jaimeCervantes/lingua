@@ -31,7 +31,6 @@ export default function Index({ homeImages, tours, index, languages }) {
           <LlamaTelButton></LlamaTelButton>
         </Toolbar>
       </AppBar>
-      <Toolbar></Toolbar>
       <header style={{ padding: '1rem', paddingBottom: 0 }}>
         <LlamaBalloons
           className={styles.backInDown}
@@ -91,7 +90,11 @@ export default function Index({ homeImages, tours, index, languages }) {
           </Link>
         </Box>
       </main>
-      <LlamaFooter copyRight={index.copyRight} hasFadeIn/>
+      <LlamaFooter
+        copyRight={index.copyRight}
+        hasFadeIn
+      >
+      </LlamaFooter>
     </>
   );
 }
