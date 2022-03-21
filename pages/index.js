@@ -24,7 +24,7 @@ export default function Index({ homeImages, tours, index, languages }) {
 
   return (
     <>
-      <AppBar position="relative" color="primary">
+      <AppBar position="relative" color="secondary">
         <Toolbar>
           <LlamaSocialNetworks></LlamaSocialNetworks>
         </Toolbar>
