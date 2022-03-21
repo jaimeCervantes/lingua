@@ -1,4 +1,4 @@
-import { Box, IconButton, Button } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 import { 
   Facebook as FacebookIcon,
   YouTube as YouTubeIcon,
@@ -6,12 +6,11 @@ import {
   WhatsApp as WhatsAppIcon,
 } from '@mui/icons-material';
 import DiscordIcon from '../Icons/DiscordIcon';
-import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
 
-export default function LlamaSocialNetworks () {
+export default function LlamaSocialNetworks ({ sx, children }) {
   return (
     <>
-      <Box sx={{ display: { xs: 'none', sm: 'block'}}}>
+      <Box sx={sx}>
         <IconButton
           sx={{ color: 'white' }}
           aria-label="Facebook"
@@ -52,14 +51,9 @@ export default function LlamaSocialNetworks () {
           target="_blank"
         >
           <YouTubeIcon />
+          {children}
         </IconButton>
       </Box>
-      <Button variant="text"
-        sx={{ color: 'white', fontSize: '1.5rem', fontFamily: 'Bangers', display: { xs: 'none', sm: 'block'} }}
-        href="tel:+12018380698"
-      >
-        <PhoneInTalkIcon sx={{ marginLeft: '0.5rem' }}/> +1 201 838 0698
-      </Button>
     </>
   );
 }
