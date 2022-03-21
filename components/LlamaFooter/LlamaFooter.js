@@ -27,7 +27,7 @@ export default function LlamaFooter({ hasFadeIn, children, sx }) {
 
       {children}
 
-      <LlamaTelButton></LlamaTelButton>
+      <LlamaTelButton flexDirection="column"></LlamaTelButton>
       
       <Box>{global.copyRight?.replace('{year}', new Date().getFullYear())}</Box>
     </Toolbar>
