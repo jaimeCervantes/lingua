@@ -15,6 +15,7 @@ import styles from './index.module.css';
 
 import { getLayout } from '../pagesFn/index/functions';
 import LlamaSocialNetworks from '../components/LlamaSocialNetworks/LlamaSocialNetworks';
+import LlamaTelButton from '../components/LlamaTelButton/LlamaTelButton';
 
 export { getStaticProps } from '../pagesFn/index/functions';
 
@@ -24,11 +25,13 @@ export default function Index({ homeImages, tours, index, languages }) {
 
   return (
     <>
-      <AppBar position="relative" color="secondary">
+      <AppBar position="relative" color="secondary" component="div">
         <Toolbar>
-          <LlamaSocialNetworks></LlamaSocialNetworks>
+          <LlamaSocialNetworks sx={{ flexGrow: 1 }}></LlamaSocialNetworks>
+          <LlamaTelButton></LlamaTelButton>
         </Toolbar>
       </AppBar>
+      <Toolbar></Toolbar>
       <header style={{ padding: '1rem', paddingBottom: 0 }}>
         <LlamaBalloons
           className={styles.backInDown}
