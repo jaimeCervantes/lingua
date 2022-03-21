@@ -1,18 +1,20 @@
 import { useState } from 'react';
-import { Box, Button } from '@mui/material';
+import { AppBar, Box, Button, Toolbar } from '@mui/material';
+import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
+
+import Link from 'next/link';
+
 import LlamaImageList from '../components/LlamaImageList/LlamaImageList';
 import LlamaTourDates from '../components/LlamaTourDates/LlamaTourDates';
 import LlamaBalloons from '../components/LlamaBalloons/LlamaBalloons';
 import LlamaLanguages from '../components/LlamaLanguages/LlamaLanguages';
 import LlamaFooter from '../components/LlamaFooter/LlamaFooter';
 import DoorSlidingIcon from '@mui/icons-material/DoorSliding';
-import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
-
-import Link from 'next/link';
 
 import styles from './index.module.css';
 
 import { getLayout } from '../pagesFn/index/functions';
+import LlamaSocialNetworks from '../components/LlamaSocialNetworks/LlamaSocialNetworks';
 
 export { getStaticProps } from '../pagesFn/index/functions';
 
@@ -22,6 +24,11 @@ export default function Index({ homeImages, tours, index, languages }) {
 
   return (
     <>
+      <AppBar position="relative" color="primary">
+        <Toolbar>
+          <LlamaSocialNetworks></LlamaSocialNetworks>
+        </Toolbar>
+      </AppBar>
       <header style={{ padding: '1rem', paddingBottom: 0 }}>
         <LlamaBalloons
           className={styles.backInDown}
