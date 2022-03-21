@@ -37,7 +37,7 @@ function ShowOnScrollAppBar() {
       position="fixed"
       sx={{
         top: trigger ? 0 : '-100px',
-        opacity: trigger ? 0.7 : 0,
+        opacity: trigger ? 1 : 0,
         transition: 'top 1s, opacity 1s',
         '&:hover': {
           opacity: 1
