@@ -7,7 +7,7 @@ import { Toolbar } from '@mui/material';
 import LlamaSocialNetworks from '../LlamaSocialNetworks/LlamaSocialNetworks';
 import LlamaTelButton from '../LlamaTelButton/LlamaTelButton';
 
-export default function LlamaFooter({ hasFadeIn, children, sx }) {
+export default function LlamaFooter({ hasFadeIn, children, sx, color }) {
   const global = useContext(GlobalContext);
 
   return (
@@ -18,16 +18,16 @@ export default function LlamaFooter({ hasFadeIn, children, sx }) {
           padding: '1rem',
           flexDirection: 'column',
           backgroundColor: 'secondary.main',
-          color: 'white'
+          color: color || 'white'
        }
       }
       component="footer"
     >
-      <LlamaSocialNetworks></LlamaSocialNetworks>
+      <LlamaSocialNetworks color={color}></LlamaSocialNetworks>
 
       {children}
 
-      <LlamaTelButton flexDirection="column"></LlamaTelButton>
+      <LlamaTelButton flexDirection="column" color={color}></LlamaTelButton>
       
       <Box>{global.copyRight?.replace('{year}', new Date().getFullYear())}</Box>
     </Toolbar>

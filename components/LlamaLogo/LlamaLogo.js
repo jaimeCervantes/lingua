@@ -1,12 +1,10 @@
 import { Box } from '@mui/material';
 
-import styles from './LlamaLogo.module.css';
-
-export default function LlamaLogo({ sx, children }) {
+export default function LlamaLogo({ sx, children, img }) {
   return (
-    <Box sx={sx || { width: '200px' }}>
+    <Box sx={sx || { width: '100px' }}>
       <img
-        src="/logo-white.svg"
+        src={ img || '/logo.svg'}
         style={{ width: '100%'}}
       />
 

@@ -25,14 +25,12 @@ export default function Index({ homeImages, tours, index, languages }) {
   const [ isOpen, setIsOpen ] = useState(false);
 
   return (
-    <>
-      <AppBar position="relative" color="secondary" component="div">
-        <Toolbar disableGutters sx={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
-          <LlamaSocialNetworks sx={{ flexGrow: 1 }}></LlamaSocialNetworks>
-          <LlamaTelButton></LlamaTelButton>
-        </Toolbar>
-      </AppBar>
-      <LlamaShowOnScrollAppBar color="secondary" scrollTrigerProps={{ threshold: 70 }} opacity="0.7">
+    <Box sx={{
+    }}>
+      <LlamaShowOnScrollAppBar
+        scrollTrigerProps={{ threshold: 70 }}
+        elevation="0"
+      >
         <LlamaSocialNetworks sx={{ flexGrow: 1 }}></LlamaSocialNetworks>
         <LlamaTelButton></LlamaTelButton>
       </LlamaShowOnScrollAppBar>
@@ -98,9 +96,10 @@ export default function Index({ homeImages, tours, index, languages }) {
       <LlamaFooter
         copyRight={index.copyRight}
         hasFadeIn
+        color="white"
       >
       </LlamaFooter>
-    </>
+    </Box>
   );
 }
 

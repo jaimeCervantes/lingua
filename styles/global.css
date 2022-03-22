@@ -1,7 +1,13 @@
-main {
-  padding: 1rem;
-}
-
 .text-bold {
   font-weight: bold;
+}
+
+body {
+  background-image: url(/backgrounds/wave.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+main {
+  padding: 1rem;
 }

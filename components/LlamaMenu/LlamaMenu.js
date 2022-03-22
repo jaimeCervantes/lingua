@@ -7,7 +7,6 @@ export default function LlamaMenu() {
         <Button
           key={page}
           sx={{
-            color: 'white',
             display: 'inline-block',
             '&:hover': {
               textDecoration: 'underline'
