@@ -1,9 +1,12 @@
-import LlamaAppBars from "../LlamaAppBars/LlamaAppBars";
+import { Toolbar } from "@mui/material";
+import LlamaAppBar from "../LlamaAppBar/LlamaAppBar";
 
-export default function LLamaHeader() {
+export default function LLamaHeader({ children }) {
   return (
     <header>
-      <LlamaAppBars></LlamaAppBars>
+      <LlamaAppBar></LlamaAppBar>
+      <Toolbar></Toolbar>
+      {children}
     </header>
   );
 }

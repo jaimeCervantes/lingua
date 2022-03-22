@@ -7,9 +7,9 @@ import LlamaSocialNetworks from '../LlamaSocialNetworks/LlamaSocialNetworks';
 import LlamaTelButton from '../LlamaTelButton/LlamaTelButton';
 
 export default function LlamaShowOnScrollAppBar(props) {
-  const { children, scrollTrigerProps, opacity, ...rest } = props;
+  const { children, scrollTrigerProps, opacity, sx, ...rest } = props;
   const trigger = useScrollTrigger({
-    threshold: 105,
+    threshold: 70,
     disableHysteresis: true,
     ...scrollTrigerProps 
   });
@@ -19,21 +19,23 @@ export default function LlamaShowOnScrollAppBar(props) {
       component="div"
       color="primary"
       position="fixed"
-      sx={{
-        top: trigger ? 0 : '-100px',
-        opacity: trigger ? opacity : 0,
-        transition: `top ${ trigger ? '0.5s' : 0}, opacity  ${trigger ? '0.5s' : 0}`,
-        '&:hover': {
-          opacity: 1
+      sx={ 
+        sx ? sx(trigger) : ({
+            backgroundColor: trigger ? 'white' : 'transparent',
+            opacity: {xs: 1, sm: trigger ? '0.7' : 1 },
+            transition: `background-color 1s, opacity 1s`,
+            '&:hover': {
+              opacity: 1
+            }
+          })
         }
-      }}
       {...rest}
     >
       <Toolbar disableGutters sx={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
         
         {
           children || <>
-            <LlamaLogo sx={{ width: '100px' }}></LlamaLogo>
+            <LlamaLogo></LlamaLogo>
             <LlamaMenu></LlamaMenu>
             
             <LlamaSocialNetworks sx={{ display: { xs: 'none', sm: 'block' } }}>

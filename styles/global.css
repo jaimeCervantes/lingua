@@ -1,7 +1,15 @@
-main {
-  padding: 1rem;
-}
-
 .text-bold {
   font-weight: bold;
+}
+
+body {
+  background-image: url(/backgrounds/mountains-down.svg), url(/backgrounds/mountains-red.svg);
+  background-repeat: repeat-x, repeat-x;
+  background-size: contain, contain;
+  background-position: top left, bottom left;
+  height: 100%;
+}
+
+main {
+  padding: 1rem;
 }
