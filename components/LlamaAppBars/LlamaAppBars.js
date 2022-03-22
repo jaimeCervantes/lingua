@@ -38,7 +38,7 @@ function ShowOnScrollAppBar() {
       sx={{
         top: trigger ? 0 : '-100px',
         opacity: trigger ? 1 : 0,
-        transition: 'top 1s, opacity 1s',
+        transition: `top ${ trigger ? '0.5s' : 0}, opacity  ${trigger ? '0.5s' : 0}`,
         '&:hover': {
           opacity: 1
         }
