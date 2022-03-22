@@ -9,6 +9,7 @@ export default function LlamaTelButton({ children, color, flexDirection }) {
       color: color || 'secondary.main',
       fontSize: '1.5rem',
       fontFamily: 'Bangers',
+      minWidth: { xs: '1rem', sm: 'unset' }
     }}
     href="tel:+12018380698"
   >

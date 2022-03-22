@@ -17,8 +17,9 @@ export default function LlamaAppBars(props) {
         <LlamaMenu></LlamaMenu>
 
         <LlamaSocialNetworks sx={{ display: { xs: 'none', sm: 'block' } }}>
-          <LlamaTelButton></LlamaTelButton>
+          
         </LlamaSocialNetworks>
+        <LlamaTelButton></LlamaTelButton>
       </LlamaShowOnScrollAppBar>
     </>
   );

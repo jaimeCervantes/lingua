@@ -28,7 +28,6 @@ export default function Index({ homeImages, tours, index, languages }) {
     <Box sx={{
     }}>
       <LlamaShowOnScrollAppBar
-        scrollTrigerProps={{ threshold: 70 }}
         elevation="0"
       >
         <LlamaSocialNetworks sx={{ flexGrow: 1 }}></LlamaSocialNetworks>
@@ -64,7 +63,7 @@ export default function Index({ homeImages, tours, index, languages }) {
       >
       </LlamaLanguages>
 
-      <main style={{ padding: '0' }}>
+      <Box sx={{ padding: '0', marginBottom: { xs: 0, sm: '200px' } }}>
         <div className={styles.fadeIn}>
           <LlamaTourDates
             tours={tours}
@@ -92,11 +91,11 @@ export default function Index({ homeImages, tours, index, languages }) {
             </Button>
           </Link>
         </Box>
-      </main>
+      </Box>
       <LlamaFooter
         copyRight={index.copyRight}
         hasFadeIn
-        color="white"
+        color="secondary.main"
       >
       </LlamaFooter>
     </Box>

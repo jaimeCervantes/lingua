@@ -1,8 +1,8 @@
 import { Box, Button } from '@mui/material';
 
-export default function LlamaMenu() {
+export default function LlamaMenu({ color }) {
   return (
-    <Box sx={{ flexGrow: 1, display: { sm: 'flex' } }}>
+    <Box sx={{ flexGrow: 1, display: { sm: 'flex' }, marginLeft: {  xs: 0, sm: '1rem' } }}>
       {['Home', 'Events', 'About'].map((page) => (
         <Button
           key={page}
@@ -12,7 +12,8 @@ export default function LlamaMenu() {
               textDecoration: 'underline'
             },
             fontSize: { sm: '1.5rem', xs: '1.3rem' },
-            fontFamily: 'Bangers'
+            fontFamily: 'Bangers',
+            color: color || 'secondary.main'
           }}
         >
           {page}

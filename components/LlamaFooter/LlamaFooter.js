@@ -18,7 +18,8 @@ export default function LlamaFooter({ hasFadeIn, children, sx, color }) {
           padding: '1rem',
           flexDirection: 'column',
           backgroundColor: 'secondary.main',
-          color: color || 'white'
+          color: color || 'white',
+          background: 'transparent',
        }
       }
       component="footer"
@@ -29,7 +30,7 @@ export default function LlamaFooter({ hasFadeIn, children, sx, color }) {
 
       <LlamaTelButton flexDirection="column" color={color}></LlamaTelButton>
       
-      <Box>{global.copyRight?.replace('{year}', new Date().getFullYear())}</Box>
+      <Box sx={{ color: color }}>{global.copyRight?.replace('{year}', new Date().getFullYear())}</Box>
     </Toolbar>
   );
 }
