@@ -9,9 +9,7 @@ import LlamaTelButton from '../LlamaTelButton/LlamaTelButton';
 export default function LlamaAppBars(props) {
   return (
     <>
-      <LlamaShowOnScrollAppBar
-        elevation="0"
-      >
+      <LlamaShowOnScrollAppBar elevation={0}>
         <LlamaLogo></LlamaLogo>
 
         <LlamaMenu></LlamaMenu>
