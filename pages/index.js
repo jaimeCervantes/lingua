@@ -27,9 +27,7 @@ export default function Index({ homeImages, tours, index, languages }) {
   return (
     <Box sx={{
     }}>
-      <LlamaShowOnScrollAppBar
-        elevation="0"
-      >
+      <LlamaShowOnScrollAppBar elevation={0}>
         <LlamaSocialNetworks sx={{ flexGrow: 1 }}></LlamaSocialNetworks>
         <LlamaTelButton></LlamaTelButton>
       </LlamaShowOnScrollAppBar>
