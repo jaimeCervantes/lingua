@@ -1,7 +1,9 @@
+import LlamaAppBars from "../LlamaAppBars/LlamaAppBars";
+
 export default function LLamaHeader() {
   return (
     <header>
-      <h1>Header</h1>
+      <LlamaAppBars></LlamaAppBars>
     </header>
   );
 }
