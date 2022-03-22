@@ -1,6 +1,6 @@
 import { AppBar, Toolbar } from "@mui/material";
-import useScrollTrigger from "@mui/material/useScrollTrigger";
 
+import LlamaShowOnScrollAppBar from "../LlamaShowOnScrollAppBar/LlamaShowOnScrollAppBar";
 import LlamaLogo from "../LlamaLogo/LlamaLogo";
 import LlamaMenu from "../LlamaMenu/LlamaMenu";
 import LlamaSocialNetworks from '../LlamaSocialNetworks/LlamaSocialNetworks';
@@ -22,39 +22,10 @@ export default function LlamaAppBars(props) {
         </Toolbar>
       </AppBar>
 
-      <ShowOnScrollAppBar />
+      <LlamaShowOnScrollAppBar />
     </>
   );
 }
 
-function ShowOnScrollAppBar() {
-  const trigger = useScrollTrigger({ threshold: 105, disableHysteresis: true });
 
-  return (
-    <AppBar
-      component="div"
-      color="primary"
-      position="fixed"
-      sx={{
-        top: trigger ? 0 : '-100px',
-        opacity: trigger ? 1 : 0,
-        transition: `top ${ trigger ? '0.5s' : 0}, opacity  ${trigger ? '0.5s' : 0}`,
-        '&:hover': {
-          opacity: 1
-        }
-      }}
-    >
-      <Toolbar disableGutters sx={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
-        
-        <LlamaLogo sx={{ width: '100px' }}></LlamaLogo>
-
-        <LlamaMenu></LlamaMenu>
-        
-        <LlamaSocialNetworks sx={{ display: { xs: 'none', sm: 'block' } }}>
-          <LlamaTelButton></LlamaTelButton>
-        </LlamaSocialNetworks>
-      </Toolbar>
-    </AppBar>
-  );
-}
 

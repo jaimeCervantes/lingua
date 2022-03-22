@@ -4,6 +4,7 @@ import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 
 import Link from 'next/link';
 
+import LlamaShowOnScrollAppBar from '../components/LlamaShowOnScrollAppBar/LlamaShowOnScrollAppBar';
 import LlamaImageList from '../components/LlamaImageList/LlamaImageList';
 import LlamaTourDates from '../components/LlamaTourDates/LlamaTourDates';
 import LlamaBalloons from '../components/LlamaBalloons/LlamaBalloons';
@@ -26,11 +27,15 @@ export default function Index({ homeImages, tours, index, languages }) {
   return (
     <>
       <AppBar position="relative" color="secondary" component="div">
-        <Toolbar>
+        <Toolbar disableGutters sx={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
           <LlamaSocialNetworks sx={{ flexGrow: 1 }}></LlamaSocialNetworks>
           <LlamaTelButton></LlamaTelButton>
         </Toolbar>
       </AppBar>
+      <LlamaShowOnScrollAppBar color="secondary" scrollTrigerProps={{ threshold: 70 }} opacity="0.7">
+        <LlamaSocialNetworks sx={{ flexGrow: 1 }}></LlamaSocialNetworks>
+        <LlamaTelButton></LlamaTelButton>
+      </LlamaShowOnScrollAppBar>
       <header style={{ padding: '1rem', paddingBottom: 0 }}>
         <LlamaBalloons
           className={styles.backInDown}
