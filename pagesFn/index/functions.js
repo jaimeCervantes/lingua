@@ -1,5 +1,6 @@
 import { fetchAPI } from '../../util/api';
-import { mapHomeImagesToUI, mapToursToUI, mapLanguagesToUI } from './mappers';
+import { mapHomeImagesToUI, mapToursToUI } from './mappers';
+import { mapLanguagesToUI } from '../shared/mappers';
 
 export function getLayout(page) {
   return (

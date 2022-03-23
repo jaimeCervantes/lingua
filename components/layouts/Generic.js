@@ -6,7 +6,12 @@ export default function Generic({ children }) {
   return (
     <>
       <LLamaHeader></LLamaHeader>
-        <Box component="main" sx={{ marginBottom: { sm: '200px' } }}>{children}</Box>
+      <Box 
+        component="main"
+        sx={{ marginBottom: { sm: '100px' } }}
+      >
+        {children}
+      </Box>
       <LlamaFooter color="secondary.main"></LlamaFooter>
     </>
   );

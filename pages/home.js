@@ -1,16 +1,95 @@
-import { Box } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Chip,
+  Avatar,
+  useTheme,
+  useMediaQuery
+} from "@mui/material";
 
-export default function Home() {
+import LlamaEvent from "../components/LlamaEvent/LlamaEvent";
+
+export { getStaticProps } from "../pagesFn/home/functions.js";
+
+export default function Home({ events, languages }) {
+  const theme = useTheme();
+  const isLessSm = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <>
-      <Box>
-      {[...new Array(12)]
-        .map(
-          () => `Esse culpa voluptate culpa ut qui. Ullamco reprehenderit reprehenderit non ex. Enim aliqua laborum cillum reprehenderit duis est qui est ut aliquip ex amet ut deserunt. Eu cupidatat nisi aute consectetur sit nostrud esse exercitation adipisicing tempor in. Quis aute ea elit duis tempor cupidatat. Ad proident qui elit ea duis qui eu in proident duis cillum consectetur do.
+      <Typography
+        variant="h1"
+        sx={(theme) => ({
+          fontFamily: "Bangers",
+          textAlign: "center",
+          padding: "2rem",
+          wordBreak: "break-word",
+          fontSize: { xs: "2rem", sm: "6rem" },
+          paddingTop: "0",
+        })}
+      >
+        Welcome to LinguaLlama!
+      </Typography>
 
-      Amet officia occaecat dolore dolor excepteur cillum cillum et proident esse eiusmod minim deserunt. Tempor sint commodo nulla tempor amet. Qui dolor laborum id consectetur. Amet occaecat deserunt tempor et nisi sunt ex amet. Anim quis sit officia amet ex adipisicing aliqua culpa. Officia est sit anim est est et laborum deserunt nostrud nulla ex quis. Ut ullamco exercitation ullamco adipisicing cupidatat nostrud excepteur proident.`,
-        )
-        .join('\n')}
+      <Box
+        sx={{
+          width: { xs: "100%", sm: "80%" },
+          display: "flex",
+          alignSelf: "center",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          margin: "0 auto",
+        }}
+      >
+        {languages.map((item) => {
+          return (
+            <Chip
+              key={item.label}
+              label={item.label}
+              sx={{
+                margin: "0.5rem 0.5rem",
+                backgroundColor: "white",
+                border: "1px solid #ccc",
+              }}
+              avatar={
+                <Avatar
+                  loading="lazy"
+                  src={
+                    item.img
+                      ? item.img
+                      : `https://flagcdn.com/w40/${item.flagCode.toLowerCase()}.png`
+                  }
+                  srcSet={
+                    item.img
+                      ? null
+                      : `https://flagcdn.com/w80/${item.flagCode.toLowerCase()}.png 2x`
+                  }
+                  alt={item.label}
+                />
+              }
+            ></Chip>
+          );
+        })}
+      </Box>
+
+      <Box>
+        <Typography
+          variant="h2"
+          sx={(theme) => ({
+            fontFamily: "Bangers",
+            textAlign: "center",
+            padding: "2rem",
+            wordBreak: "break-word",
+          })}
+        >
+          Current Events
+        </Typography>
+
+        <Box
+          display="grid" gridTemplateColumns={ isLessSm ? '1fr' : 'repeat(3, 1fr)'} gap={3}
+        >
+          {events.map((item) => <LlamaEvent event={item} key={item.img}></LlamaEvent>)}
+        </Box>
       </Box>
     </>
   );

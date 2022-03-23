@@ -17,16 +17,3 @@ export function mapHomeImagesToUI(images) {
 export function mapToursToUI(tours) {
   return tours.map(item => ({ title: item.attributes.title }));
 }
-
-export function mapLanguagesToUI(languages) {
-  return languages.map(item => {
-    const img = item.attributes.Image.data?.attributes.url;
-
-    return {
-      label: item.attributes.name,
-      flagCode: item.attributes.countryFlagCode,
-      link: item.attributes.link,
-      img: img ? getStrapiMedia(img) : null
-    }
-  });
-}

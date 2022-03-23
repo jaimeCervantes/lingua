@@ -25,8 +25,7 @@ export default function Index({ homeImages, tours, index, languages }) {
   const [ isOpen, setIsOpen ] = useState(false);
 
   return (
-    <Box sx={{
-    }}>
+    <Box>
       <LlamaShowOnScrollAppBar elevation={0}>
         <LlamaSocialNetworks sx={{ flexGrow: 1 }}></LlamaSocialNetworks>
         <LlamaTelButton></LlamaTelButton>

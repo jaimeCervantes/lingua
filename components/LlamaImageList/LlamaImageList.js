@@ -6,7 +6,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 import styles from './LlamaImageList.module.css';
 
-export default function LlamaImageList({ images }) {
+export default function LlamaImageList({ images, render }) {
   const theme = useTheme();
   const isLessSm = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -15,21 +15,24 @@ export default function LlamaImageList({ images }) {
       variant="quilted"
       cols={isLessSm ? 2 : 4}
     >
-      {images.map((item) => (
-        <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}
-          sx={{ overflow: 'hidden' }}
-        >
-          <img
-            src={item.img}
-            alt={item.title}
-            className={styles.img}
-          />
-            <ImageListItemBar
-              title={item.title}
-              subtitle={item.author}
-            />
-        </ImageListItem>
-      ))}
+      {
+        render ? render(images) : 
+          images.map((item) => (
+            <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}
+              sx={{ overflow: 'hidden' }}
+            >
+              <img
+                src={item.img}
+                alt={item.title}
+                className={styles.img}
+              />
+                <ImageListItemBar
+                  title={item.title}
+                  subtitle={item.author}
+                />
+            </ImageListItem>
+          ))
+      }
     </ImageList>
   );
 }

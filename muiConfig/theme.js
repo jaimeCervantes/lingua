@@ -29,10 +29,6 @@ const theme = createTheme({
       '"Helvetica Neue"',
       'Arial',
     ].join(','),
-    h2: {
-      fontWeight: 700,
-      letterSpacing: '-4px'
-    },
   },
 });
 
