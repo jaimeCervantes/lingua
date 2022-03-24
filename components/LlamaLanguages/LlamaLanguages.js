@@ -46,7 +46,7 @@ export default function LlamaLanguages({ languages, isOpen, setIsOpen, value, se
               width="20"
               src={option.img ? option.img : `https://flagcdn.com/w20/${option.flagCode.toLowerCase()}.png`}
               srcSet={option.img ? null : `https://flagcdn.com/w40/${option.flagCode.toLowerCase()}.png 2x`}
-              alt=""
+              alt={option.label}
             />
             {option.label}
           </Box>

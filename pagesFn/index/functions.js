@@ -1,5 +1,6 @@
 import { fetchAPI } from '../../util/api';
-import { mapHomeImagesToUI, mapToursToUI, mapLanguagesToUI } from './mappers';
+import { mapHomeImagesToUI, mapToursToUI } from './mappers';
+import { mapLanguagesToUI } from '../shared/mappers';
 
 export function getLayout(page) {
   return (
@@ -9,7 +10,7 @@ export function getLayout(page) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const [images, tours, index, languages ] = await Promise.all([
     fetchAPI('/home-images/', {
       populate: {
@@ -18,9 +19,9 @@ export async function getStaticProps() {
         }
       },
       fields: ['title', 'cols', 'rows', 'size'],
-      sort: ['id']
+      sort: ['order', 'id']
     }),
-    fetchAPI('/tours/', { fields: ['title'], sort: ['id'] }),
+    fetchAPI('/tours/', { fields: ['title'], sort: ['order', 'id'] }),
     fetchAPI('/index/'),
     fetchAPI('/languages/', {
       fields: ['name', 'countryFlagCode', 'link'],
@@ -29,7 +30,7 @@ export async function getStaticProps() {
           fields: ['url']
         }
       },
-      sort: ['name']
+      sort: ['order', 'name']
     })
   ]);
 

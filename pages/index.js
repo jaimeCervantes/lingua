@@ -18,15 +18,14 @@ import { getLayout } from '../pagesFn/index/functions';
 import LlamaSocialNetworks from '../components/LlamaSocialNetworks/LlamaSocialNetworks';
 import LlamaTelButton from '../components/LlamaTelButton/LlamaTelButton';
 
-export { getStaticProps } from '../pagesFn/index/functions';
+export { getServerSideProps } from '../pagesFn/index/functions';
 
 export default function Index({ homeImages, tours, index, languages }) {
   const [ language, setLanguage ] = useState(() => languages[0]);
   const [ isOpen, setIsOpen ] = useState(false);
 
   return (
-    <Box sx={{
-    }}>
+    <Box>
       <LlamaShowOnScrollAppBar elevation={0}>
         <LlamaSocialNetworks sx={{ flexGrow: 1 }}></LlamaSocialNetworks>
         <LlamaTelButton></LlamaTelButton>
@@ -47,7 +46,7 @@ export default function Index({ homeImages, tours, index, languages }) {
             </Button>
           }
         >
-          <img src="/logo.svg" alt="Logo" className={styles.logo} style={{ marginBottom: '0.5rem' }}/>  
+          <img src="/logo.svg" alt="Linguallama Logo" className={styles.logo} style={{ marginBottom: '0.5rem' }}/>  
         </LlamaBalloons>
       </header>
 
