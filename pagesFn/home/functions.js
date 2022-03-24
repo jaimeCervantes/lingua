@@ -3,7 +3,7 @@ import { mapLanguagesToUI } from '../shared/mappers';
 import { mapEventsToUI } from './mappers';
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const [events, languages ] = await Promise.all([
     fetchAPI('/events/', {
       populate: {
@@ -12,7 +12,7 @@ export async function getStaticProps() {
         }
       },
       fields: ['title', 'shortDescription'],
-      sort: ['id']
+      sort: ['order', 'id']
     }),
     fetchAPI('/languages/', {
       fields: ['name', 'countryFlagCode', 'link'],
@@ -21,7 +21,7 @@ export async function getStaticProps() {
           fields: ['url']
         }
       },
-      sort: ['name']
+      sort: ['order', 'name']
     })
   ]);
 

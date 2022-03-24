@@ -2,7 +2,7 @@ import { getStrapiMedia } from '../../util/media';
 
 export function mapHomeImagesToUI(images) {
   return images.map(item => {
-    const formats = item.attributes.Image.data.attributes.formats;
+    const formats = item.attributes.Image?.data.attributes.formats;
     const url = formats[item.attributes.size]?.url;
 
     return {

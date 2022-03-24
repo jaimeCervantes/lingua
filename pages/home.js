@@ -9,7 +9,7 @@ import {
 
 import LlamaEvent from "../components/LlamaEvent/LlamaEvent";
 
-export { getStaticProps } from "../pagesFn/home/functions.js";
+export { getServerSideProps } from "../pagesFn/home/functions.js";
 
 export default function Home({ events, languages }) {
   const theme = useTheme();
