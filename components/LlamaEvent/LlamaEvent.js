@@ -4,6 +4,7 @@ import { alpha } from '@mui/material/styles';
 
 export default function LlamaEvent({ event }) {
   const [trigger, setTrigger] = useState(false);
+  const timeAnimation = 0.5;
 
   return (
     <Paper
@@ -18,7 +19,7 @@ export default function LlamaEvent({ event }) {
           transform: 'translate3d(0px, -10px, 0px)',
           transformStyle: 'preserve-3d'
         },
-        transition: 'transform 0.5s',
+        transition: `transform ${timeAnimation}s`,
         '&:hover .title': {
           opacity: 0
         }
@@ -41,12 +42,12 @@ export default function LlamaEvent({ event }) {
           color: "white",
           display: 'flex',
           justifyContent: 'space-between',
-          transition: 'opacity 0s'
+          transition: `opacity ${timeAnimation}s`
         }}
       >
-        <Typography variant="h6">{event.title}</Typography>
+        <Typography variant="h6" sx={{ fontSize: '1rem' }}>{event.title}</Typography>
       </Box>
-      <Fade in={trigger} timeout={500} direction="up">
+      <Fade in={trigger} timeout={timeAnimation * 1000} direction="up">
         <Box
           sx={{
             position: "absolute",
