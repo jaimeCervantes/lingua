@@ -6,6 +6,7 @@ import {
   WhatsApp as WhatsAppIcon,
 } from '@mui/icons-material';
 import DiscordIcon from '../Icons/DiscordIcon';
+import MeetupIcon from '../Icons/MeetupIcon';
 
 export default function LlamaSocialNetworks ({ sx, color, children }) {
   return (
@@ -44,6 +45,16 @@ export default function LlamaSocialNetworks ({ sx, color, children }) {
         >
           <DiscordIcon />
         </IconButton>
+
+        <IconButton
+          sx={{ color: color || 'secondary.main' }}
+          aria-label="Meetup"
+          href="https://www.meetup.com/linguallama/"
+          target="_blank"
+        >
+          <MeetupIcon />
+        </IconButton>
+
         <IconButton
           sx={{ color: color || 'secondary.main' }}
           aria-label="YouTube"
@@ -51,8 +62,9 @@ export default function LlamaSocialNetworks ({ sx, color, children }) {
           target="_blank"
         >
           <YouTubeIcon />
-          {children}
         </IconButton>
+        
+        {children}
       </Box>
     </>
   );
