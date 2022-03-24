@@ -1,35 +1,36 @@
 import { useState } from "react";
-import { Box, Typography, Slide, Button, CardActions, Paper } from "@mui/material";
+import { Box, Typography, Button, CardActions, Paper, Fade } from "@mui/material";
+import { alpha } from '@mui/material/styles';
 
 export default function LlamaEvent({ event }) {
   const [trigger, setTrigger] = useState(false);
-
-  /**
-   *    '&:hover': {
-          transform: 'translate3d(0px, -10px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)',
-          transformStyle: 'preserve-3d'
-        },
-        '&:hover': {
-          transform: 'translate3d(0px, -10px, 0px)',
-          transformStyle: 'preserve-3d'
-        },
-        transition: 'transform 0.2s'
-   */
 
   return (
     <Paper
       component="article"
       variant="elevation"
+
       sx={{
         overflow: "hidden",
         height: '400px',
-        position: 'relative'
+        position: 'relative',
+        '&:hover': {
+          transform: 'translate3d(0px, -10px, 0px)',
+          transformStyle: 'preserve-3d'
+        },
+        transition: 'transform 0.5s',
+        '&:hover .title': {
+          opacity: 0
+        }
       }}
+      
+
       onMouseEnter={() => setTrigger(true)}
       onMouseLeave={() => setTrigger(false)}
     >
       <img src={event.img} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt={event.title}/>
       <Box
+        className="title"
         sx={{
           position: "absolute",
           bottom: 0,
@@ -40,12 +41,12 @@ export default function LlamaEvent({ event }) {
           color: "white",
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center',
+          transition: 'opacity 0s'
         }}
       >
         <Typography variant="h6">{event.title}</Typography>
       </Box>
-      <Slide in={trigger} timeout={500} direction="up">
+      <Fade in={trigger} timeout={500} direction="up">
         <Box
           sx={{
             position: "absolute",
@@ -54,21 +55,22 @@ export default function LlamaEvent({ event }) {
             width: "100%",
             padding: "3rem",
             height: "100%",
-            backgroundColor: "white",
+            backgroundColor: (theme) => alpha(theme.palette.primary.main, 0.8),
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
+            color: 'white'
           }}
         >
-          <Typography variant="h4">{event.title}</Typography>
+          <Typography className="tittle" variant="h4">{event.title}</Typography>
           <Typography>
             {event.shortDescription}
           </Typography>
           <CardActions sx={{ justifyContent: "center" }}>
-            <Button color="primary">More details</Button>
+            <Button color="secondary" variant="contained">More details</Button>
           </CardActions>
         </Box>
-      </Slide>
+      </Fade>
     </Paper>
   );
 }
