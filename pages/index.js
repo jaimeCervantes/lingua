@@ -34,7 +34,7 @@ export default function Index({ homeImages, tours, index, languages }) {
               '&:hover': {
                 textDecoration: 'underline'
               },
-              fontSize: { sm: '1.5rem', xs: '1.3rem' },
+              fontSize: { sm: '1.5rem', xs: '1rem' },
               fontFamily: 'Bangers',
               color: 'secondary.main'
             }}
@@ -44,7 +44,7 @@ export default function Index({ homeImages, tours, index, languages }) {
             Teachers
           </Button>
         </LlamaSocialNetworks>
-        <LlamaTelButton></LlamaTelButton>
+        <LlamaTelButton sx={{ padding: { xs: 0, sm: 'initial' } }}></LlamaTelButton>
       </LlamaShowOnScrollAppBar>
       <header style={{ padding: '1rem', paddingBottom: 0 }}>
         <LlamaBalloons

@@ -9,7 +9,10 @@ export default function LlamaButton({ sx, children, ...rest }) {
         '&:hover': {
           textDecoration: 'underline'
         },
-        fontSize: { sm: '1.5rem', xs: '1.3rem' },
+        fontSize: {
+          xs: '1.3rem',
+          sm: '1.5rem'
+        },
         fontFamily: 'Bangers',
         ...sx
       }}

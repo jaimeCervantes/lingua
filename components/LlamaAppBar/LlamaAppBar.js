@@ -27,7 +27,6 @@ export default function LlamaAppBars(props) {
           <LlamaButton startIcon={<MenuIcon></MenuIcon>}>Menu</LlamaButton>
         </Box>
         
-
         <LlamaSocialNetworks sx={{ display: { xs: 'none', md: 'flex' } }}>
           
         </LlamaSocialNetworks>

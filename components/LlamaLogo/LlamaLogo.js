@@ -4,8 +4,8 @@ import Link from 'next/link';
 export default function LlamaLogo({ img, sx, children, url }) {
 
   return (
-    <Box sx={sx || { width: '100px' }}>
-      <Link href="/">
+    <Box sx={{ width: '100px', cursor: 'pointer', ...sx }}>
+      <Link href={url || '/'}>
         <img
           src={ img || '/logo.svg'}
           style={{ width: '100%'}}
