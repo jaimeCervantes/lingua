@@ -1,35 +1,39 @@
 import { useState } from "react";
-import { Box, Typography, Slide, Button, CardActions, Paper } from "@mui/material";
+import { Box, Typography, Button, CardActions, Paper, Fade } from "@mui/material";
+import { alpha } from '@mui/material/styles';
+import { useMediaQuery, useTheme } from "@mui/material";
 
 export default function LlamaEvent({ event }) {
-  const [trigger, setTrigger] = useState(false);
-
-  /**
-   *    '&:hover': {
-          transform: 'translate3d(0px, -10px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)',
-          transformStyle: 'preserve-3d'
-        },
-        '&:hover': {
-          transform: 'translate3d(0px, -10px, 0px)',
-          transformStyle: 'preserve-3d'
-        },
-        transition: 'transform 0.2s'
-   */
+  const theme = useTheme();
+  const isLessSm = useMediaQuery(theme.breakpoints.down('sm'));
+  const [trigger, setTrigger] = useState(() => isLessSm ? true : false);
+  const timeAnimation = 0.5;
 
   return (
     <Paper
       component="article"
       variant="elevation"
+
       sx={{
         overflow: "hidden",
         height: '400px',
-        position: 'relative'
+        position: 'relative',
+        '&:hover': {
+          transform: 'translate3d(0px, -10px, 0px)',
+          transformStyle: 'preserve-3d'
+        },
+        transition: `transform ${timeAnimation}s`,
+        '&:hover .title': {
+          opacity: 0
+        }
       }}
+      
       onMouseEnter={() => setTrigger(true)}
       onMouseLeave={() => setTrigger(false)}
     >
       <img src={event.img} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt={event.title}/>
       <Box
+        className="title"
         sx={{
           position: "absolute",
           bottom: 0,
@@ -38,26 +42,28 @@ export default function LlamaEvent({ event }) {
           padding: "1rem",
           backgroundColor: { xs: 'rgba(0, 0, 0, 0.5)', sm: "black" },
           color: "white",
-          display: 'flex',
+          display: { xs: 'none', sm: 'flex' },
           justifyContent: 'space-between',
-          alignItems: 'center',
+          transition: `opacity ${timeAnimation}s`
         }}
       >
-        <Typography variant="h6">{event.title}</Typography>
+        <Typography variant="h6" sx={{ fontSize: '1rem' }}>{event.title}</Typography>
       </Box>
-      <Slide in={trigger} timeout={500} direction="up">
+      <Fade in={trigger || isLessSm} timeout={timeAnimation * 1000} direction="up">
         <Box
           sx={{
             position: "absolute",
-            top: trigger ? 0 : "100%",
+            top: { xs: 'unset', sm: trigger ? 0 : "100%" },
+            bottom: { xs: 0, sm: 'unset' },
             left: 0,
             width: "100%",
             padding: "3rem",
             height: "100%",
-            backgroundColor: "white",
+            backgroundColor: (theme) => alpha(theme.palette.primary.main, 0.8),
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
+            color: 'white'
           }}
         >
           <Typography variant="h4">{event.title}</Typography>
@@ -65,10 +71,10 @@ export default function LlamaEvent({ event }) {
             {event.shortDescription}
           </Typography>
           <CardActions sx={{ justifyContent: "center" }}>
-            <Button color="primary">More details</Button>
+            <Button color="secondary" variant="contained">More details</Button>
           </CardActions>
         </Box>
-      </Slide>
+      </Fade>
     </Paper>
   );
 }

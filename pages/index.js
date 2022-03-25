@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AppBar, Box, Button, Toolbar } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 
 import Link from 'next/link';
@@ -27,13 +27,29 @@ export default function Index({ homeImages, tours, index, languages }) {
   return (
     <Box>
       <LlamaShowOnScrollAppBar elevation={0}>
-        <LlamaSocialNetworks sx={{ flexGrow: 1 }}></LlamaSocialNetworks>
-        <LlamaTelButton></LlamaTelButton>
+        <LlamaSocialNetworks sx={{ flexGrow: 1 }}>
+          <Button
+            sx={{
+              display: 'inline-block',
+              '&:hover': {
+                textDecoration: 'underline'
+              },
+              fontSize: { sm: '1.5rem', xs: '1rem' },
+              fontFamily: 'Bangers',
+              color: 'secondary.main'
+            }}
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdtQNJImrlq2U0n22hyybwK4nvHF4O3zLdw1eazF0qf7sKaBA/viewform"
+            target="_blank"
+          >
+            Teachers
+          </Button>
+        </LlamaSocialNetworks>
+        <LlamaTelButton sx={{ padding: { xs: 0, sm: 'initial' } }}></LlamaTelButton>
       </LlamaShowOnScrollAppBar>
       <header style={{ padding: '1rem', paddingBottom: 0 }}>
         <LlamaBalloons
           className={styles.backInDown}
-          style={{ textAlign: 'center' }}
+          sx={{ marginTop: { xs: '2rem', sm: 'inherit' } }}
           moreLanguages={
             <Button
               className={styles.languagesButton}
@@ -46,7 +62,11 @@ export default function Index({ homeImages, tours, index, languages }) {
             </Button>
           }
         >
-          <img src="/logo.svg" alt="Linguallama Logo" className={styles.logo} style={{ marginBottom: '0.5rem' }}/>  
+          <img src="/logo.svg"
+            alt="Linguallama Logo"
+            className={styles.logo}
+            style={{ marginBottom: '0.5rem' }}
+          />  
         </LlamaBalloons>
       </header>
 

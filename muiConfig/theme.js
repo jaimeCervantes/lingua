@@ -15,6 +15,12 @@ const theme = createTheme({
     error: {
       main: red.A400,
     },
+    tertiary: {
+      main: '#FAF7F4',
+      light: '#ffffff',
+      dark: '#d8d8d8',
+      contrastText: '#ffffff'
+    },
     background: {
       default: '#FAF7F4'
     }
@@ -29,6 +35,12 @@ const theme = createTheme({
       '"Helvetica Neue"',
       'Arial',
     ].join(','),
+  },
+  components: {
+    MuiButton: {
+      variants: [
+      ],
+    },
   },
 });
 

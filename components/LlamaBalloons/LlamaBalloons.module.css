@@ -1,6 +1,7 @@
 .llamaBalloons {
   position: relative;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 464px;
   opacity: 0;
   animation-fill-Mode: forwards;
