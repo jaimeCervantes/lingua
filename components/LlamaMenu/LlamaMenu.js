@@ -22,11 +22,11 @@ const menuItems = [
   }
 ];
 
-export default function LlamaMenu({ color }) {
+export default function LlamaMenu({ sx }) {
   return (
-    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, marginLeft: {  md: '1rem' } }}>
+    <Box sx={sx}>
       {menuItems.map((item) => (
-        <Link href={item.url}  passHref={item.isOut} key={item.url}>
+        <Link href={item.url}  passHref={true} key={item.url}>
           <LlamaButton target={item.isOut ? '_blank' : '_self'}>
             {item.text}
           </LlamaButton>
