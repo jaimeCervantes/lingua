@@ -17,16 +17,16 @@ const menuItems = [
   },
   {
     text: 'Teachers',
-    url: 'https://docs.google.com/forms/d/e/1FAIpQLSdtQNJImrlq2U0n22hyybwK4nvHF4O3zLdw1eazF0qf7sKaBA/viewform',
+    url: 'https://docs.google.com/forms/d/e/1FAIpQLSe1nXK4UCVgf9gpOYk52vVMBdEiUQh0qcEqgH_gvWkWsetOVg/viewform',
     isOut: true
   }
 ];
 
-export default function LlamaMenu({ color }) {
+export default function LlamaMenu({ sx }) {
   return (
-    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, marginLeft: {  md: '1rem' } }}>
+    <Box sx={sx}>
       {menuItems.map((item) => (
-        <Link href={item.url}  passHref={item.isOut} key={item.url}>
+        <Link href={item.url}  passHref={true} key={item.url}>
           <LlamaButton target={item.isOut ? '_blank' : '_self'}>
             {item.text}
           </LlamaButton>
