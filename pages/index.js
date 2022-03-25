@@ -44,7 +44,7 @@ export default function Index({ homeImages, tours, index, languages }) {
             Teachers
           </Button>
         </LlamaSocialNetworks>
-        <LlamaTelButton sx={{ padding: { xs: 0, sm: 'initial' } }}></LlamaTelButton>
+        <LlamaTelButton sx={{ padding: { xs: 0, sm: 'inherit' } }}></LlamaTelButton>
       </LlamaShowOnScrollAppBar>
       <header style={{ padding: '1rem', paddingBottom: 0 }}>
         <LlamaBalloons
