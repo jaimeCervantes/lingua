@@ -38,7 +38,7 @@ export default function Index({ homeImages, tours, index, languages }) {
               fontFamily: 'Bangers',
               color: 'secondary.main'
             }}
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdtQNJImrlq2U0n22hyybwK4nvHF4O3zLdw1eazF0qf7sKaBA/viewform"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe1nXK4UCVgf9gpOYk52vVMBdEiUQh0qcEqgH_gvWkWsetOVg/viewform"
             target="_blank"
           >
             Teachers
