@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Box, Typography, Button, CardActions, Paper, Fade } from "@mui/material";
 import { alpha } from '@mui/material/styles';
+import { useMediaQuery, useTheme } from "@mui/material";
 
 export default function LlamaEvent({ event }) {
-  const [trigger, setTrigger] = useState(false);
+  const theme = useTheme();
+  const isLessSm = useMediaQuery(theme.breakpoints.down('sm'));
+  const [trigger, setTrigger] = useState(() => isLessSm ? true : false);
   const timeAnimation = 0.5;
 
   return (
@@ -25,7 +28,6 @@ export default function LlamaEvent({ event }) {
         }
       }}
       
-
       onMouseEnter={() => setTrigger(true)}
       onMouseLeave={() => setTrigger(false)}
     >
@@ -40,18 +42,19 @@ export default function LlamaEvent({ event }) {
           padding: "1rem",
           backgroundColor: { xs: 'rgba(0, 0, 0, 0.5)', sm: "black" },
           color: "white",
-          display: 'flex',
+          display: { xs: 'none', sm: 'flex' },
           justifyContent: 'space-between',
           transition: `opacity ${timeAnimation}s`
         }}
       >
         <Typography variant="h6" sx={{ fontSize: '1rem' }}>{event.title}</Typography>
       </Box>
-      <Fade in={trigger} timeout={timeAnimation * 1000} direction="up">
+      <Fade in={trigger || isLessSm} timeout={timeAnimation * 1000} direction="up">
         <Box
           sx={{
             position: "absolute",
-            top: trigger ? 0 : "100%",
+            top: { xs: 'unset', sm: trigger ? 0 : "100%" },
+            bottom: { xs: 0, sm: 'unset' },
             left: 0,
             width: "100%",
             padding: "3rem",
@@ -63,7 +66,7 @@ export default function LlamaEvent({ event }) {
             color: 'white'
           }}
         >
-          <Typography className="tittle" variant="h4">{event.title}</Typography>
+          <Typography variant="h4">{event.title}</Typography>
           <Typography>
             {event.shortDescription}
           </Typography>

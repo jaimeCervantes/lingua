@@ -1,8 +1,9 @@
+import { Box } from '@mui/material';
 import styles from './LlamaBalloons.module.css';
 
-export default function LlamaBallons({ children, moreLanguages }) {
+export default function LlamaBallons({ children, moreLanguages, sx }) {
   return (
-    <div className={`${styles.llamaBalloons} ${styles.backInDown}`}>
+    <Box className={`${styles.llamaBalloons} ${styles.backInDown}`} sx={sx}>
       
       <div className={`${styles.balloon} ${styles.middleTop}`}>
         <span className={`${styles.triangle} ${styles.triangleRight}`}></span>
@@ -34,6 +35,6 @@ export default function LlamaBallons({ children, moreLanguages }) {
         {moreLanguages}
       </div>
       
-    </div>
+    </Box>
   );
 }
