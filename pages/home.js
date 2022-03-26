@@ -4,7 +4,8 @@ import {
   Chip,
   Avatar,
   useTheme,
-  useMediaQuery
+  useMediaQuery,
+  Paper
 } from "@mui/material";
 
 import LlamaEvent from "../components/LlamaEvent/LlamaEvent";
@@ -14,6 +15,16 @@ export { getServerSideProps } from "../pagesFn/home/functions.js";
 export default function Home({ events, languages }) {
   const theme = useTheme();
   const isLessSm = useMediaQuery(theme.breakpoints.down('sm'));
+  const isLessMd = useMediaQuery(theme.breakpoints.down('md'));
+  let repeat = 3;
+
+  if (isLessMd) {
+    repeat = 2;
+  }
+
+  if (isLessSm) {
+    repeat = 1;
+  }
 
   return (
     <>
@@ -86,11 +97,20 @@ export default function Home({ events, languages }) {
         </Typography>
 
         <Box
-          display="grid" gridTemplateColumns={ isLessSm ? '1fr' : 'repeat(3, 1fr)'} gap={3}
+          display="grid" gridTemplateColumns={`repeat(${repeat}, 1fr)`} gap={Math.max(repeat, 2)}
         >
           {events.map((item) => <LlamaEvent event={item} key={item.img}></LlamaEvent>)}
         </Box>
       </Box>
+      <Paper sx={{ marginTop: '1rem', backgroundColor: 'white', padding: { sx: 0, sm: '1rem' } }}>
+        <iframe
+          style={{ width: '100%', height: '70vh', display: 'block' }}
+          src="https://calendar.google.com/calendar/embed?wkst=1&bgcolor=%23ffffff&ctz=America%2FMexico_City&title=Jaime's%20Calendar&src=amFpbWUuY2VydmFudGVzLnZlQGdtYWlsLmNvbQ&src=ZmFtaWx5MDkzMzE0Mjg5NDUzOTgzNzgzOTRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZXMubWV4aWNhbiNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23039BE5&color=%23F6BF26&color=%23009688"
+          frameBorder="0"
+          scrolling="no"
+        >  
+        </iframe>
+      </Paper>
     </>
   );
 }
