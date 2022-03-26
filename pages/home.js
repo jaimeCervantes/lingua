@@ -1,126 +1,21 @@
-import {
-  Box,
-  Typography,
-  Chip,
-  Avatar,
-  useTheme,
-  useMediaQuery,
-  Paper
-} from "@mui/material";
-
-import LlamaEvent from "../components/LlamaEvent/LlamaEvent";
+import { Box, Typography } from "@mui/material";
+import LlamaChipLanguages from "../components/LlamaChipLanguages/LlamaChipLanguages";
+import LlamaEventList from "../components/LlamaEventList/LlamaEventList";
 
 export { getServerSideProps } from "../pagesFn/home/functions.js";
 
 export default function Home({ events, languages }) {
-  const theme = useTheme();
-  const isLessSm = useMediaQuery(theme.breakpoints.down('sm'));
-  const isLessMd = useMediaQuery(theme.breakpoints.down('md'));
-  let repeat = 3;
-
-  if (isLessMd) {
-    repeat = 2;
-  }
-
-  if (isLessSm) {
-    repeat = 1;
-  }
-
   return (
     <>
-      <Typography
-        variant="h1"
-        sx={(theme) => ({
-          fontFamily: "Bangers",
-          textAlign: "center",
-          padding: "2rem",
-          wordBreak: "break-word",
-          fontSize: { xs: "2rem", sm: "6rem" },
-          paddingTop: "0",
-        })}
-      >
-        Welcome to LinguaLlama!
-      </Typography>
+      <Typography variant="h1" sx={{ xs: "2rem", sm: "6rem" }}>Welcome to LinguaLlama!</Typography>
 
-      <Box
-        sx={{
-          width: { xs: "100%", sm: "80%" },
-          display: "flex",
-          alignSelf: "center",
-          justifyContent: "center",
-          flexWrap: "wrap",
-          margin: "0 auto",
-        }}
-      >
-        {languages.map((item) => {
-          return (
-            <Chip
-              key={item.label}
-              label={item.label}
-              sx={{
-                margin: "0.5rem 0.5rem",
-                backgroundColor: "white",
-                border: "1px solid #ccc",
-              }}
-              avatar={
-                <Avatar
-                  loading="lazy"
-                  src={
-                    item.img
-                      ? item.img
-                      : `https://flagcdn.com/w40/${item.flagCode.toLowerCase()}.png`
-                  }
-                  srcSet={
-                    item.img
-                      ? null
-                      : `https://flagcdn.com/w80/${item.flagCode.toLowerCase()}.png 2x`
-                  }
-                  alt={item.label}
-                />
-              }
-            ></Chip>
-          );
-        })}
-      </Box>
+      <LlamaChipLanguages languages={languages}></LlamaChipLanguages>
 
       <Box>
-        <Typography
-          variant="h2"
-          sx={(theme) => ({
-            fontFamily: "Bangers",
-            textAlign: "center",
-            padding: "2rem",
-            wordBreak: "break-word",
-          })}
-        >
-          Current Events
-        </Typography>
+        <Typography variant="h2">Current Events</Typography>
 
-        <Box
-          sx={{ marginBottom: '1rem' }}
-          display="grid" gridTemplateColumns={`repeat(${repeat}, 1fr)`} gap={Math.max(repeat, 2)}
-        >
-          {events.map((item) => <LlamaEvent event={item} key={item.img}></LlamaEvent>)}
-        </Box>
+        <LlamaEventList events={events}></LlamaEventList>
       </Box>
-      <Typography
-        variant="h2"
-        sx={{
-          fontFamily: "Bangers",
-          textAlign: "center",
-          padding: "2rem",
-          wordBreak: "break-word",
-        }}
-        >Calendar</Typography>
-      <Paper sx={{ backgroundColor: 'white', padding: { sx: 0, sm: '1rem' } }}>
-        <iframe
-          style={{ width: '100%', height: '70vh', display: 'block' }}
-          src="https://calendar.google.com/calendar/embed?&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&mode=WEEK&showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=1&showCalendars=1&src=bHF1b2gwNmlrYmQzajBjbnVzMGZhNGduNjRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23A79B8E"
-          frameBorder="0"
-          scrolling="no"
-        >  
-        </iframe>
-      </Paper>
     </>
   );
 }
