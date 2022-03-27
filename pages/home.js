@@ -1,24 +1,14 @@
 import { Box, Typography } from "@mui/material";
 import LlamaChipLanguages from "../components/LlamaChipLanguages/LlamaChipLanguages";
 import LlamaEventList from "../components/LlamaEventList/LlamaEventList";
+import LlamaIllustration from "../components/LlamaIllustration/LlamaIllustration";
 
 export { getStaticProps } from "../pagesFn/home/functions.js";
 
 export default function Home({ events, languages }) {
   return (
     <>
-      
-      <img
-        src="/illustrations/welcome.svg"
-        style={{
-          display: 'block',
-          minWidth: '100px',
-          maxWidth: '500px',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          marginTop: '-8%'
-        }}
-      />
+      <LlamaIllustration src="/illustrations/welcome.svg" />
 
       <LlamaChipLanguages languages={languages}></LlamaChipLanguages>
 
