@@ -1,4 +1,4 @@
-export default function({ src, styles }) {
+export default function LlamaIllustration({ src, styles }) {
   return (
     <img
       src={src}
