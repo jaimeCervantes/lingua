@@ -35,6 +35,20 @@ const theme = createTheme({
       '"Helvetica Neue"',
       'Arial',
     ].join(','),
+    h1: {
+      fontFamily: "Bangers",
+      textAlign: "center",
+      padding: "2rem",
+      wordBreak: "break-word",
+      fontSize:  "6rem",
+      paddingTop: "0",
+    },
+    h2: {
+      fontFamily: "Bangers",
+      textAlign: "center",
+      padding: "2rem",
+      wordBreak: "break-word",
+    }
   },
   components: {
     MuiButton: {

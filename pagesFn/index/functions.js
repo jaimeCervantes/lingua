@@ -1,4 +1,5 @@
 import { fetchAPI } from '../../util/api';
+import { getLanguages } from '../shared/functions';
 import { mapHomeImagesToUI, mapToursToUI } from './mappers';
 import { mapLanguagesToUI } from '../shared/mappers';
 
@@ -10,7 +11,7 @@ export function getLayout(page) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const [images, tours, index, languages ] = await Promise.all([
     fetchAPI('/home-images/', {
       populate: {
@@ -23,15 +24,7 @@ export async function getServerSideProps() {
     }),
     fetchAPI('/tours/', { fields: ['title'], sort: ['order', 'id'] }),
     fetchAPI('/index/'),
-    fetchAPI('/languages/', {
-      fields: ['name', 'countryFlagCode', 'link'],
-      populate: {
-        Image: {
-          fields: ['url']
-        }
-      },
-      sort: ['order', 'name']
-    })
+    getLanguages()
   ]);
 
   return {

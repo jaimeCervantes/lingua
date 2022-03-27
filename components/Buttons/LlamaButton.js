@@ -1,8 +1,10 @@
+import { forwardRef } from 'react';
 import { Button } from '@mui/material';
 
-export default function LlamaButton({ sx, children, ...rest }) {
+export default forwardRef(function LlamaButton({ sx, children, ...rest }, ref) {
   return (
     <Button
+      ref={ref}
       color="secondary"
       sx={{
         display: 'inline-block',
@@ -22,4 +24,4 @@ export default function LlamaButton({ sx, children, ...rest }) {
       {children}
     </Button>
   );
-}
+});

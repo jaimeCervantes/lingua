@@ -8,7 +8,6 @@ export default function Generic({ children }) {
       <LLamaHeader></LLamaHeader>
       <Box 
         component="main"
-        sx={{ marginBottom: { sm: '100px' } }}
       >
         {children}
       </Box>
