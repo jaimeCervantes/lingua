@@ -9,8 +9,17 @@ export { getServerSideProps } from "../pagesFn/home/functions.js";
 export default function Events({ events, languages }) {
   return (
     <>
-      <Typography variant="h1" sx={{ xs: "2rem", sm: "6rem" }}>Events</Typography>
-
+      <img 
+        src="/illustrations/customer-interview.svg"
+        style={{
+          display: 'block',
+          minWidth: '100px',
+          maxWidth: '500px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          marginTop: '-8%'
+        }}
+      />
       <LlamaEventList events={events}></LlamaEventList>
 
       <Box>

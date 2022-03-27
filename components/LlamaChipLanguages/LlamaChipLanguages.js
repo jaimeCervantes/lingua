@@ -1,6 +1,6 @@
 import { Box, Chip, Avatar } from '@mui/material';
 
-export default function LlamaChipLanguages({ languages }) {
+export default function LlamaChipLanguages({ languages, sx }) {
   return (
     <Box
       sx={{
@@ -10,6 +10,7 @@ export default function LlamaChipLanguages({ languages }) {
         justifyContent: "center",
         flexWrap: "wrap",
         margin: "0 auto",
+        ...sx
       }}
     >
       {languages.map((item) => {

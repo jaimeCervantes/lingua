@@ -40,6 +40,7 @@ const theme = createTheme({
       textAlign: "center",
       padding: "2rem",
       wordBreak: "break-word",
+      fontSize:  "6rem",
       paddingTop: "0",
     },
     h2: {

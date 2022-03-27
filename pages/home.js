@@ -7,7 +7,18 @@ export { getServerSideProps } from "../pagesFn/home/functions.js";
 export default function Home({ events, languages }) {
   return (
     <>
-      <Typography variant="h1" sx={{ xs: "2rem", sm: "6rem" }}>Welcome to LinguaLlama!</Typography>
+      
+      <img
+        src="/illustrations/welcome.svg"
+        style={{
+          display: 'block',
+          minWidth: '100px',
+          maxWidth: '500px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          marginTop: '-8%'
+        }}
+      />
 
       <LlamaChipLanguages languages={languages}></LlamaChipLanguages>
 
