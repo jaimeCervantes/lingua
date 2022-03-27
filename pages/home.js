@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import LlamaChipLanguages from "../components/LlamaChipLanguages/LlamaChipLanguages";
 import LlamaEventList from "../components/LlamaEventList/LlamaEventList";
 
-export { getServerSideProps } from "../pagesFn/home/functions.js";
+export { getStaticProps } from "../pagesFn/home/functions.js";
 
 export default function Home({ events, languages }) {
   return (
@@ -22,11 +22,9 @@ export default function Home({ events, languages }) {
 
       <LlamaChipLanguages languages={languages}></LlamaChipLanguages>
 
-      <Box>
-        <Typography variant="h2">Current Events</Typography>
+      <Typography variant="h2">Current Events</Typography>
 
-        <LlamaEventList events={events}></LlamaEventList>
-      </Box>
+      <LlamaEventList events={events}></LlamaEventList>
     </>
   );
 }

@@ -4,7 +4,7 @@ import LlamaEmbeddedCalendar from "../components/LlamaEmbeddedCalendar/LlamaEmbe
 import LlamaChipLanguages from "../components/LlamaChipLanguages/LlamaChipLanguages";
 import LlamaEventList from "../components/LlamaEventList/LlamaEventList";
 
-export { getServerSideProps } from "../pagesFn/home/functions.js";
+export { getStaticProps } from "../pagesFn/home/functions.js";
 
 export default function Events({ events, languages }) {
   return (
