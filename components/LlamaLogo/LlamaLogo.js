@@ -1,10 +1,12 @@
 import { Box } from '@mui/material';
 import Link from 'next/link';
 
-export default function LlamaLogo({ img, sx, children, url }) {
+export default function LlamaLogo({ img, sx, children, url, onClick }) {
 
   return (
-    <Box sx={{ width: '100px', cursor: 'pointer', ...sx }}>
+    <Box
+      onClick={onClick}
+      sx={{ width: '100px', cursor: 'pointer', ...sx }}>
       <Link href={url || '/'}>
         <img
           src={ img || '/logo.svg'}

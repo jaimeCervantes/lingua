@@ -22,12 +22,18 @@ const menuItems = [
   }
 ];
 
-export default function LlamaMenu({ sx }) {
+export default function LlamaMenu({ sx, onClick }) {
   return (
-    <Box sx={sx}>
+    <Box
+      sx={sx}
+    >
       {menuItems.map((item) => (
-        <Link href={item.url}  passHref={true} key={item.url}>
-          <LlamaButton target={item.isOut ? '_blank' : '_self'}>
+        <Link
+          href={item.url}
+          passHref={true}
+          key={item.url}
+        >
+          <LlamaButton target={item.isOut ? '_blank' : '_self'} onClick={onClick}>
             {item.text}
           </LlamaButton>
         </Link>

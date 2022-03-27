@@ -2,7 +2,7 @@ import { Button, Box } from '@mui/material'
 import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk'
 
 
-export default function LlamaTelButton({ children, color, flexDirection, sx = {} }) {
+export default function LlamaTelButton({ children, color, flexDirection, sx = {}, ...rest }) {
   return (
     <Button variant="text"
     sx={{
@@ -13,6 +13,7 @@ export default function LlamaTelButton({ children, color, flexDirection, sx = {}
       ...sx
     }}
     href="tel:+12018380698"
+    {...rest}
   >
     <PhoneInTalkIcon />
     <Box
