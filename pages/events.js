@@ -15,19 +15,22 @@ export default function Events({ events, languages }) {
       <LlamaEventList events={events}></LlamaEventList>
 
       <Box>
-        <Typography variant="h2">Calendars</Typography>
+        <Typography variant="h2" id="calendars">Calendars</Typography>
 
         <LlamaEmbeddedCalendar
+          id="languagesWorld"
           sx={{ marginBottom: "1rem" }}
           src="https://calendar.google.com/calendar/embed?src=p4hbngft52jpv1jgojuoi5qjm4%40group.calendar.google.com"
         />
 
         <LlamaEmbeddedCalendar
+          id="spanishClasses"
           sx={{ marginBottom: "1rem" }}
           src="https://calendar.google.com/calendar/embed?src=d75eds8vnivm5cvoeg2r913l18%40group.calendar.google.com"
         />
 
         <LlamaEmbeddedCalendar
+          id="englishClasses"
           sx={{ marginBottom: "1rem" }}
           src="https://calendar.google.com/calendar/embed?src=lquoh06ikbd3j0cnus0fa4gn64%40group.calendar.google.com"
         />
