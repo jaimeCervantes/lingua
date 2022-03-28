@@ -34,7 +34,7 @@ export default function LlamaAppBars({ openMenu }) {
           </LlamaButton>
         </Box>
         
-        <LlamaSocialNetworks sx={{ display: { xs: 'none', md: 'flex' } }}>
+        <LlamaSocialNetworks sx={{ display: { xs: 'none', lg: 'flex' } }}>
           
         </LlamaSocialNetworks>
         <LlamaTelButton sx={{ justifyContent: 'end' }}></LlamaTelButton>

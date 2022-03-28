@@ -19,6 +19,11 @@ const menuItems = [
     text: 'Teachers',
     url: 'https://docs.google.com/forms/d/e/1FAIpQLSe1nXK4UCVgf9gpOYk52vVMBdEiUQh0qcEqgH_gvWkWsetOVg/viewform',
     isOut: true
+  },
+  {
+    text: 'Classes',
+    url: 'https://linguallama-store.mailchimpsites.com/',
+    isOut: true
   }
 ];
 
