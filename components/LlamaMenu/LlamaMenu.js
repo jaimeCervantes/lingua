@@ -24,6 +24,11 @@ const menuItems = [
     text: 'Classes',
     url: 'https://linguallama-store.mailchimpsites.com/',
     isOut: true
+  },
+  {
+    text: 'Reviews',
+    url: 'https://disboard.org/server/reviews/762367346890768394',
+    isOut: true
   }
 ];
 
