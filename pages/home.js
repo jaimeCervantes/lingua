@@ -24,8 +24,8 @@ export default function Home({ events, languages }) {
           src="https://www.youtube.com/embed/Blae7m30CNs"
           title="Welcome to LinguaLlama"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          frameborder="0"
+          allowFullScreen
+          frameBorder="0"
           >
         </iframe>
       </Box>
