@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import LlamaButton from '../Buttons/LlamaButton';
 
 const menuItems = [
@@ -33,6 +34,8 @@ const menuItems = [
 ];
 
 export default function LlamaMenu({ sx, onClick }) {
+  const router = useRouter();
+
   return (
     <Box
       sx={sx}
@@ -43,7 +46,10 @@ export default function LlamaMenu({ sx, onClick }) {
           passHref={true}
           key={item.url}
         >
-          <LlamaButton target={item.isOut ? '_blank' : '_self'} onClick={onClick}>
+          <LlamaButton
+            target={item.isOut ? '_blank' : '_self'}
+            onClick={onClick}
+            current={router.pathname === item.url}>
             {item.text}
           </LlamaButton>
         </Link>

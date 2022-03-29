@@ -8,6 +8,7 @@ export default forwardRef(function LlamaButton({ sx, children, ...rest }, ref) {
       color="secondary"
       sx={{
         display: 'inline-block',
+        textDecoration: rest.current ? 'underline' : 'none',
         '&:hover': {
           textDecoration: 'underline'
         },
