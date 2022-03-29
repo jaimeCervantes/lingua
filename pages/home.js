@@ -9,7 +9,7 @@ export default function Home({ events, languages }) {
   return (
     <>
       <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-evenly', alignItems: { xs: 'center', sm: 'space-evenly' } }}>
-      <img
+        <img
           src="/illustrations/welcome.svg"
           style={{
             display: 'block',
@@ -29,12 +29,11 @@ export default function Home({ events, languages }) {
           >
         </iframe>
       </Box>
-      
 
       <Typography variant="h2" sx={{ paddingTop: 0 }}>Current Events</Typography>
-
       <LlamaEventList events={events}></LlamaEventList>
-
+      
+      <Typography variant="h2">Languages</Typography>
       <LlamaChipLanguages languages={languages}></LlamaChipLanguages>
     </>
   );
