@@ -16,7 +16,14 @@ export default function LlamaCarousel({ items }) {
     <Box sx={{
       '& .swiper-slide-shadow-left, & .swiper-slide-shadow-right': {
         display: 'none !important'
+      },
+      '& .swiper-slide img': {
+        WebkitBoxReflect: 'below 10px -webkit-linear-gradient(bottom, rgba(255,0,0,.3) 0%,transparent 4rem,transparent 100%)'
+      },
+      '& .swiper': {
+        paddingBottom: '4rem'
       }
+     
     }}>
       <Swiper
         grabCursor={true}
@@ -53,15 +60,15 @@ export default function LlamaCarousel({ items }) {
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-              <Typography variant="h4" sx={{
+            <img src={item.img}  style={{ maxWidth: '100%', maxHeight: '100%', display: 'block' }}/>
+            <Typography variant="h4" sx={{
                 position: 'absolute',
-                bottom: '3rem',
+                top: '3rem',
                 width: 'auto',
                 padding: '1rem',
                 color: 'white',
-                backgroundColor: 'secondary.main'
+                backgroundColor: 'primary.main'
               }}>{item.title}</Typography>
-            <img src={item.img}  style={{ maxWidth: '100%', maxHeight: '100%', display: 'block' }}/>
           </SwiperSlide>
         ))}
       </Swiper>
