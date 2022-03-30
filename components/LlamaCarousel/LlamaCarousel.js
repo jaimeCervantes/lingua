@@ -1,4 +1,4 @@
-import { Box, useTheme, useMediaQuery } from '@mui/material';
+import { Box, useTheme, useMediaQuery, Typography } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation, EffectCoverflow } from "swiper";
 
@@ -27,7 +27,7 @@ export default function LlamaCarousel({ items }) {
         effect={"coverflow"}
         autoplay={{
           delay: 4000,
-          disableOnInteraction: false,
+          disableOnInteraction: true,
         }}
         loop={true}
         pagination={{
@@ -53,6 +53,14 @@ export default function LlamaCarousel({ items }) {
               alignItems: 'center',
               justifyContent: 'center'
             }}>
+              <Typography variant="h4" sx={{
+                position: 'absolute',
+                bottom: '3rem',
+                width: 'auto',
+                padding: '1rem',
+                color: 'white',
+                backgroundColor: 'secondary.main'
+              }}>{item.title}</Typography>
             <img src={item.img}  style={{ maxWidth: '100%', maxHeight: '100%', display: 'block' }}/>
           </SwiperSlide>
         ))}
