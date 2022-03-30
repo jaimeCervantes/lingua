@@ -5,7 +5,6 @@ import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 import Link from 'next/link';
 
 import LlamaShowOnScrollAppBar from '../components/LlamaShowOnScrollAppBar/LlamaShowOnScrollAppBar';
-import LlamaImageList from '../components/LlamaImageList/LlamaImageList';
 import LlamaTourDates from '../components/LlamaTourDates/LlamaTourDates';
 import LlamaBalloons from '../components/LlamaBalloons/LlamaBalloons';
 import LlamaLanguages from '../components/LlamaLanguages/LlamaLanguages';
@@ -17,6 +16,7 @@ import styles from './index.module.css';
 import { getLayout } from '../pagesFn/index/functions';
 import LlamaSocialNetworks from '../components/LlamaSocialNetworks/LlamaSocialNetworks';
 import LlamaTelButton from '../components/LlamaTelButton/LlamaTelButton';
+import LlamaCarousel from '../components/LlamaCarousel/LlamaCarousel';
 
 export { getStaticProps } from '../pagesFn/index/functions';
 
@@ -90,7 +90,7 @@ export default function Index({ homeImages, tours, index, languages }) {
         </div>
 
         <div className={styles.fadeIn}>
-          <LlamaImageList images={homeImages}></LlamaImageList>
+          <LlamaCarousel items={homeImages}></LlamaCarousel>
         </div>
 
         <Box className={`${styles.enterContainer} ${styles.fadeIn}`}>
