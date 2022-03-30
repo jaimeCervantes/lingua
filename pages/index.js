@@ -80,7 +80,7 @@ export default function Index({ homeImages, tours, index, languages }) {
       >
       </LlamaLanguages>
 
-      <Box sx={{ padding: '0', marginBottom: { xs: 0, sm: '200px' } }}>
+      <Box sx={{ padding: '0' }}>
         <div className={styles.fadeIn}>
           <LlamaTourDates
             tours={tours}
@@ -89,11 +89,9 @@ export default function Index({ homeImages, tours, index, languages }) {
           ></LlamaTourDates>
         </div>
 
-        <div className={styles.fadeIn}>
-          <LlamaCarousel items={homeImages}></LlamaCarousel>
-        </div>
+        <LlamaCarousel items={homeImages}></LlamaCarousel>
 
-        <Box className={`${styles.enterContainer} ${styles.fadeIn}`}>
+        <Box sx={{ textAlign: 'center', marginBottom: '4rem', marginTop: '4rem' }}>
           <Link href="/home">
             <Button
               className="text-bold"

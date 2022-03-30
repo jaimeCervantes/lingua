@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, useTheme, useMediaQuery } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation, EffectCoverflow } from "swiper";
 
@@ -9,6 +9,9 @@ import "swiper/css/effect-coverflow";
 
 
 export default function LlamaCarousel({ items }) {
+  const theme = useTheme();
+  const isLessMd = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
     <Box sx={{
       '& .swiper-slide-shadow-left, & .swiper-slide-shadow-right': {
@@ -19,7 +22,7 @@ export default function LlamaCarousel({ items }) {
         grabCursor={true}
         spaceBetween={20}
         autoHeight={true}
-        slidesPerView={2}
+        slidesPerView={isLessMd ? 1 : 2}
         centeredSlides={false}
         effect={"coverflow"}
         autoplay={{
@@ -39,9 +42,6 @@ export default function LlamaCarousel({ items }) {
           slideShadows: true,
         }}
         modules={[Autoplay, Pagination, Navigation, EffectCoverflow]}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
-        style={{ paddingTop: '2rem', paddingBottom: '2rem' }}
       >
         {items.map(item => (
           <SwiperSlide key={item.img}

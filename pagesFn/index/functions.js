@@ -14,6 +14,7 @@ export function getLayout(page) {
 export async function getStaticProps() {
   const [images, tours, index, languages ] = await Promise.all([
     fetchAPI('/home-images/', {
+      publicationState: 'preview',
       populate: {
         Image: {
           fields: ['formats', 'url']
