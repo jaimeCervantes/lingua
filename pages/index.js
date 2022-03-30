@@ -89,7 +89,7 @@ export default function Index({ homeImages, tours, index, languages }) {
           ></LlamaTourDates>
         </div>
 
-        <LlamaCarousel items={homeImages}></LlamaCarousel>
+        <LlamaCarousel items={homeImages} sx={{ '& .swiper': { padding: '4rem' } }}></LlamaCarousel>
 
         <Box sx={{ textAlign: 'center', marginBottom: '4rem', marginTop: '4rem' }}>
           <Link href="/home">
