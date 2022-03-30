@@ -89,7 +89,15 @@ export default function Index({ homeImages, tours, index, languages }) {
           ></LlamaTourDates>
         </div>
 
-        <LlamaCarousel items={homeImages} sx={{ '& .swiper': { padding: '4rem' } }}></LlamaCarousel>
+        <LlamaCarousel items={homeImages} 
+          sx={{
+            backgroundColor: 'black',
+            '& .swiper': { padding: '4rem' },
+            '& .swiper-pagination': {
+              bottom: '4rem !important'
+            }
+          }}
+        ></LlamaCarousel>
 
         <Box sx={{ textAlign: 'center', marginBottom: '4rem', marginTop: '4rem' }}>
           <Link href="/home">
