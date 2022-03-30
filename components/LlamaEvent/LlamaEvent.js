@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Box, Typography, Button, CardActions, Paper, Fade } from "@mui/material";
+import { Box, Typography, Paper, Fade } from "@mui/material";
 import { alpha } from '@mui/material/styles';
 import { useMediaQuery, useTheme } from "@mui/material";
 
-export default function LlamaEvent({ event }) {
+export default function LlamaEvent({ event, renderActions }) {
   const theme = useTheme();
   const isLessSm = useMediaQuery(theme.breakpoints.down('sm'));
   const [trigger, setTrigger] = useState(() => isLessSm ? true : false);
@@ -31,7 +31,11 @@ export default function LlamaEvent({ event }) {
       onMouseEnter={() => setTrigger(true)}
       onMouseLeave={() => setTrigger(false)}
     >
-      <img src={event.img} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt={event.title}/>
+      <img src={event.img}
+        style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+        alt={event.title}
+        loading="lazy"
+      />
       <Box
         className="title"
         sx={{
@@ -70,9 +74,7 @@ export default function LlamaEvent({ event }) {
           <Typography>
             {event.shortDescription}
           </Typography>
-          <CardActions sx={{ justifyContent: "center" }}>
-            <Button color="secondary" variant="contained">More details</Button>
-          </CardActions>
+          {renderActions}
         </Box>
       </Fade>
     </Paper>

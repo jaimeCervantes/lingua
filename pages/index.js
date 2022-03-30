@@ -5,7 +5,6 @@ import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 import Link from 'next/link';
 
 import LlamaShowOnScrollAppBar from '../components/LlamaShowOnScrollAppBar/LlamaShowOnScrollAppBar';
-import LlamaImageList from '../components/LlamaImageList/LlamaImageList';
 import LlamaTourDates from '../components/LlamaTourDates/LlamaTourDates';
 import LlamaBalloons from '../components/LlamaBalloons/LlamaBalloons';
 import LlamaLanguages from '../components/LlamaLanguages/LlamaLanguages';
@@ -17,6 +16,7 @@ import styles from './index.module.css';
 import { getLayout } from '../pagesFn/index/functions';
 import LlamaSocialNetworks from '../components/LlamaSocialNetworks/LlamaSocialNetworks';
 import LlamaTelButton from '../components/LlamaTelButton/LlamaTelButton';
+import LlamaCarousel from '../components/LlamaCarousel/LlamaCarousel';
 
 export { getStaticProps } from '../pagesFn/index/functions';
 
@@ -80,7 +80,7 @@ export default function Index({ homeImages, tours, index, languages }) {
       >
       </LlamaLanguages>
 
-      <Box sx={{ padding: '0', marginBottom: { xs: 0, sm: '200px' } }}>
+      <Box sx={{ padding: '0' }}>
         <div className={styles.fadeIn}>
           <LlamaTourDates
             tours={tours}
@@ -89,22 +89,31 @@ export default function Index({ homeImages, tours, index, languages }) {
           ></LlamaTourDates>
         </div>
 
-        <div className={styles.fadeIn}>
-          <LlamaImageList images={homeImages}></LlamaImageList>
-        </div>
+        <LlamaCarousel items={homeImages} 
+          sx={{
+            backgroundColor: 'black',
+            marginTop: '2rem',
+            '& .swiper': { padding: '4rem' },
+            '& .swiper-pagination': {
+              bottom: '4rem !important'
+            }
+          }}
+        ></LlamaCarousel>
 
-        <Box className={`${styles.enterContainer} ${styles.fadeIn}`}>
-          <Button
-            className="text-bold"
-            variant="contained"
-            color="primary"
-            size="large"
-            sx={{ height: '60px' }}
-            startIcon={<DoorSlidingIcon />}
-            href="https://linguallama-store.mailchimpsites.com/"
-          >
-            {index.enterText}
-          </Button>
+        <Box sx={{ textAlign: 'center', marginBottom: '4rem', marginTop: '4rem' }}>
+          <Link href="/home">
+            <Button
+              className="text-bold"
+              variant="contained"
+              color="primary"
+              size="large"
+              sx={{ height: '60px' }}
+              startIcon={<DoorSlidingIcon />}
+              href="https://linguallama-store.mailchimpsites.com/"
+            >
+              {index.enterText}
+            </Button>
+          </Link>
         </Box>
       </Box>
       <LlamaFooter

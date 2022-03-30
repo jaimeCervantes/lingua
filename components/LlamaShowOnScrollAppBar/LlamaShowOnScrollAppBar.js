@@ -22,7 +22,7 @@ export default function LlamaShowOnScrollAppBar(props) {
       sx={ 
         sx ? sx(trigger) : ({
             backgroundColor: trigger ? 'white' : 'transparent',
-            opacity: {xs: 1, sm: trigger ? '0.7' : 1 },
+            opacity: {xs: 1, sm: trigger ? 0.7 : 1 },
             transition: `background-color 1s, opacity 1s`,
             '&:hover': {
               opacity: 1

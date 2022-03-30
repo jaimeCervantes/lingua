@@ -19,7 +19,7 @@ export async function getStaticProps() {
           fields: ['formats', 'url']
         }
       },
-      fields: ['title', 'cols', 'rows', 'size'],
+      fields: ['title', 'size'],
       sort: ['order', 'id']
     }),
     fetchAPI('/tours/', { fields: ['title'], sort: ['order', 'id'] }),

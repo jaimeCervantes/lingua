@@ -19,7 +19,8 @@
     "prop-types": "latest",
     "qs": "^6.10.3",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "swiper": "^8.0.7"
   },
   "devDependencies": {
     "eslint": "latest",

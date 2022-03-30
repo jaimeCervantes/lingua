@@ -25,6 +25,7 @@ export default function LlamaImageList({ images, render }) {
                 src={item.img}
                 alt={item.title}
                 className={styles.img}
+                loading="lazy"
               />
                 <ImageListItemBar
                   title={item.title}

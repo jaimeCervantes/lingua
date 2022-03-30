@@ -34,7 +34,7 @@ export default function LlamaAppBars({ openMenu }) {
           </LlamaButton>
         </Box>
         
-        <LlamaSocialNetworks sx={{ display: { xs: 'none', md: 'flex' } }}>
+        <LlamaSocialNetworks sx={{ display: { xs: 'none', lg: 'flex' } }}>
           
         </LlamaSocialNetworks>
         <LlamaTelButton sx={{ justifyContent: 'end' }}></LlamaTelButton>
@@ -46,8 +46,8 @@ export default function LlamaAppBars({ openMenu }) {
         
       >
         <Box sx={{ padding: '1rem' }}>
-          <LlamaLogo sx={{ marginLeft: 'auto', marginRight: 'auto', width: '200px', marginBottom: '1rem'}}></LlamaLogo>
-          <LlamaMenu sx={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', marginBottom: '1rem' }}></LlamaMenu>
+          <LlamaLogo onClick={() => setIsOpenedMenu(false)} sx={{ marginLeft: 'auto', marginRight: 'auto', width: '200px', marginBottom: '1rem'}}></LlamaLogo>
+          <LlamaMenu onClick={() => setIsOpenedMenu(false)} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', marginBottom: '1rem' }}></LlamaMenu>
           <LlamaSocialNetworks sx={{ marginBottom: '1rem' }}></LlamaSocialNetworks>
           <LlamaTelButton flexDirection="column"></LlamaTelButton>
         </Box>
