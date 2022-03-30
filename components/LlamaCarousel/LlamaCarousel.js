@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 
 
-export default function LlamaCarousel({ items }) {
+export default function LlamaCarousel({ items, sx }) {
   const theme = useTheme();
   const isLessMd = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -22,8 +22,8 @@ export default function LlamaCarousel({ items }) {
       },
       '& .swiper': {
         paddingBottom: '4rem'
-      }
-     
+      },
+      ...sx
     }}>
       <Swiper
         grabCursor={true}
