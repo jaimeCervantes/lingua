@@ -28,7 +28,6 @@ export default function LlamaCarousel({ items, sx }) {
       <Swiper
         grabCursor={true}
         spaceBetween={20}
-        autoHeight={true}
         slidesPerView={isLessMd ? 1 : 2}
         centeredSlides={false}
         effect={"coverflow"}
