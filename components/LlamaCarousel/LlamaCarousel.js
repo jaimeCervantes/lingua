@@ -36,7 +36,7 @@ export default function LlamaCarousel({ items, sx }) {
         effect={"coverflow"}
         autoplay={{
           delay: 4000,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
         }}
         loop={true}
         pagination={{
