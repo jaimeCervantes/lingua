@@ -23,6 +23,9 @@ export default function LlamaCarousel({ items, sx }) {
       '& .swiper': {
         paddingBottom: '4rem'
       },
+      '& .swiper-slide': {
+        height: 'auto !important'
+      },
       ...sx
     }}>
       <Swiper
@@ -59,13 +62,14 @@ export default function LlamaCarousel({ items, sx }) {
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-            <img src={item.img}  style={{ maxWidth: '100%', maxHeight: '100%', display: 'block' }}/>
+            <img src={item.img}  style={{ maxWidth: '100%', maxHeight: '500px', display: 'block' }}/>
             <Typography variant="h4" sx={{
                 position: 'absolute',
-                top: '3rem',
+                top: '0rem',
                 width: 'auto',
                 padding: '1rem',
                 color: 'white',
+                fontSize: { xs: '1rem', sm: '2rem' },
                 backgroundColor: 'primary.main'
               }}>{item.title}</Typography>
           </SwiperSlide>
