@@ -91,12 +91,8 @@ export default function Index({ homeImages, tours, index, languages }) {
 
         <LlamaCarousel items={homeImages} 
           sx={{
-            backgroundColor: 'black',
             marginTop: '2rem',
             '& .swiper': { padding: '4rem' },
-            '& .swiper-pagination': {
-              bottom: '4rem !important'
-            }
           }}
         ></LlamaCarousel>
 
