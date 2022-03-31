@@ -10,9 +10,9 @@ body {
   height: 100%;
   min-height: 100vh;
 
-  --swiper-theme-color: white;
-  --swiper-pagination-color: white;
-  --swiper-pagination-bullet-inactive-color: white;
+  --swiper-theme-color: #000000;
+  --swiper-pagination-color: #000000;
+  --swiper-pagination-bullet-inactive-color: gray;
 }
 
 main {

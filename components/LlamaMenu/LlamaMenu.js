@@ -49,7 +49,7 @@ export default function LlamaMenu({ sx, onClick }) {
           <LlamaButton
             target={item.isOut ? '_blank' : '_self'}
             onClick={onClick}
-            current={router.pathname === item.url}>
+            current={router.pathname === item.url ? true : false}>
             {item.text}
           </LlamaButton>
         </Link>

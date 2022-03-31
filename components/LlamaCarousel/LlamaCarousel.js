@@ -70,7 +70,7 @@ export default function LlamaCarousel({ items, sx }) {
                 padding: '1rem',
                 color: 'white',
                 fontSize: { xs: '1rem', sm: '2rem' },
-                backgroundColor: 'primary.main'
+                backgroundColor: 'secondary.main'
               }}>{item.title}</Typography>
           </SwiperSlide>
         ))}
