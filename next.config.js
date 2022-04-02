@@ -17,11 +17,11 @@ const nextConfig  = {
 
 function augmentRevolveAlias(prevAlias) {
   const moreAlias = {
-    components: path.join(__dirname, 'components'),
-    pagesFn: path.join(__dirname, 'pagesFn'),
-    styles: path.join(__dirname, 'styles'),
-    util: path.join(__dirname, 'util'),
-    muiConfig: path.join(__dirname, 'muiConfig'),
+    components: path.join(__dirname, 'src/components'),
+    pagesFn: path.join(__dirname, 'src/pagesFn'),
+    styles: path.join(__dirname, 'src/styles'),
+    util: path.join(__dirname, 'src/util'),
+    muiConfig: path.join(__dirname, 'src/muiConfig'),
   }
 
   return { ...prevAlias, ...moreAlias };

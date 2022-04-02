@@ -3,15 +3,13 @@ import LlamaChipLanguages from "components/LlamaChipLanguages/LlamaChipLanguages
 import { getLanguages } from "pagesFn/shared/functions.js";
 import { mapLanguagesToUI } from "pagesFn/shared/mappers.js";
 
-export default function About({ languages }) {
+export default function PremiumClasses({ languages }) {
   return (
-    <>
-      <Box>
-        <Typography variant="h1">Premium classes</Typography>
-      </Box>
-
+    <Box data-testid="premium-classes-content">
+      <Typography variant="h1">Premium classes</Typography>
+    
       <LlamaChipLanguages languages={languages}></LlamaChipLanguages>
-    </>
+    </Box>
   );
 }
 

@@ -3,7 +3,7 @@ describe('Given an user in LinguaLlama.org', () => {
     it('Then a list of teachers available should be shown', () => {
       cy.visit('/premium-classes');
 
-      cy.get('.LlamaLanguageSelector').should('be.visible');
+      cy.get('[data-testid="premium-classes-content"]').should('be.visible');
     });
   })
 });
