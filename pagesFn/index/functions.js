@@ -1,7 +1,7 @@
-import { fetchAPI } from '../../util/api';
-import { getLanguages } from '../shared/functions';
+import { fetchAPI } from 'util/api';
+import { getLanguages } from 'pagesFn/shared/functions';
 import { mapHomeImagesToUI, mapToursToUI } from './mappers';
-import { mapLanguagesToUI } from '../shared/mappers';
+import { mapLanguagesToUI } from 'pagesFn/shared/mappers';
 
 export function getLayout(page) {
   return (

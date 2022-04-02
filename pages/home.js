@@ -1,9 +1,8 @@
 import { Box, Typography } from "@mui/material";
-import LlamaChipLanguages from "../components/LlamaChipLanguages/LlamaChipLanguages";
-import LlamaEventList from "../components/LlamaEventList/LlamaEventList";
-import LlamaIllustration from "../components/LlamaIllustration/LlamaIllustration";
+import LlamaChipLanguages from "components/LlamaChipLanguages/LlamaChipLanguages";
+import LlamaEventList from "components/LlamaEventList/LlamaEventList";
 
-export { getStaticProps } from "../pagesFn/home/functions.js";
+export { getStaticProps } from "pagesFn/home/functions.js";
 
 export default function Home({ events, languages }) {
   return (

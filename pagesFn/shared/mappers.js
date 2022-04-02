@@ -1,4 +1,4 @@
-import { getStrapiMedia } from '../../util/media';
+import { getStrapiMedia } from 'util/media';
 
 export function mapLanguagesToUI(languages) {
   return languages.map(item => {

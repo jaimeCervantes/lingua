@@ -1,5 +1,5 @@
-import { getLanguages, getEvents } from '../shared/functions';
-import { mapLanguagesToUI } from '../shared/mappers';
+import { getLanguages, getEvents } from 'pagesFn/shared/functions';
+import { mapLanguagesToUI } from 'pagesFn/shared/mappers';
 import { mapEventsToUI } from './mappers';
 
 

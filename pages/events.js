@@ -1,11 +1,11 @@
 import { Box, Typography } from "@mui/material";
 
-import LlamaEmbeddedCalendar from "../components/LlamaEmbeddedCalendar/LlamaEmbeddedCalendar";
-import LlamaChipLanguages from "../components/LlamaChipLanguages/LlamaChipLanguages";
-import LlamaEventList from "../components/LlamaEventList/LlamaEventList";
-import LlamaIllustration from "../components/LlamaIllustration/LlamaIllustration";
+import LlamaEmbeddedCalendar from "components/LlamaEmbeddedCalendar/LlamaEmbeddedCalendar";
+import LlamaChipLanguages from "components/LlamaChipLanguages/LlamaChipLanguages";
+import LlamaEventList from "components/LlamaEventList/LlamaEventList";
+import LlamaIllustration from "components/LlamaIllustration/LlamaIllustration";
 
-export { getStaticProps } from "../pagesFn/home/functions.js";
+export { getStaticProps } from "pagesFn/home/functions.js";
 
 export default function Events({ events, languages }) {
   return (

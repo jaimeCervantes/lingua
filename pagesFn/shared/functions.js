@@ -1,4 +1,4 @@
-import { fetchAPI } from '../../util/api';
+import { fetchAPI } from 'util/api';
 
 export async function getLanguages() {
   return fetchAPI('/languages/', {

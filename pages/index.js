@@ -4,21 +4,21 @@ import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 
 import Link from 'next/link';
 
-import LlamaShowOnScrollAppBar from '../components/LlamaShowOnScrollAppBar/LlamaShowOnScrollAppBar';
-import LlamaTourDates from '../components/LlamaTourDates/LlamaTourDates';
-import LlamaBalloons from '../components/LlamaBalloons/LlamaBalloons';
-import LlamaLanguages from '../components/LlamaLanguages/LlamaLanguages';
-import LlamaFooter from '../components/LlamaFooter/LlamaFooter';
+import LlamaShowOnScrollAppBar from 'components/LlamaShowOnScrollAppBar/LlamaShowOnScrollAppBar';
+import LlamaTourDates from 'components/LlamaTourDates/LlamaTourDates';
+import LlamaBalloons from 'components/LlamaBalloons/LlamaBalloons';
+import LlamaLanguages from 'components/LlamaLanguages/LlamaLanguages';
+import LlamaFooter from 'components/LlamaFooter/LlamaFooter';
 import DoorSlidingIcon from '@mui/icons-material/DoorSliding';
 
 import styles from './index.module.css';
 
-import { getLayout } from '../pagesFn/index/functions';
-import LlamaSocialNetworks from '../components/LlamaSocialNetworks/LlamaSocialNetworks';
-import LlamaTelButton from '../components/LlamaTelButton/LlamaTelButton';
-import LlamaCarousel from '../components/LlamaCarousel/LlamaCarousel';
+import { getLayout } from 'pagesFn/index/functions';
+import LlamaSocialNetworks from 'components/LlamaSocialNetworks/LlamaSocialNetworks';
+import LlamaTelButton from 'components/LlamaTelButton/LlamaTelButton';
+import LlamaCarousel from 'components/LlamaCarousel/LlamaCarousel';
 
-export { getStaticProps } from '../pagesFn/index/functions';
+export { getStaticProps } from 'pagesFn/index/functions';
 
 export default function Index({ homeImages, tours, index, languages }) {
   const [ language, setLanguage ] = useState(() => languages[0]);

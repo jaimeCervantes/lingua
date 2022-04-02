@@ -20,7 +20,8 @@ function augmentRevolveAlias(prevAlias) {
     components: path.join(__dirname, 'components'),
     pagesFn: path.join(__dirname, 'pagesFn'),
     styles: path.join(__dirname, 'styles'),
-    util: path.join(__dirname, 'util')
+    util: path.join(__dirname, 'util'),
+    muiConfig: path.join(__dirname, 'muiConfig'),
   }
 
   return { ...prevAlias, ...moreAlias };
