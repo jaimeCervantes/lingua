@@ -1,7 +1,5 @@
 import { getLanguages, getEvents } from 'pagesFn/shared/functions';
-import { mapLanguagesToUI } from 'pagesFn/shared/mappers';
-import { mapEventsToUI } from './mappers';
-
+import { mapLanguagesToUI, mapEventsToUI } from 'pagesFn/shared/mappers';
 
 export async function getStaticProps() {
   const [events, languages ] = await Promise.all([

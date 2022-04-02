@@ -1,15 +1,7 @@
 import { fetchAPI } from 'util/api';
 import { getLanguages } from 'pagesFn/shared/functions';
-import { mapHomeImagesToUI, mapToursToUI } from './mappers';
+import { mapHomeImagesToUI, mapToursToUI } from './indexMappers';
 import { mapLanguagesToUI } from 'pagesFn/shared/mappers';
-
-export function getLayout(page) {
-  return (
-    <>
-      {page}
-    </>
-  );
-}
 
 export async function getStaticProps() {
   const [images, tours, index, languages ] = await Promise.all([

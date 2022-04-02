@@ -5,7 +5,7 @@ import LlamaChipLanguages from "components/LlamaChipLanguages/LlamaChipLanguages
 import LlamaEventList from "components/LlamaEventList/LlamaEventList";
 import LlamaIllustration from "components/LlamaIllustration/LlamaIllustration";
 
-export { getStaticProps } from "pagesFn/home/functions.js";
+export { getStaticProps } from "./functions.js";
 
 export default function Events({ events, languages }) {
   return (

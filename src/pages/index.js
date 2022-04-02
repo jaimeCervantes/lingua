@@ -12,13 +12,12 @@ import LlamaFooter from 'components/LlamaFooter/LlamaFooter';
 import DoorSlidingIcon from '@mui/icons-material/DoorSliding';
 
 import styles from './index.module.css';
-
-import { getLayout } from 'pagesFn/index/functions';
+import { getLayout } from './indexFunctions';
 import LlamaSocialNetworks from 'components/LlamaSocialNetworks/LlamaSocialNetworks';
 import LlamaTelButton from 'components/LlamaTelButton/LlamaTelButton';
 import LlamaCarousel from 'components/LlamaCarousel/LlamaCarousel';
 
-export { getStaticProps } from 'pagesFn/index/functions';
+export { getStaticProps } from './indexFunctions';
 
 export default function Index({ homeImages, tours, index, languages }) {
   const [ language, setLanguage ] = useState(() => languages[0]);
@@ -112,6 +111,7 @@ export default function Index({ homeImages, tours, index, languages }) {
           </Link>
         </Box>
       </Box>
+      
       <LlamaFooter
         copyRight={index.copyRight}
         hasFadeIn
@@ -122,4 +122,10 @@ export default function Index({ homeImages, tours, index, languages }) {
   );
 }
 
-Index.getLayout = getLayout;
+Index.getLayout = function getLayout(page) {
+  return (
+    <>
+      {page}
+    </>
+  );
+};
