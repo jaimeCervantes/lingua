@@ -19,8 +19,9 @@ export default function Home({ events, languages }) {
           }}
         />
         
+        <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: 300, sm: 400 }, minHeight: '350px'}}>
         <iframe
-          style={{ display: 'flex', width: '400px', minHeight: '350px' }}
+          style={{ display: 'block', width: '100%', minHeight: '350px' }}
           src="https://www.youtube.com/embed/Blae7m30CNs"
           title="Welcome to LinguaLlama"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -28,6 +29,7 @@ export default function Home({ events, languages }) {
           frameBorder="0"
           >
         </iframe>
+        </Box>
       </Box>
 
       <Typography variant="h2" sx={{ paddingTop: 0 }}>Current Events</Typography>
