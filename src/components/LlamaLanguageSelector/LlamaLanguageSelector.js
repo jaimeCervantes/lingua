@@ -20,7 +20,6 @@ export default function LlamaLanguagesSelector({ languages, value, setValue, sx 
       }}
       options={languages}
       autoHighlight
-      open={true}
       getOptionLabel={(option) => option.label}
       renderOption={(props, option) => (
         <Box

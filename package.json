@@ -6,7 +6,9 @@
     "start": "next start",
     "lint": "next lint",
     "cypress:open": "cypress open",
-    "test": "jest --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "test:ci": "jest --ci"
   },
   "dependencies": {
@@ -19,7 +21,6 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "next": "latest",
-    "prop-types": "latest",
     "qs": "^6.10.3",
     "react": "latest",
     "react-dom": "latest",

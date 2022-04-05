@@ -4,6 +4,7 @@ describe('Given an user in LinguaLlama.org', () => {
       cy.visit('/premium-classes');
 
       cy.get('[data-testid="premium-classes-content"]').should('be.visible');
+      cy.get('[data-testid="LlamaTeachers"]').should('be.visible');
     });
   })
 });

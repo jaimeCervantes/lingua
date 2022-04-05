@@ -1,14 +1,15 @@
 import { forwardRef } from 'react';
 import { Button } from '@mui/material';
 
-export default forwardRef(function LlamaButton({ sx, children, ...rest }, ref) {
+const LlamaButton = forwardRef(function LlamaButton({ sx, children, current, ...rest }, ref) {
+  
   return (
     <Button
       ref={ref}
       color="secondary"
       sx={{
         display: 'inline-block',
-        textDecoration: rest.current ? 'underline' : 'none',
+        textDecoration: Boolean(current) ? 'underline' : 'none',
         '&:hover': {
           textDecoration: 'underline'
         },
@@ -19,10 +20,12 @@ export default forwardRef(function LlamaButton({ sx, children, ...rest }, ref) {
         fontFamily: 'Bangers',
         ...sx
       }}
-
+      
       {...rest}
     >
       {children}
     </Button>
   );
 });
+
+export default LlamaButton

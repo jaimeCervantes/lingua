@@ -6,6 +6,7 @@ describe('When users visit premiun-classes page', () => {
     const teachers = [
       {
         name: 'Jaime Cervantes',
+        slug: 'jaime-cervantes',
         languages: [{ label: 'English', flagCode: 'en', img: null }],
         intro: 'Hello I am jaime and I am a English Teacher',
         scheduleAvailable: [{ date: '04-29-2022', time: '08:00 00' }],
@@ -17,6 +18,6 @@ describe('When users visit premiun-classes page', () => {
       teachers={teachers}
     ></LlamaTeacherList>);
 
-    expect(teacherList.getByText(teachers[0].name)).toBeVisible();
+    expect(teacherList.getByTestId('LlamaTeacherList__LlamaTeacher')).toBeVisible();
   });
 })

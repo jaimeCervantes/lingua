@@ -17,7 +17,7 @@ const menuItems = [
     url: '/about'
   },
   {
-    text: 'Teachers',
+    text: 'Be a Teacher',
     url: 'https://docs.google.com/forms/d/e/1FAIpQLSe1nXK4UCVgf9gpOYk52vVMBdEiUQh0qcEqgH_gvWkWsetOVg/viewform',
     isOut: true
   },
@@ -30,6 +30,10 @@ const menuItems = [
     text: 'Reviews',
     url: 'https://disboard.org/server/reviews/762367346890768394',
     isOut: true
+  },
+  {
+    text: 'Premiun classes',
+    url: '/premium-classes'
   }
 ];
 

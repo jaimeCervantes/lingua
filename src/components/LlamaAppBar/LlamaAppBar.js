@@ -16,7 +16,9 @@ export default function LlamaAppBars({ openMenu }) {
       <LlamaShowOnScrollAppBar elevation={0}>
         <LlamaLogo></LlamaLogo>
 
-        <LlamaMenu sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, marginLeft: {  md: '1rem' } }}></LlamaMenu>
+        <LlamaMenu
+          sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, marginLeft: {  md: '1rem' } }}
+        ></LlamaMenu>
 
         <Box
           sx={{

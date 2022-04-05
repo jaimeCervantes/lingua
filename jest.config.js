@@ -7,15 +7,24 @@ const createJestConfig = nextJest({
 
 // Add any custom config to be passed to Jest
 const customJestConfig = {
+  testMatch: [
+    '<rootDir>/__tests__/**/*.[jt]s?(x)',
+    '<rootDir>/__tests__/?(*.)+(spec|test).[jt]s?(x)'
+  ],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  collectCoverageFrom: [
+    '<rootDir>/src/**/*.{js,jsx,ts,tsx}',
+    '!**/*.d.ts',
+    '!**/node_modules/**',
+  ],
   moduleNameMapper: {
     // Handle module aliases (this will be automatically configured for you soon)
-    '^@/components/(.*)$': '<rootDir>/components/$1',
-    '^@/pages/(.*)$': '<rootDir>/pages/$1',
-    '^@/pagesFn/(.*)$': '<rootDir>/pagesFn/$1',
-    '^@/util/(.*)$': '<rootDir>/util/$1',
-    '^@/muiConfig/(.*)$': '<rootDir>/muiConfig/$1',
-    '^@/styles/(.*)$': '<rootDir>/styles/$1',
+    '^components/(.*)$': '<rootDir>/src/components/$1',
+    '^pages/(.*)$': '<rootDir>/src/pages/$1',
+    '^pagesFn/(.*)$': '<rootDir>/src/pagesFn/$1',
+    '^util/(.*)$': '<rootDir>/src/util/$1',
+    '^muiConfig/(.*)$': '<rootDir>/src/muiConfig/$1',
+    '^styles/(.*)$': '<rootDir>/src/styles/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
 }
