@@ -32,7 +32,7 @@ export default function LlamaSocialNetworks ({ sx, color, children }) {
         <IconButton
           sx={{ color: color || 'secondary.main' }}
           aria-label="WhatsApp"
-          href="https://wa.me/12018380698"
+          href="https://linktr.ee/LinguaLlama "
           target="_blank"
         >
           <WhatsAppIcon />
