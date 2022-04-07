@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
-
 const path = require('path');
+const withNextTranspileModule = require('next-transpile-modules')([
+  "@fullcalendar/common",
+  "@fullcalendar/react",
+  "@fullcalendar/daygrid",
+  "@fullcalendar/timegrid",
+]);
 
 const nextConfig  = {
   webpack(config, { buildId, dev, isServer, defaultLoaders, webpack}) {
@@ -28,4 +33,4 @@ function augmentRevolveAlias(prevAlias) {
 }
 
 
-module.exports = nextConfig;
+module.exports = withNextTranspileModule(nextConfig);

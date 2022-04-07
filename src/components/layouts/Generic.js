@@ -17,7 +17,8 @@ export default function Generic({ children }) {
         position: 'fixed',
         bottom: '30px',
         width: '100%',
-        textAlign: 'center'
+        textAlign: 'center',
+        zIndex: 10
       }}>
         <Button
           color="secondary"
