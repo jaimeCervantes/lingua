@@ -25,7 +25,8 @@ export default function LlamaEvent({ event, renderActions }) {
         transition: `transform ${timeAnimation}s`,
         '&:hover .title': {
           opacity: 0
-        }
+        },
+        padding: 0
       }}
       
       onMouseEnter={() => setTrigger(true)}

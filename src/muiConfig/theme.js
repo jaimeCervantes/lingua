@@ -55,7 +55,15 @@ const theme = createTheme({
       variants: [
       ],
     },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          padding: '1rem'
+        }
+      }
+    }
   },
+  
 });
 
 export default theme;

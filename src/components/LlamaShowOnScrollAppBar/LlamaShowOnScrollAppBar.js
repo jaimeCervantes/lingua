@@ -26,7 +26,8 @@ export default function LlamaShowOnScrollAppBar(props) {
             transition: `background-color 1s, opacity 1s`,
             '&:hover': {
               opacity: 1
-            }
+            },
+            padding: 0
           })
         }
       {...rest}

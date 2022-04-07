@@ -23,7 +23,7 @@ export default function PremiumClasses({ languages }) {
         {
           name: 'Jaime Cervantes',
           avatar: 'https://res.cloudinary.com/jaime-lingua/image/upload/v1648078261/small_free_spanish_classes_1000_6e6adaf4a4.jpg',
-          slug: 'jaime-cervantes',
+          slug: '/premium-classes/booking',
           languages: [{ label: 'English', flagCode: 'us', img: null }],
           intro: 'Hello I am jaime and and I like avocado',
           scheduleAvailable: [{ date: '04-29-2022', time: '08:00 00' }],
@@ -32,7 +32,7 @@ export default function PremiumClasses({ languages }) {
         {
           name: 'Miguel Savedra',
           avatar: 'https://res.cloudinary.com/jaime-lingua/image/upload/v1648175630/small_friendly_dabate_1000_3a6ccd0461.jpg',
-          slug: 'miguel-savedra',
+          slug: '/premium-classes/booking',
           languages: [{ label: 'Spanish', flagCode: 'es', img: null }],
           intro: 'Hello I am Miguel Savedra and I like apples',
           scheduleAvailable: [{ date: '04-22-2022', time: '08:00 00' }],
@@ -40,6 +40,7 @@ export default function PremiumClasses({ languages }) {
         },
         {
           name: 'Jaime Cervantes',
+          slug: '/premium-classes/booking',
           avatar: 'https://res.cloudinary.com/jaime-lingua/image/upload/v1648078261/small_free_spanish_classes_1000_6e6adaf4a4.jpg',
           slug: 'jaime-cervantes',
           languages: [{ label: 'English', flagCode: 'us', img: null }],
@@ -50,7 +51,7 @@ export default function PremiumClasses({ languages }) {
         {
           name: 'Miguel Savedra',
           avatar: 'https://res.cloudinary.com/jaime-lingua/image/upload/v1648175630/small_friendly_dabate_1000_3a6ccd0461.jpg',
-          slug: 'miguel-savedra',
+          slug: '/premium-classes/booking',
           languages: [{ label: 'Spanish', flagCode: 'es', img: null }],
           intro: 'Hello I am Miguel Savedra and I like apples',
           scheduleAvailable: [{ date: '04-22-2022', time: '08:00 00' }],

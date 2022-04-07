@@ -1,7 +1,7 @@
 import { Box, Paper, Avatar, Typography, Button, useTheme, useMediaQuery } from '@mui/material'
-import { LlamaChipLanguage } from '../LlamaChipLanguages/LlamaChipLanguages';
-import FullCalendar from '@fullcalendar/react';
-import timeGridPlugin from '@fullcalendar/timegrid';
+import { LlamaChipLanguage } from 'components/LlamaChipLanguages/LlamaChipLanguages';
+import LlamaBookingCalendar from 'components/LlamaBookingCalendar/LlamaBookingCalendar';
+import Link from 'next/link'
 
 export default function LlamaTeacherList({ teachers, sx }) {
   const theme = useTheme();
@@ -22,7 +22,7 @@ export default function LlamaTeacherList({ teachers, sx }) {
   );
 }
 
-function LlamaTeacher({ name, price, languages, avatar, intro, scheduleAvailable, sx }) {
+function LlamaTeacher({ name, price, languages, avatar, intro, scheduleAvailable, slug, sx }) {
   const theme = useTheme();
   const isLessMd = useMediaQuery(theme.breakpoints.down('md'))
   
@@ -50,7 +50,7 @@ function LlamaTeacher({ name, price, languages, avatar, intro, scheduleAvailable
           alt={name}
           src={avatar}
         ></Avatar>
-        <Button variant="contained" sx={{ alignSelf: 'center' }}>Book</Button>
+        <Link href={slug}><Button variant="contained" sx={{ alignSelf: 'center' }}>Book</Button></Link>
       </Box>
       <Box>
         <Typography variant="h5">{name}</Typography>
@@ -77,28 +77,23 @@ function LlamaTeacher({ name, price, languages, avatar, intro, scheduleAvailable
           },
  
         }}>
-          <FullCalendar
+          <LlamaBookingCalendar
             height={200}
-            expandRows={true}
-            plugins={[ timeGridPlugin ]}
-            allDaySlot={false}
-            initialView="timeGridWeek"
-            initialDate={'2022-04-06'}
-            aspectRatio={2}
-            firstDay={new Date().getDay()}
-            slotDuration="01:00:00"
-            nowIndicator={true}
-            slotMinTime={`${new Date().getHours() > 9 ? new Date().getHours() : '0' + new Date().getHours()}:00:00`}
             slotMaxTime={`${new Date().getHours() + 5 > 9 ? new Date().getHours() + 5 : '0' + new Date().getHours() + 5}:00:00`}
             events={[
               {
-                start: '2022-04-10T16:00:00',
-                end: '2022-04-10T15:00:00',
-                editable: true,
+                start: '2022-04-10T20:00:00',
+                end: '2022-04-10T21:00:00',
+                editable: true
+              },
+              {
+                start: '2022-04-10T22:00:00',
+                end: '2022-04-1T23:00:00',
+                editable: true
               }
             ]}
             eventClick={(e) => console.log(e)}
-          ></FullCalendar>
+          ></LlamaBookingCalendar>
         </Box>
         
       </Box>
