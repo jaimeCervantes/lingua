@@ -2,11 +2,13 @@ import { fetchAPI } from 'util/api';
 import { getLanguages } from 'pagesFn/shared/functions';
 import { mapHomeImagesToUI, mapToursToUI } from './mappers';
 import { mapLanguagesToUI } from 'pagesFn/shared/mappers';
+import LlamaPlacementTestButton from 'components/Buttons/LlamaPlacementTestButton'
 
 export function getLayout(page) {
   return (
     <>
       {page}
+      <LlamaPlacementTestButton></LlamaPlacementTestButton>
     </>
   );
 }
