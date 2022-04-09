@@ -32,7 +32,7 @@ const menuItems = [
     isOut: true
   },
   {
-    text: 'Premiun classes',
+    text: 'Premium classes',
     url: '/premium-classes'
   }
 ];
