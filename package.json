@@ -22,11 +22,13 @@
     "@fullcalendar/timegrid": "^5.10.1",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "@stripe/stripe-js": "^1.27.0",
     "next": "latest",
     "qs": "^6.10.3",
     "react": "latest",
     "react-big-calendar": "^0.40.0",
     "react-dom": "latest",
+    "stripe": "^8.216.0",
     "swiper": "^8.0.7"
   },
   "devDependencies": {

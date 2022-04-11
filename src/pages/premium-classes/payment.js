@@ -1,7 +1,13 @@
-import { Box, Button, Paper, Typography, Avatar, useTheme, useMediaQuery, TextField, Autocomplete } from "@mui/material";
+import { Box, Button, Paper, Typography, Avatar, useTheme, useMediaQuery } from "@mui/material";
 import LlamaChipLanguages, { LlamaChipLanguage } from "components/LlamaChipLanguages/LlamaChipLanguages.js";
 import { getLanguages } from "pagesFn/shared/functions.js";
 import { mapLanguagesToUI } from "pagesFn/shared/mappers.js";
+import { loadStripe } from '@stripe/stripe-js';
+import { useEffect } from "react";
+import { useRouter } from 'next/router';
+import Link from "next/link";
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 const teacher = {
   name: 'Jaime Cervantes',
@@ -14,8 +20,23 @@ const teacher = {
 };
 
 export default function Payment({ languages }) {
+  const router = useRouter();
   const theme = useTheme();
-  const isLessMd = useMediaQuery(theme.breakpoints.down('md'))
+  const isLessMd = useMediaQuery(theme.breakpoints.down('md'));
+  const query = router.query;
+
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search);
+
+    if(query.get('success')) {
+      console.log('Order placed! You will receive an email confirmation.');
+    }
+
+    if(query.get('canceled')) {
+      console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
+    }
+
+  }, []);
   
   return (
     <Box data-testid="payment-content">
@@ -40,28 +61,30 @@ export default function Payment({ languages }) {
             }
           }}
         >
-          <Typography variant="h3" component="p">Pay width card</Typography>
+          {!query.success && 
+            <form action="/api/checkoutSession" method="POST">
+              <Box sx={{
+                textAlign: 'center'
+              }}>
+                <Button 
+                type="submit"
+                  variant="contained" color="primary" size="large"
+                  sx={{ width: '33%', marginTop: '2rem' }}
+                >Pay</Button>
+              </Box>
+            </form>
+          }
 
-          <TextField variant="filled" label="E-mail" type="email" ></TextField>
+          {query.success &&
+            <Typography>Congratulations, you have a scheduled premium class</Typography>
+          }
 
-          <Typography variant="h5" component="p">Card Information</Typography>
-          <TextField variant="filled" label="Card number"></TextField>
-          <TextField variant="filled" label="CC expiration"></TextField>
-          <TextField variant="filled" label="CVC"></TextField>
-          <Typography variant="h5" component="p">Country</Typography>
-          <Autocomplete
-            variant="filled"
-            options={['United States', 'México']}
-            renderInput={(params) => <TextField {...params} variant="filled" autocomplete="off" label="Country" />}
-          ></Autocomplete>
-          <Box sx={{
-            textAlign: 'center'
-          }}>
-            <Button 
-              variant="contained" color="primary" size="large"
-              sx={{ width: '33%', marginTop: '2rem' }}
-            >Pay</Button>
-          </Box>
+
+          {query.canceled && <Typography>The payment was canceled</Typography>}
+
+          <Link href="/premium-classes">
+            <Button color="secondary" variant="contained">Go to premium classes</Button>
+          </Link>
         </Paper>
 
         <Paper
