@@ -7,6 +7,10 @@ import LlamaBookingCalendar from "components/LlamaBookingCalendar/LlamaBookingCa
 
 export default function Booking({ languages }) {
   const router = useRouter();
+
+  const date = new Date()
+  const eventStart = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours() + 1);
+  const eventEnd = new Date(eventStart.getFullYear(), eventStart.getMonth(), eventStart.getDate(), eventStart.getHours() + 1); 
   
   return (
     <Box data-testid="booking-content">
@@ -23,15 +27,10 @@ export default function Booking({ languages }) {
           <LlamaBookingCalendar
             events={[
               {
-                start: '2022-04-10T20:00:00',
-                end: '2022-04-10T21:00:00',
+                start: eventStart,
+                end: eventEnd,
                 editable: true
               },
-              {
-                start: '2022-04-10T22:00:00',
-                end: '2022-04-1T23:00:00',
-                editable: true
-              }
             ]}
             eventClick={(e) => {
               router.push('/premium-classes/payment')

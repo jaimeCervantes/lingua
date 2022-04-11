@@ -8,7 +8,7 @@ export default async function paymentHandler(req, res) {
       const session = await stripe.checkout.sessions.create({
         line_items: [
           {
-            price: 'price_1KmjweKJD6sdfheKCgWe4I9O',
+            price: 'price_1KnVCQKJD6sdfheK9Nf2JFqH',
             quantity: 1,
           }
         ],

@@ -68,7 +68,7 @@ export default function PremiumClasses({ languages }) {
 
 export async function getStaticProps() {
   const languages = await getLanguages();
-  //const teachers = await getTeachers();
+  // const teachers = await getClasses();
 
   return {
     props: { languages: mapLanguagesToUI(languages.data), }

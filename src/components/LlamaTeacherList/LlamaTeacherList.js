@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function LlamaTeacherList({ teachers, sx }) {
   const theme = useTheme();
-  const isLessMd = useMediaQuery(theme.breakpoints.down('md'))
+  const isLessMd = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Box
@@ -25,6 +25,10 @@ export default function LlamaTeacherList({ teachers, sx }) {
 function LlamaTeacher({ name, price, languages, avatar, intro, scheduleAvailable, slug, sx }) {
   const theme = useTheme();
   const isLessMd = useMediaQuery(theme.breakpoints.down('md'))
+
+  const date = new Date()
+  const eventStart = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours() + 1);
+  const eventEnd = new Date(eventStart.getFullYear(), eventStart.getMonth(), eventStart.getDate(), eventStart.getHours() + 1); 
   
   return (
     <Paper
@@ -50,7 +54,7 @@ function LlamaTeacher({ name, price, languages, avatar, intro, scheduleAvailable
           alt={name}
           src={avatar}
         ></Avatar>
-        <Link href={slug}><Button variant="contained" sx={{ alignSelf: 'center' }}>Book</Button></Link>
+        <Link href={'/premium-classes/booking'}><Button variant="contained" sx={{ alignSelf: 'center' }}>Book</Button></Link>
       </Box>
       <Box>
         <Typography variant="h5">{name}</Typography>
@@ -82,13 +86,8 @@ function LlamaTeacher({ name, price, languages, avatar, intro, scheduleAvailable
             slotMaxTime={`${new Date().getHours() + 5 > 9 ? new Date().getHours() + 5 : '0' + new Date().getHours() + 5}:00:00`}
             events={[
               {
-                start: '2022-04-10T20:00:00',
-                end: '2022-04-10T21:00:00',
-                editable: true
-              },
-              {
-                start: '2022-04-10T22:00:00',
-                end: '2022-04-1T23:00:00',
+                start: eventStart,
+                end: eventEnd,
                 editable: true
               }
             ]}
