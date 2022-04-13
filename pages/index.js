@@ -46,7 +46,7 @@ export default function Index({ homeImages, tours, index, languages }) {
         </LlamaSocialNetworks>
         <LlamaTelButton sx={{ padding: { xs: 0, sm: 'inherit' } }}></LlamaTelButton>
       </LlamaShowOnScrollAppBar>
-      <header style={{ padding: '1rem', paddingBottom: 0 }}>
+      <header style={{ padding: '1rem', paddingBottom: 0, minHeight: '300px' }}>
         <LlamaBalloons
           className={styles.backInDown}
           sx={{ marginTop: { xs: '2rem', sm: 'inherit' } }}
