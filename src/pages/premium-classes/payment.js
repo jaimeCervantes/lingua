@@ -61,57 +61,16 @@ export default function Payment({ languages }) {
             }
           }}
         >
-          {!query.success && 
-            <form action="/api/checkoutSession" method="POST">
-              <Box sx={{
-                textAlign: 'center'
-              }}>
-                <Button 
-                type="submit"
-                  variant="contained" color="primary" size="large"
-                  sx={{ width: '33%', marginTop: '2rem' }}
-                >Pay</Button>
-              </Box>
-            </form>
-          }
-
           {query.success &&
-            <Typography>Congratulations, you have a scheduled premium class</Typography>
+            <Typography variant="h6">Congratulations, you have a scheduled premium class</Typography>
           }
 
 
-          {query.canceled && <Typography>The payment was canceled</Typography>}
+          {query.canceled && <Typography variant="h6">The payment was canceled</Typography>}
 
           <Link href="/premium-classes">
             <Button color="secondary" variant="contained">Go to premium classes</Button>
           </Link>
-        </Paper>
-
-        <Paper
-          sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-start',
-          alignItems: 'center'
-        }}>
-          <Avatar
-            loading="lazy"
-            sx={{ width: '100px', height: '100px', marginBottom: '1rem' }}
-            alt={teacher.name}
-            src={teacher.avatar}
-          ></Avatar>
-          <Typography variant="h5">{teacher.name}</Typography>
-          <Typography>{teacher.intro}</Typography>
-          <Typography variant="h6" component="p">Class name</Typography>
-          {teacher.languages.map(item => (
-            <LlamaChipLanguage
-              key={item.label} {...item}
-            >
-            </LlamaChipLanguage>)
-          )}
-          <Typography variant="h6" component="p">Saturday, April 10th, 15:00hrs - 16:00hrs</Typography>
-          <Typography variant="h6" component="p">Price</Typography>
-          ${teacher.price} USD
         </Paper>
       </Box>
       <Typography variant="h2">Languages</Typography>

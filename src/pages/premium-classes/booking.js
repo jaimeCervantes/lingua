@@ -1,52 +1,64 @@
+import { useEffect, useState } from 'react';
 import { Box, Paper, Typography } from "@mui/material";
 import LlamaChipLanguages from "components/LlamaChipLanguages/LlamaChipLanguages.js";
 import { getLanguages } from "pagesFn/shared/functions.js";
 import { mapLanguagesToUI } from "pagesFn/shared/mappers.js";
 import { useRouter } from 'next/router';
 import LlamaBookingCalendar from "components/LlamaBookingCalendar/LlamaBookingCalendar";
+import LlamaSelectedClassSummary from '../../components/LlamaClasses/LlamaSelectedClassSummary';
 
 export default function Booking({ languages }) {
   const router = useRouter();
+  const [selectedPaidClass, setSelectedPaidClass] = useState({});
+  const [selectedSchedule, setSelectedSchedule] = useState(null);
 
-  const date = new Date()
-  const eventStart = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours() + 1);
-  const eventEnd = new Date(eventStart.getFullYear(), eventStart.getMonth(), eventStart.getDate(), eventStart.getHours() + 1); 
-  
+  useEffect(() => {
+    setSelectedPaidClass(JSON.parse(sessionStorage.getItem('selectedPaidClass')))
+  }, []);
+
+  function onSelectSchedule(e) {
+    setSelectedSchedule(e.event._instance.range);
+  }
+
   return (
-    <Box data-testid="booking-content">
-      <Typography variant="h2">Booking</Typography>
-      <Typography variant="h4">Teacher: Jaime Cervantes</Typography>
-      
-      <Paper sx={{
-          '& .fc .fc-col-header-cell-cushion, .fc .fc-timegrid-slot-label': {
-            fontSize: '0.8rem',
-            fontWeight: 'normal'
-          },
-          padding: '1rem'
-        }}>
-          <LlamaBookingCalendar
-            events={[
-              {
-                start: eventStart,
-                end: eventEnd,
-                editable: true
-              },
-            ]}
-            eventClick={(e) => {
-              router.push('/premium-classes/payment')
-            }}
-          ></LlamaBookingCalendar>
-        </Paper>
-      
-      <Typography variant="h2">Languages</Typography>
-      <LlamaChipLanguages languages={languages}></LlamaChipLanguages>
-    </Box>
+    <>
+      <Box data-testid="booking-content">
+        <Typography variant="h2">Booking</Typography>
+        <Paper sx={{
+            '& .fc .fc-col-header-cell-cushion, .fc .fc-timegrid-slot-label': {
+              fontSize: '0.8rem',
+              fontWeight: 'normal'
+            },
+            padding: '1rem'
+          }}>
+            <LlamaBookingCalendar
+              events={selectedPaidClass?.availableSchedules || []}
+              eventClick={onSelectSchedule}
+            ></LlamaBookingCalendar>
+          </Paper>
+        
+        <Typography variant="h2">Languages</Typography>
+        <LlamaChipLanguages languages={languages}></LlamaChipLanguages>
+      </Box>
+      <LlamaSelectedClassSummary
+        sx={{
+          position: 'fixed',
+          bottom: 0,
+          width: '100%',
+          zIndex: 20,
+          left: 0,
+        }}
+        {...selectedPaidClass}
+        
+        selectedSchedule={selectedSchedule}
+        
+      ></LlamaSelectedClassSummary>
+    </>
   );
 }
 
 export async function getStaticProps() {
   const languages = await getLanguages();
-  //const teachers = await getTeachers();
 
   return {
     props: { languages: mapLanguagesToUI(languages.data), }

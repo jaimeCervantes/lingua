@@ -22,7 +22,7 @@ export default function PremiumClasses({ languages, classes }) {
         ></LlamaLanguagesSelector>
       </Box>
 
-      <LlamaPaidClassList teachers={classes}></LlamaPaidClassList>
+      <LlamaPaidClassList classes={classes}></LlamaPaidClassList>
 
       <Typography variant="h2">Languages</Typography>
 

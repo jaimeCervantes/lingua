@@ -36,12 +36,12 @@ export function LlamaChipLanguage(props) {
           src={
             props.img
               ? props.img
-              : `https://flagcdn.com/w40/${props.flagCode.toLowerCase()}.png`
+              : `https://flagcdn.com/w40/${props.flagCode?.toLowerCase()}.png`
           }
           srcSet={
             props.img
               ? null
-              : `https://flagcdn.com/w80/${props.flagCode.toLowerCase()}.png 2x`
+              : `https://flagcdn.com/w80/${props.flagCode?.toLowerCase()}.png 2x`
           }
           alt={props.label}
         />

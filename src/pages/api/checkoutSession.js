@@ -1,6 +1,8 @@
 import Stripe from 'stripe';
 
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: process.env.STRIPE_API_VERSION
+});
 
 export default async function paymentHandler(req, res) {
   if(req.method === 'POST') {
@@ -8,10 +10,12 @@ export default async function paymentHandler(req, res) {
       const session = await stripe.checkout.sessions.create({
         line_items: [
           {
-            price: 'price_1KnVCQKJD6sdfheK9Nf2JFqH',
+            price: req.body.priceId,
             quantity: 1,
+            description: req.body.description
           }
         ],
+        metadata: JSON.parse(req.body.metadata),
         mode: 'payment',
         success_url: `${req.headers.origin}/premium-classes/payment/?success=true`,
         cancel_url: `${req.headers.origin}/premium-classes/payment/?canceled=true`,
