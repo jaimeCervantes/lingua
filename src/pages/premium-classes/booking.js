@@ -34,6 +34,7 @@ export default function Booking({ languages }) {
             <LlamaBookingCalendar
               events={selectedPaidClass?.availableSchedules || []}
               eventClick={onSelectSchedule}
+              slotMinTime='00:00'
             ></LlamaBookingCalendar>
           </Paper>
         

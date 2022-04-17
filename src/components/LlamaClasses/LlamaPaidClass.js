@@ -100,9 +100,11 @@ function createDateTimesFromSchedules(schedules) {
   }
 
   return schedules.map(item => {
+    if (item.repeats) {
+      return item;
+    }
     
-    const date = new Date(`${item.date}T${item.time}`);
-
+    const date = new Date(`${item.date}T${item.time}${item.timezoneOffset || '-04:00'}`);
     return {
       editable: false,
       start: date,

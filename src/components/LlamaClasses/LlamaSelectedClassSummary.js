@@ -7,7 +7,7 @@ export default function LlamaSelectedClassSummary({ sx, ...rest }) {
 
   return (
     <Paper
-      elevation="10"
+      elevation={10}
       sx={{
       display: 'flex',
       flexDirection: 'row',
