@@ -121,8 +121,13 @@ function createTimesForRecurringEvents(item) {
   const offsetTimeStart = new Date(`${yearMonthDay}T${item.startTime}${item.timezoneOffset || '-04:00'}`);
   const offsetTimeEnd = new Date(`${yearMonthDay}T${item.endTime}${item.timezoneOffset || '-04:00'}`);
   
-  const startTime = `${offsetTimeStart.getHours()}:${offsetTimeStart.getMinutes()}`;
-  const endTime = `${offsetTimeEnd.getHours()}:${offsetTimeEnd.getMinutes()}`;
+  const startTime = `${padZeros(offsetTimeStart.getHours())}:${padZeros(offsetTimeStart.getMinutes())}`;
+  const endTime = `${padZeros(offsetTimeEnd.getHours())}:${padZeros(offsetTimeEnd.getMinutes())}`;
 
   return { ...item, startTime, endTime };
+}
+
+
+function  padZeros(number) {
+  return (`0${number}`).slice(-2);
 }
