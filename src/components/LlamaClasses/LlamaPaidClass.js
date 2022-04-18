@@ -101,7 +101,7 @@ function createDateTimesFromSchedules(schedules) {
 
   return schedules.map(item => {
     if (item.repeats) {
-      return item;
+      return createTimesForRecurringEvents(item)
     }
     
     const date = new Date(`${item.date}T${item.time}${item.timezoneOffset || '-04:00'}`);
@@ -111,4 +111,18 @@ function createDateTimesFromSchedules(schedules) {
       end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours() + 1)
     }
   });
+}
+
+
+function createTimesForRecurringEvents(item) {
+  const dateStr = new Date().toISOString();
+  const yearMonthDay = dateStr.split('T')[0];
+
+  const offsetTimeStart = new Date(`${yearMonthDay}T${item.startTime}${item.timezoneOffset || '-04:00'}`);
+  const offsetTimeEnd = new Date(`${yearMonthDay}T${item.endTime}${item.timezoneOffset || '-04:00'}`);
+  
+  const startTime = `${offsetTimeStart.getHours()}:${offsetTimeStart.getMinutes()}`;
+  const endTime = `${offsetTimeEnd.getHours()}:${offsetTimeEnd.getMinutes()}`;
+
+  return { ...item, startTime, endTime };
 }
