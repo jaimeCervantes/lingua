@@ -9,50 +9,62 @@ export default function LlamaSelectedClassSummary({ sx, ...rest }) {
     <Paper
       elevation={10}
       sx={{
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'space-around',
-      alignItems: 'center', 
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr 2fr 1fr',
+      alignItems: 'center',
+      justifyItems: 'center',
+      gap: 1,
       ...sx
     }}>
-      <img
-        loading="lazy"
-        sx={{ width: '100px', height: '100px', marginBottom: '1rem', maxWidth: '200px' }}
-        alt={name}
-        width="100"
-        src={image}
-      />
-      <Typography variant="h6">{name}</Typography>
-
-      <LlamaChipLanguage label={language} flagCode={flagCode} />
+      
+        <img
+          loading="lazy"
+          sx={{ width: '100px', height: '100px', marginBottom: '1rem', maxWidth: '200px' }}
+          alt={name}
+          width="100"
+          src={image}
+        />
+        
+      <div>
+        <Typography variant="h6">{name}</Typography>
+        <LlamaChipLanguage label={language} flagCode={flagCode} />
+      </div>
 
       <Typography variant="p" sx={{ display: selectedSchedule ? 'block' : 'none'}}>
-        From {selectedSchedule?.start?.toUTCString()} to {selectedSchedule?.end?.toUTCString()}
+        {formatDate(selectedSchedule?.start)} to {formatDate(selectedSchedule?.end)}
       </Typography>
-      
-      <Typography variant="h6" component="p"> ${price} USD</Typography>
 
       <form action="/api/checkoutSession" method="POST" style={{ display: selectedSchedule ? 'block' : 'none'}}>
+        
         <input type="hidden" name="priceId" value={priceId}></input>
         <input
           type="hidden"
           name="description"
-          value={`${name} From ${selectedSchedule?.start?.toUTCString()} to ${selectedSchedule?.end?.toUTCString()}`}
+          value={`${name} From ${formatDate(selectedSchedule?.start)} to ${formatDate(selectedSchedule?.end)}`}
         >
         </input>
 
         <input type="hidden" name="metadata" value={JSON.stringify(selectedSchedule)}></input>
         
-        <Box sx={{
-          textAlign: 'center'
-        }}>
+        <Typography variant="h6" component="p"> ${price} USD</Typography>
           <Button 
-          type="submit"
-            variant="contained" color="primary" size="large"
-          >Pay</Button>
-        </Box>
+            type="submit"
+            variant="contained"
+            color="primary"
+            size="large"
+          >
+            Pay
+          </Button>
       </form>
      
     </Paper>
   );
+}
+
+function formatDate(date) {
+  if (date) {
+    return date.toUTCString().replace('GMT', '');
+  }
+
+  return '';
 }
