@@ -14,16 +14,16 @@ export default function LlamaSelectedClassSummary({ sx, ...rest }) {
       alignItems: 'center',
       justifyItems: 'center',
       gap: 1,
+      padding: '1rem',
       ...sx
     }}>
-      
-        <img
-          loading="lazy"
-          sx={{ width: '100px', height: '100px', marginBottom: '1rem', maxWidth: '200px' }}
-          alt={name}
-          width="100"
-          src={image}
-        />
+      <img
+        loading="lazy"
+        sx={{ width: '100px', height: '100px', marginBottom: '1rem', maxWidth: '200px' }}
+        alt={name}
+        width="100"
+        src={image}
+      />
         
       <div>
         <Typography variant="h6">{name}</Typography>
@@ -35,12 +35,17 @@ export default function LlamaSelectedClassSummary({ sx, ...rest }) {
       </Typography>
 
       <form action="/api/checkoutSession" method="POST" style={{ display: selectedSchedule ? 'block' : 'none'}}>
-        
-        <input type="hidden" name="priceId" value={priceId}></input>
+        <input
+          type="hidden"
+          name="priceId"
+          defaultValue={priceId}
+        >
+          
+        </input>
         <input
           type="hidden"
           name="description"
-          value={`${name} From ${formatDate(selectedSchedule?.start)} to ${formatDate(selectedSchedule?.end)}`}
+          defaultValue={`${name} From ${formatDate(selectedSchedule?.start)} to ${formatDate(selectedSchedule?.end)}`}
         >
         </input>
 
@@ -63,7 +68,7 @@ export default function LlamaSelectedClassSummary({ sx, ...rest }) {
 
 function formatDate(date) {
   if (date) {
-    return date.toUTCString().replace('GMT', '');
+    return date.toUTCString().replace(' GMT', '');
   }
 
   return '';

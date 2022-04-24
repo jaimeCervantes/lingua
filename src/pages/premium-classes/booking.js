@@ -3,20 +3,29 @@ import { Box, Paper, Typography } from "@mui/material";
 import LlamaChipLanguages from "components/LlamaChipLanguages/LlamaChipLanguages.js";
 import { getLanguages } from "pagesFn/shared/functions.js";
 import { mapLanguagesToUI } from "pagesFn/shared/mappers.js";
-import { useRouter } from 'next/router';
-import LlamaBookingCalendar from "components/LlamaBookingCalendar/LlamaBookingCalendar";
+import LlamaBookingCalendar from "../../components/LlamaBookingCalendar/LlamaBookingCalendar";
 import LlamaSelectedClassSummary from '../../components/LlamaClasses/LlamaSelectedClassSummary';
 
+import { useSchedulesCapacity, findSchedule } from 'pagesFn/premium-classes/functions';
+
 export default function Booking({ languages }) {
-  const router = useRouter();
   const [selectedPaidClass, setSelectedPaidClass] = useState({});
   const [selectedSchedule, setSelectedSchedule] = useState(null);
-
+  
   useEffect(() => {
-    setSelectedPaidClass(JSON.parse(sessionStorage.getItem('selectedPaidClass')))
+    setSelectedPaidClass(JSON.parse(sessionStorage.getItem('selectedPaidClass')));
   }, []);
 
+  const availableSchedules = useSchedulesCapacity(
+    selectedPaidClass?.id,
+    selectedPaidClass?.availableSchedules
+  );
+  
   function onSelectSchedule(e) {
+    const extendedProps = e.event._def.extendedProps;
+    const range = e.event._instance.range
+    const schedule = findSchedule(availableSchedules, extendedProps, range);
+    console.log(schedule);
     setSelectedSchedule(e.event._instance.range);
   }
 

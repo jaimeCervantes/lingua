@@ -5,21 +5,10 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY, {
 });
 
 export default async function paymentHandler(req, res) {
+  console.log(req.body);
   if(req.method === 'POST') {
     try {
-      const session = await stripe.checkout.sessions.create({
-        line_items: [
-          {
-            price: req.body.priceId,
-            quantity: 1,
-            description: req.body.description
-          }
-        ],
-        metadata: JSON.parse(req.body.metadata),
-        mode: 'payment',
-        success_url: `${req.headers.origin}/premium-classes/payment/?success=true`,
-        cancel_url: `${req.headers.origin}/premium-classes/payment/?canceled=true`,
-      });
+      const session = await createCheckoutSession(req.body, req.headers);
 
       res.redirect(303, session.url)
     } catch(err) {
@@ -29,4 +18,26 @@ export default async function paymentHandler(req, res) {
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method Not Allowed');
   }
+}
+
+
+async function createCheckoutSession(body, headers) {
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
+        price: body.priceId,
+        quantity: 1,
+        description: body.description
+      }
+    ],
+    metadata: JSON.parse(body.metadata),
+    payment_intent_data: {
+      metadata: JSON.parse(body.metadata)
+    },
+    mode: 'payment',
+    success_url: `${headers.origin}/premium-classes/payment/?success=true`,
+    cancel_url: `${headers.origin}/premium-classes/payment/?canceled=true`,
+  });
+
+  return session;
 }

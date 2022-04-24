@@ -4,6 +4,8 @@ import { LlamaChipLanguage } from 'components/LlamaChipLanguages/LlamaChipLangua
 import LlamaBookingCalendar from 'components/LlamaBookingCalendar/LlamaBookingCalendar';
 import { useRouter } from 'next/router';
 
+import { createDateTimesFromSchedules, createMiniCalendarMaxTime } from 'components/LlamaClasses/functions';
+
 export default function LlamaPaidClass({ sx, schedules, ...rest }) {
   const { description, name, price, language, image, flagCode } = rest;
   const theme = useTheme();
@@ -74,60 +76,11 @@ export default function LlamaPaidClass({ sx, schedules, ...rest }) {
         }}>
           <LlamaBookingCalendar
             height={200}
-            slotMaxTime={createMaxTime()}
+            slotMaxTime={createMiniCalendarMaxTime()}
             events={availableSchedules}
           ></LlamaBookingCalendar>
         </Box>
         
       </Box>
     </Paper>);
-}
-
-function createMaxTime() {
-  const date = new Date();
-  let currentHour = date.getHours() + 5;
-
-  if (currentHour > 9) {
-    return `${currentHour}:00:00`;
-  } else {
-    return `0${currentHour}:00:00`
-  }
-}
-
-function createDateTimesFromSchedules(schedules) {
-  if (!schedules?.length) {
-    return [];
-  }
-
-  return schedules.map(item => {
-    if (item.repeats) {
-      return createTimesForRecurringEvents(item)
-    }
-    
-    const date = new Date(`${item.date}T${item.time}${item.timezoneOffset || '-04:00'}`);
-    return {
-      editable: false,
-      start: date,
-      end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours() + 1)
-    }
-  });
-}
-
-
-function createTimesForRecurringEvents(item) {
-  const dateStr = new Date().toISOString();
-  const yearMonthDay = dateStr.split('T')[0];
-
-  const offsetTimeStart = new Date(`${yearMonthDay}T${item.startTime}${item.timezoneOffset || '-04:00'}`);
-  const offsetTimeEnd = new Date(`${yearMonthDay}T${item.endTime}${item.timezoneOffset || '-04:00'}`);
-  
-  const startTime = `${padZeros(offsetTimeStart.getHours())}:${padZeros(offsetTimeStart.getMinutes())}`;
-  const endTime = `${padZeros(offsetTimeEnd.getHours())}:${padZeros(offsetTimeEnd.getMinutes())}`;
-
-  return { ...item, startTime, endTime };
-}
-
-
-function  padZeros(number) {
-  return (`0${number}`).slice(-2);
 }

@@ -15,3 +15,15 @@ export function mapClassesToUI(classes) {
     }
   })
 }
+
+export function mapSchedulesCapacity(data) {
+  return data.map(schedule => ({
+    id: schedule.id,
+    availableSeats: schedule.attributes.availableSeats,
+    capacity: schedule.attributes.capacity,
+    date: schedule.attributes.date,
+    productId: schedule.attributes.productId,
+    time: schedule.attributes.time,
+    timeZoneOffset: schedule.attributes.timeZoneOffset
+  }));
+}
