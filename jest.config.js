@@ -25,6 +25,7 @@ const customJestConfig = {
     '^util/(.*)$': '<rootDir>/src/util/$1',
     '^muiConfig/(.*)$': '<rootDir>/src/muiConfig/$1',
     '^styles/(.*)$': '<rootDir>/src/styles/$1',
+    '^doubles/(.*)$': '<rootDir>/doubles/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
 }

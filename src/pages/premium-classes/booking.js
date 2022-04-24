@@ -6,7 +6,7 @@ import { mapLanguagesToUI } from "pagesFn/shared/mappers.js";
 import LlamaBookingCalendar from "../../components/LlamaBookingCalendar/LlamaBookingCalendar";
 import LlamaSelectedClassSummary from '../../components/LlamaClasses/LlamaSelectedClassSummary';
 
-import { useSchedulesCapacity, findSchedule } from 'pagesFn/premium-classes/functions';
+import { useSchedulesCapacity } from 'pagesFn/premium-classes/hooks';
 
 export default function Booking({ languages }) {
   const [selectedPaidClass, setSelectedPaidClass] = useState({});
@@ -22,10 +22,7 @@ export default function Booking({ languages }) {
   );
   
   function onSelectSchedule(e) {
-    const extendedProps = e.event._def.extendedProps;
     const range = e.event._instance.range
-    const schedule = findSchedule(availableSchedules, extendedProps, range);
-    console.log(schedule);
     setSelectedSchedule(e.event._instance.range);
   }
 
