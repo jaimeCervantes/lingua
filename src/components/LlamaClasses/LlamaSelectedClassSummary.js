@@ -31,7 +31,7 @@ export default function LlamaSelectedClassSummary({ sx, ...rest }) {
       </div>
 
       <Typography variant="p" sx={{ display: selectedSchedule ? 'block' : 'none'}}>
-        {formatDate(selectedSchedule?.start)} to {formatDate(selectedSchedule?.end)}
+        {formatDate(selectedSchedule?.start)} to {formatDate(selectedSchedule?.end).split(' ')[4]}
       </Typography>
 
       <form action="/api/checkoutSession" method="POST" style={{ display: selectedSchedule ? 'block' : 'none'}}>
@@ -68,7 +68,7 @@ export default function LlamaSelectedClassSummary({ sx, ...rest }) {
 
 function formatDate(date) {
   if (date) {
-    return date.toUTCString().replace(' GMT', '');
+    return date.toUTCString().replace(/\:00\s/g, ' ').replace(' GMT', '');
   }
 
   return '';

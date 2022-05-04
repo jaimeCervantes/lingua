@@ -5,12 +5,11 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY, {
 });
 
 export default async function paymentHandler(req, res) {
-  console.log(req.body);
   if(req.method === 'POST') {
     try {
-      const session = await createCheckoutSession(req.body, req.headers);
+      const session = await createCheckout(req.body, req.headers);
 
-      res.redirect(303, session.url)
+      res.redirect(303, session.url);
     } catch(err) {
       res.status(err.statusCode || 500).json(err.message)
     }
@@ -20,9 +19,21 @@ export default async function paymentHandler(req, res) {
   }
 }
 
+async function createCheckout(body, headers) {
+  let session;
+  
+  try {
+    session = await createStripeCheckoutSession(body, headers)
+  } catch(err) {
+    console.log(err);
+    throw err;
+  }
 
-async function createCheckoutSession(body, headers) {
-  const session = await stripe.checkout.sessions.create({
+  return session;
+}
+
+async function createStripeCheckoutSession(body, headers) {
+  return await stripe.checkout.sessions.create({
     line_items: [
       {
         price: body.priceId,
@@ -38,6 +49,4 @@ async function createCheckoutSession(body, headers) {
     success_url: `${headers.origin}/premium-classes/payment/?success=true`,
     cancel_url: `${headers.origin}/premium-classes/payment/?canceled=true`,
   });
-
-  return session;
 }

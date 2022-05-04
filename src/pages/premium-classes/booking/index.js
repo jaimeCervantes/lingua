@@ -3,27 +3,35 @@ import { Box, Paper, Typography } from "@mui/material";
 import LlamaChipLanguages from "components/LlamaChipLanguages/LlamaChipLanguages.js";
 import { getLanguages } from "pagesFn/shared/functions.js";
 import { mapLanguagesToUI } from "pagesFn/shared/mappers.js";
-import LlamaBookingCalendar from "../../components/LlamaBookingCalendar/LlamaBookingCalendar";
-import LlamaSelectedClassSummary from '../../components/LlamaClasses/LlamaSelectedClassSummary';
+import LlamaBookingCalendar from "components/LlamaBookingCalendar/LlamaBookingCalendar";
+import LlamaSelectedClassSummary from 'components/LlamaClasses/LlamaSelectedClassSummary';
 
-import { useSchedulesCapacity } from 'pagesFn/premium-classes/hooks';
+import { useMatchedSchedules } from 'pagesFn/premium-classes/booking/hooks';
 
 export default function Booking({ languages }) {
+  const [ selectedSchedule, setSelectedSchedule ] = useState(null);
   const [selectedPaidClass, setSelectedPaidClass] = useState({});
-  const [selectedSchedule, setSelectedSchedule] = useState(null);
-  
+  const scheduleEvents = useMatchedSchedules(selectedPaidClass);
+
   useEffect(() => {
     setSelectedPaidClass(JSON.parse(sessionStorage.getItem('selectedPaidClass')));
   }, []);
-
-  const availableSchedules = useSchedulesCapacity(
-    selectedPaidClass?.id,
-    selectedPaidClass?.availableSchedules
-  );
   
   function onSelectSchedule(e) {
-    const range = e.event._instance.range
-    setSelectedSchedule(e.event._instance.range);
+    const extendedProps = e.event._def.extendedProps;
+    const id = e.event._def.publicId;
+    const range = e.event._instance.range;
+
+    if (extendedProps.isSelectable === false) {
+      return;
+    }
+
+    setSelectedSchedule({
+      ...e.event._instance.range,
+      scheduleId: id,
+      availableSeats: extendedProps.availableSeats,
+      capacity: extendedProps.capacity
+    });
   }
 
   return (
@@ -35,10 +43,18 @@ export default function Booking({ languages }) {
               fontSize: '0.8rem',
               fontWeight: 'normal'
             },
-            padding: '1rem'
+            padding: '1rem',
+            '& .fc .llama-fc-not-available': {
+              backgroundColor: 'primary.main',
+              borderColor: 'primary.main',
+              cursor: 'normal'
+            },
+            '& .fc .llama-fc-available': {
+              cursor: 'pointer'
+            }
           }}>
             <LlamaBookingCalendar
-              events={selectedPaidClass?.availableSchedules || []}
+              events={scheduleEvents}
               eventClick={onSelectSchedule}
               slotMinTime='00:00'
             ></LlamaBookingCalendar>
@@ -64,7 +80,7 @@ export default function Booking({ languages }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const languages = await getLanguages();
 
   return {
