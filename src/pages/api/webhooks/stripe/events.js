@@ -14,27 +14,53 @@ export const config = {
 }
 
 export default async function onChargeSucceeded(req, res) {
-  if (req.method === 'POST') {
-    const buffers = []
-    const signature = req.headers['stripe-signature'];
-
-    for await (const chunk of req) {
-      buffers.push(chunk);
-    }
-
-    const data = Buffer.concat(buffers).toString();
-    const event = constructEvent(data, signature, endpointSecret);
-    
-    if (!event) {
-      res.status(400).send(`Webhook error: ${err.message}`);
-    }
-    
-    await handleStripeEvent(event);
-    res.send();
-  } else {
+  if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method not allowed');
+    return;
   }
+
+  let event;
+  try {
+    event = await handleStripeRequest(req);
+  } catch(err) {
+    console.log(err);
+    res.status(400).send(`Webhook error: ${err.message}`);
+    // @TODO: notify to linguallama about the error, availableSeats cannot be updated
+    return;
+  }
+
+  try {
+    await doActionBasedOnEvent(event);
+  } catch(err) {
+    console.log(error);
+    // @TODO: notify to linguallama about the error, availableSeats cannot be updated
+  }
+  // retun a 200 response
+  res.send();
+}
+
+
+async function handleStripeRequest(req) {
+  const signature = req.headers['stripe-signature'];
+  const body = await transformStreamToJSON(req);
+  const event = constructEvent(body, signature, endpointSecret);
+  
+  if (!event) {
+    return false;
+  }
+  
+  return event
+}
+
+async function transformStreamToJSON(req) {
+  const buffers = []
+
+  for await (const chunk of req) {
+    buffers.push(chunk);
+  }
+
+  return Buffer.concat(buffers).toString();
 }
 
 function constructEvent(body, signature, endpointSecret) {
@@ -46,7 +72,11 @@ function constructEvent(body, signature, endpointSecret) {
   }
 }
 
-async function handleStripeEvent(event) {
+async function doActionBasedOnEvent(event) {
+  if (!event) {
+    return;
+  }
+
   switch (event.type) {
     case 'charge.succeeded':
       await updateSchedule(event.data?.object?.metadata);
@@ -61,7 +91,7 @@ async function handleStripeEvent(event) {
 
 async function updateSchedule(metadata) {
   if (!metadata) {
-    return false;
+    return;
   }
 
   const { scheduleId, availableSeats } = metadata;
