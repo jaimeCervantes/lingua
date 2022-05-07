@@ -6,27 +6,27 @@ import {
   mapSchedules
 } from './mappers';
 
-export function useMatchedSchedules(selectedPaidClass) {
+export function useMatchedSchedules(classId, classEvents) {
   const [mappedEvents, setMappedEvents] = useState([]);
   const [matchedScheduleEvents, setMatchedScheduleEvents] = useState([]);
 
   useEffect(() => {
-    if (selectedPaidClass?.availableSchedules?.length) {
-      setMappedEvents(mapWeekRecurringEventsToEvents(new Date(), selectedPaidClass?.availableSchedules));
+    if (classEvents?.length) {
+      setMappedEvents(mapWeekRecurringEventsToEvents(new Date(), classEvents));
     }
-  }, [selectedPaidClass?.availableSchedules]);
+  }, [classEvents]);
 
   const availableSchedules = useSchedules(
-    selectedPaidClass?.id,
+    classId,
     mappedEvents
   );
 
   useEffect(() => {
     if (availableSchedules.length && mappedEvents.length) {
-      const matched = matchSchedulesWithEvents(availableSchedules, mappedEvents, selectedPaidClass?.id);
+      const matched = matchSchedulesWithEvents(availableSchedules, mappedEvents, classId);
       setMatchedScheduleEvents(matched);
     }
-  }, [availableSchedules, mappedEvents, selectedPaidClass?.id]);
+  }, [availableSchedules, mappedEvents, classId]);
 
 
   return matchedScheduleEvents;

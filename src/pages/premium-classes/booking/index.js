@@ -11,7 +11,8 @@ import { useMatchedSchedules } from 'pagesFn/premium-classes/booking/hooks';
 export default function Booking({ languages }) {
   const [ selectedSchedule, setSelectedSchedule ] = useState(null);
   const [selectedPaidClass, setSelectedPaidClass] = useState({});
-  const scheduleEvents = useMatchedSchedules(selectedPaidClass);
+  const { id, availableSchedules: recurringEvents } = selectedPaidClass;
+  const matchedSchedules = useMatchedSchedules(id, recurringEvents);
 
   useEffect(() => {
     setSelectedPaidClass(JSON.parse(sessionStorage.getItem('selectedPaidClass')));
@@ -19,8 +20,6 @@ export default function Booking({ languages }) {
   
   function onSelectSchedule(e) {
     const extendedProps = e.event._def.extendedProps;
-    const id = e.event._def.publicId;
-    const range = e.event._instance.range;
 
     if (extendedProps.isSelectable === false) {
       return;
@@ -28,7 +27,7 @@ export default function Booking({ languages }) {
 
     setSelectedSchedule({
       ...e.event._instance.range,
-      scheduleId: id,
+      scheduleId: e.event._def.publicId,
       availableSeats: extendedProps.availableSeats,
       capacity: extendedProps.capacity
     });
@@ -54,7 +53,7 @@ export default function Booking({ languages }) {
             }
           }}>
             <LlamaBookingCalendar
-              events={scheduleEvents}
+              events={matchedSchedules}
               eventClick={onSelectSchedule}
               slotMinTime='00:00'
             ></LlamaBookingCalendar>

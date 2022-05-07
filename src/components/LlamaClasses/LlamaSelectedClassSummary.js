@@ -40,8 +40,8 @@ export default function LlamaSelectedClassSummary({ sx, ...rest }) {
           name="priceId"
           defaultValue={priceId}
         >
-          
         </input>
+        
         <input
           type="hidden"
           name="description"
