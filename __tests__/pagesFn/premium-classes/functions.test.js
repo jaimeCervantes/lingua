@@ -38,18 +38,4 @@ describe('Given a booking screen, showing until 7 days of recurring events', () 
       expect(scheduleTime).toEqual(lastEvent.startTimeUTC);
     });
   });
-
-  describe.skip('When a user wants to see the next week available schedules', () => {
-    it('Then the next week should be fill with events using recurring events', () => {
-
-    });
-
-    it('Then capacity and available seats should be fetched using next week events', () => {
-
-    });
-
-    it('Then capacity and available seats should be combined with current week events', () => {
-
-    });
-  })
 });
