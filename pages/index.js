@@ -18,7 +18,7 @@ import LlamaSocialNetworks from '../components/LlamaSocialNetworks/LlamaSocialNe
 import LlamaTelButton from '../components/LlamaTelButton/LlamaTelButton';
 import LlamaCarousel from '../components/LlamaCarousel/LlamaCarousel';
 
-export { getServerSideProps } from '../pagesFn/index/functions';
+export { getStaticProps } from '../pagesFn/index/functions';
 
 export default function Index({ homeImages, tours, index, languages }) {
   const [ language, setLanguage ] = useState(() => languages[0]);
