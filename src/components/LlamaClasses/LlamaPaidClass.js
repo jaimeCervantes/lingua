@@ -26,7 +26,7 @@ export default function LlamaPaidClass({ sx, schedules, ...rest }) {
   
   return (
     <Paper
-      data-testid="LlamaPaidClassList__LlamaPaidClass"
+      data-testid="LlamaPaidClass"
       sx={{
         padding: '1rem',
         display: 'grid',
@@ -49,7 +49,7 @@ export default function LlamaPaidClass({ sx, schedules, ...rest }) {
           width="100%"
           style={{ marginBottom: '1rem' }}
         />
-        <Button onClick={onBook} variant="contained" sx={{ alignSelf: 'center' }}>Book</Button>
+        <Button data-testid="LlamaPaiClass__book" onClick={onBook} variant="contained" sx={{ alignSelf: 'center' }}>Book</Button>
       </Box>
       <Box>
         <Typography variant="h5">{name}</Typography>
