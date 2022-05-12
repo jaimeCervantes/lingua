@@ -49,7 +49,7 @@ export default function LlamaPaidClass({ sx, schedules, ...rest }) {
           width="100%"
           style={{ marginBottom: '1rem' }}
         />
-        <Button data-testid="LlamaPaiClass__book" onClick={onBook} variant="contained" sx={{ alignSelf: 'center' }}>Book</Button>
+        <Button data-testid="LlamaPaidClass__bookBtn" onClick={onBook} variant="contained" sx={{ alignSelf: 'center' }}>Book</Button>
       </Box>
       <Box>
         <Typography variant="h5">{name}</Typography>
