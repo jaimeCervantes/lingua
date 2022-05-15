@@ -6,43 +6,21 @@ import {
   mapSchedules
 } from './mappers';
 
-export function useMatchedSchedules(classId, classEvents) {
-  const [mappedEvents, setMappedEvents] = useState([]);
-  const [matchedScheduleEvents, setMatchedScheduleEvents] = useState([]);
+export function useMatchedSchedules(id, recurringEvents, isRequestingSchedules) {
+  const [matches, setMatches] = useState([])
 
   useEffect(() => {
-    if (classEvents?.length) {
-      setMappedEvents(mapWeekRecurringEventsToEvents(new Date(), classEvents));
-    }
-  }, [classEvents]);
-
-  const availableSchedules = useSchedules(
-    classId,
-    mappedEvents
-  );
-
-  useEffect(() => {
-    if (availableSchedules.length && mappedEvents.length) {
-      const matched = matchSchedulesWithEvents(availableSchedules, mappedEvents, classId);
-      setMatchedScheduleEvents(matched);
-    }
-  }, [availableSchedules, mappedEvents, classId]);
-
-
-  return matchedScheduleEvents;
-}
-
-export function useSchedules(productId, mappedEvents) {
-  const [schedules, setSchedules] = useState([]);
-  
-  useEffect(() => {
-    if (productId?.length && mappedEvents?.length) {
+    if (isRequestingSchedules) {
+      const mappedEvents = mapWeekRecurringEventsToEvents(new Date(), recurringEvents);
+      
       (async () => {
-        const response = await fetchSchedules(mappedEvents, productId);
-        setSchedules(mapSchedules(response.data));
+        const response = await fetchSchedules(mappedEvents, id);
+        const matched = matchSchedulesWithEvents(mapSchedules(response.data), mappedEvents, id);
+        
+        setMatches(matched);
       })();
     }
-  }, [productId, mappedEvents]);
+  }, [isRequestingSchedules]);
 
-  return schedules
+  return matches;
 }

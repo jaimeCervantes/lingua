@@ -1,28 +1,14 @@
-import { useState} from 'react';
 import { Box, Paper, Typography, Button, useTheme, useMediaQuery } from '@mui/material'
 import { LlamaChipLanguage } from 'components/LlamaChipLanguages/LlamaChipLanguages';
 import LlamaBookingCalendar from 'components/LlamaBookingCalendar/LlamaBookingCalendar';
-import { useRouter } from 'next/router';
 
 import { createDateTimesFromSchedules, createMiniCalendarMaxTime } from 'components/LlamaClasses/functions';
 
-export default function LlamaPaidClass({ sx, schedules, ...rest }) {
+export default function LlamaPaidClass({ sx, schedules, onBook, ...rest }) {
   const { description, name, price, language, image, flagCode } = rest;
   const theme = useTheme();
   const isLessMd = useMediaQuery(theme.breakpoints.down('md'));
-  const router = useRouter();
   const availableSchedules = createDateTimesFromSchedules(schedules);
-
-  function onBook(e) {
-    sessionStorage.setItem(
-      'selectedPaidClass',
-      JSON.stringify({
-        ...rest,
-        availableSchedules,
-      })
-    );
-    router.push('/premium-classes/booking/');
-  }
   
   return (
     <Paper
@@ -49,7 +35,12 @@ export default function LlamaPaidClass({ sx, schedules, ...rest }) {
           width="100%"
           style={{ marginBottom: '1rem' }}
         />
-        <Button data-testid="LlamaPaidClass__bookBtn" onClick={onBook} variant="contained" sx={{ alignSelf: 'center' }}>Book</Button>
+        <Button
+          data-testid="LlamaPaidClass__bookBtn"
+          onClick={() => onBook({ ...rest, availableSchedules })}
+          variant="contained"
+          sx={{ alignSelf: 'center' }}
+        >Book</Button>
       </Box>
       <Box>
         <Typography variant="h5">{name}</Typography>

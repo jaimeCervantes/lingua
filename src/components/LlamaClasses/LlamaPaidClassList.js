@@ -1,9 +1,11 @@
 import { Box, useTheme, useMediaQuery } from '@mui/material'
 import LlamaPaidClass from './LlamaPaidClass';
+import { useRouter } from 'next/router';
 
 export default function LlamaPaidClassList({ classes, sx }) {
   const theme = useTheme();
   const isLessMd = useMediaQuery(theme.breakpoints.down('md'));
+  const router = useRouter();
 
   return (
     <Box
@@ -15,7 +17,19 @@ export default function LlamaPaidClassList({ classes, sx }) {
         ...sx
       }}
     >
-      {classes.map((item) =>(<LlamaPaidClass key={item.id} {...item}></LlamaPaidClass>))}
+      {classes.map((item) => {
+        return (<LlamaPaidClass
+          key={item.id}
+          {...item}
+          onBook={(info) => {
+            sessionStorage.setItem(
+              'selectedPaidClass',
+              JSON.stringify(info)
+            );
+            router.push('/premium-classes/booking/');
+          }}
+          ></LlamaPaidClass>);
+      })}
     </Box>
   );
 }
