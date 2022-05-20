@@ -35,8 +35,8 @@ function mapRecurringEventToNormalEvent(event, day, fromDate) {
 
   return {
     ...currentEvent,
-    startStr: `${dateStr}T${event.startTimeUTC}:00-04:00`,
-    endStr: `${dateStr}T${event.endTimeUTC}:00-04:00`,
+    startStr: `${dateStr}T${event.startTimeUTC}:00${event.timezoneOffset}`,
+    endStr: `${dateStr}T${event.endTimeUTC}:00${event.timezoneOffset}`,
     date: dateStr
   };
 }

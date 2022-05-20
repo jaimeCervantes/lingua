@@ -6,12 +6,12 @@ import {
   mapSchedules
 } from './mappers';
 
-export function useMatchedSchedules(id, recurringEvents, isRequestingSchedules) {
+export function useMatchedSchedules(id, recurringEvents, isRequestingSchedules, fromDate) {
   const [matches, setMatches] = useState([])
 
   useEffect(() => {
     if (isRequestingSchedules) {
-      const mappedEvents = mapWeekRecurringEventsToEvents(new Date(), recurringEvents);
+      const mappedEvents = mapWeekRecurringEventsToEvents(fromDate, recurringEvents);
       
       (async () => {
         const response = await fetchSchedules(mappedEvents, id);

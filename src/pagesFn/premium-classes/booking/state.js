@@ -1,8 +1,11 @@
 export const initialState = {
-  matchedSchedules: [],
+  matchedSchedules: {
+  },
+  currentWeekDates: [],
   selectedSchedule: {},
   selectedPaidClass: {},
-  isRequestingSchedules: false
+  isRequestingSchedules: false,
+  fromDate: new Date()
 };
 
 export function createInitState(initialState) {

@@ -21,19 +21,19 @@ export default function LlamaBookingCalendar(props) {
       customButtons={{
         prev: {
           text: 'Prev',
-          click () {
+          click (e) {
             calendar.current._calendarApi.prev();
             if (typeof onPrev === 'function') {
-              onPrev();
+              onPrev(calendar.current);
             }
           }
         },
         next: {
           text: 'Next',
-          click() {
+          click(e) {
             calendar.current._calendarApi.next();
             if (typeof onNext === 'function') {
-              onNext();
+              onNext(calendar.current);
             }
           }
         }

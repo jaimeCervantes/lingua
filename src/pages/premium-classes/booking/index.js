@@ -1,25 +1,30 @@
 import { useEffect, useReducer } from 'react';
 import { Box, Paper, Typography } from "@mui/material";
 import LlamaChipLanguages from "components/LlamaChipLanguages/LlamaChipLanguages.js";
-import { getLanguages } from "pagesFn/shared/functions.js";
-import { mapLanguagesToUI } from "pagesFn/shared/mappers.js";
 import LlamaBookingCalendar from "components/LlamaBookingCalendar/LlamaBookingCalendar";
 import LlamaSelectedClassSummary from 'components/LlamaClasses/LlamaSelectedClassSummary';
 
 import { useMatchedSchedules } from 'pagesFn/premium-classes/booking/hooks';
 import reduceBooking from 'pagesFn/premium-classes/booking/reducer';
 import { initialState, createInitState } from 'pagesFn/premium-classes/booking/state';
+import { showSchedulesOfCurrentWeek } from 'pagesFn/premium-classes/booking/functions';
 
 export default function Booking({ languages }) {
   const [ state, dispatch ] = useReducer(reduceBooking, initialState, createInitState);
-  const { selectedSchedule, selectedPaidClass, matchedSchedules, isRequestingSchedules } = state;
+  const {
+    selectedSchedule,
+    selectedPaidClass,
+    matchedSchedules,
+    isRequestingSchedules,
+    fromDate,
+  } = state;
   const { id, availableSchedules: recurringEvents } = selectedPaidClass;
 
   useEffect(() => {
     dispatch({ type: 'isRequestingSchedules', payload: true });
   }, []);
   
-  const matches = useMatchedSchedules(id, recurringEvents, isRequestingSchedules);
+  const matches = useMatchedSchedules(id, recurringEvents, isRequestingSchedules, fromDate);
 
   useEffect(() => {
     if (matches.length) {
@@ -35,13 +40,18 @@ export default function Booking({ languages }) {
       return;
     }
 
-    dispatch({ type: 'updateSelectedSchedule', payload: {
-      ...e.event._instance.range,
-      scheduleId: e.event._def.publicId,
-      availableSeats: extendedProps.availableSeats,
-      capacity: extendedProps.capacity
-    }});
+    dispatch({
+      type: 'updateSelectedSchedule',
+      payload: {
+        ...e.event._instance.range,
+        scheduleId: e.event._def.publicId,
+        availableSeats: extendedProps.availableSeats,
+        capacity: extendedProps.capacity
+      }
+    });
   }
+
+  const startDate = fromDate.toJSON().split('T')[0];
 
   return (
     <>
@@ -63,10 +73,13 @@ export default function Booking({ languages }) {
             }
           }}>
             <LlamaBookingCalendar
-              events={matchedSchedules}
+              events={matchedSchedules[startDate]}
               eventClick={onSelectSchedule}
-              onNext={() => {
-                dispatch({ type: 'isRequestingSchedules', payload: true });
+              onNext={(e) => {
+                showSchedulesOfCurrentWeek(fromDate, 'next', dispatch, matchedSchedules);
+              }}
+              onPrev={(e) => {
+                showSchedulesOfCurrentWeek(fromDate, 'prev', dispatch, matchedSchedules);
               }}
               slotMinTime='00:00'
             ></LlamaBookingCalendar>
@@ -92,10 +105,4 @@ export default function Booking({ languages }) {
   );
 }
 
-export async function getServerSideProps() {
-  const languages = await getLanguages();
-
-  return {
-    props: { languages: mapLanguagesToUI(languages.data), }
-  }
-}
+export { getServerSideProps } from 'pagesFn/premium-classes/booking/functions';

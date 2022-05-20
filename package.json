@@ -26,7 +26,6 @@
     "next": "latest",
     "qs": "^6.10.3",
     "react": "latest",
-    "react-big-calendar": "^0.40.0",
     "react-dom": "latest",
     "stripe": "^8.216.0",
     "swiper": "^8.0.7"
