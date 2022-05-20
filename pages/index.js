@@ -17,6 +17,7 @@ import { getLayout } from '../pagesFn/index/functions';
 import LlamaSocialNetworks from '../components/LlamaSocialNetworks/LlamaSocialNetworks';
 import LlamaTelButton from '../components/LlamaTelButton/LlamaTelButton';
 import LlamaCarousel from '../components/LlamaCarousel/LlamaCarousel';
+import LlamaDialog from '../components/LlamaDialog/LlamaDialog';
 
 export { getStaticProps } from '../pagesFn/index/functions';
 
@@ -25,7 +26,7 @@ export default function Index({ homeImages, tours, index, languages }) {
   const [ isOpen, setIsOpen ] = useState(false);
 
   return (
-    <Box>
+    <>
       <LlamaShowOnScrollAppBar elevation={0}>
         <LlamaSocialNetworks sx={{ flexGrow: 1 }}>
           <Button
@@ -46,6 +47,7 @@ export default function Index({ homeImages, tours, index, languages }) {
         </LlamaSocialNetworks>
         <LlamaTelButton sx={{ padding: { xs: 0, sm: 'inherit' } }}></LlamaTelButton>
       </LlamaShowOnScrollAppBar>
+      
       <header style={{ padding: '1rem', paddingBottom: 0, minHeight: '300px' }}>
         <LlamaBalloons
           className={styles.backInDown}
@@ -112,13 +114,26 @@ export default function Index({ homeImages, tours, index, languages }) {
           </Link>
         </Box>
       </Box>
+
       <LlamaFooter
         copyRight={index.copyRight}
         hasFadeIn
         color="secondary.main"
       >
       </LlamaFooter>
-    </Box>
+
+      <LlamaDialog open={true} fullWidth={true} maxWidth={'xl'}>
+      <iframe
+        style={{ display: 'block', width: '100%', height: '100vh' }}
+        src="https://www.youtube.com/embed/xY-Xgevwq60?rel=0&autoplay=1"
+        title="Welcome to LinguaLlama"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        frameBorder="0"
+      >
+      </iframe>
+      </LlamaDialog>
+    </>
   );
 }
 

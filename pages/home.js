@@ -22,7 +22,7 @@ export default function Home({ events, languages }) {
         <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: 300, sm: 400 }, minHeight: '350px'}}>
         <iframe
           style={{ display: 'block', width: '100%', minHeight: '350px' }}
-          src="https://www.youtube.com/embed/Blae7m30CNs"
+          src="https://www.youtube.com/embed/Blae7m30CNs?rel=0"
           title="Welcome to LinguaLlama"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
