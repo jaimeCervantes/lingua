@@ -1,0 +1,117 @@
+{
+  "data": [
+    {
+      "id": 312,
+      "attributes": {
+        "date": "2022-05-21",
+        "time": "08:30:00.000",
+        "createdAt": "2022-05-22T00:34:45.973Z",
+        "updatedAt": "2022-05-22T00:34:45.973Z",
+        "publishedAt": "2022-05-22T00:34:45.973Z",
+        "capacity": 6,
+        "availableSeats": 6,
+        "productId": "prod_Lj5SeqU1cQYQqK",
+        "timezoneOffset": "-04:00"
+      }
+    },
+    {
+      "id": 313,
+      "attributes": {
+        "date": "2022-05-22",
+        "time": "08:30:00.000",
+        "createdAt": "2022-05-22T00:34:45.973Z",
+        "updatedAt": "2022-05-22T00:34:45.973Z",
+        "publishedAt": "2022-05-22T00:34:45.973Z",
+        "capacity": 6,
+        "availableSeats": 6,
+        "productId": "prod_Lj5SeqU1cQYQqK",
+        "timezoneOffset": "-04:00"
+      }
+    },
+    {
+      "id": 314,
+      "attributes": {
+        "date": "2022-05-21",
+        "time": "09:30:00.000",
+        "createdAt": "2022-05-22T00:34:45.975Z",
+        "updatedAt": "2022-05-22T00:34:45.975Z",
+        "publishedAt": "2022-05-22T00:34:45.975Z",
+        "capacity": 6,
+        "availableSeats": 6,
+        "productId": "prod_Lj5SeqU1cQYQqK",
+        "timezoneOffset": "-04:00"
+      }
+    },
+    {
+      "id": 315,
+      "attributes": {
+        "date": "2022-05-22",
+        "time": "09:30:00.000",
+        "createdAt": "2022-05-22T00:34:45.976Z",
+        "updatedAt": "2022-05-22T00:34:45.976Z",
+        "publishedAt": "2022-05-22T00:34:45.976Z",
+        "capacity": 6,
+        "availableSeats": 6,
+        "productId": "prod_Lj5SeqU1cQYQqK",
+        "timezoneOffset": "-04:00"
+      }
+    },
+    {
+      "id": 316,
+      "attributes": {
+        "date": "2022-05-21",
+        "time": "20:00:00.000",
+        "createdAt": "2022-05-22T00:34:45.977Z",
+        "updatedAt": "2022-05-22T00:34:45.977Z",
+        "publishedAt": "2022-05-22T00:34:45.977Z",
+        "capacity": 6,
+        "availableSeats": 6,
+        "productId": "prod_Lj5SeqU1cQYQqK",
+        "timezoneOffset": "-04:00"
+      }
+    },
+    {
+      "id": 317,
+      "attributes": {
+        "date": "2022-05-23",
+        "time": "20:00:00.000",
+        "createdAt": "2022-05-22T00:34:45.978Z",
+        "updatedAt": "2022-05-22T00:34:45.978Z",
+        "publishedAt": "2022-05-22T00:34:45.978Z",
+        "capacity": 6,
+        "availableSeats": 6,
+        "productId": "prod_Lj5SeqU1cQYQqK",
+        "timezoneOffset": "-04:00"
+      }
+    },
+    {
+      "id": 318,
+      "attributes": {
+        "date": "2022-05-23",
+        "time": "12:00:00.000",
+        "createdAt": "2022-05-22T00:34:45.979Z",
+        "updatedAt": "2022-05-22T00:34:45.979Z",
+        "publishedAt": "2022-05-22T00:34:45.979Z",
+        "capacity": 6,
+        "availableSeats": 6,
+        "productId": "prod_Lj5SeqU1cQYQqK",
+        "timezoneOffset": "-04:00"
+      }
+    },
+    {
+      "id": 319,
+      "attributes": {
+        "date": "2022-05-19",
+        "time": "09:30:00.000",
+        "createdAt": "2022-05-22T00:34:45.980Z",
+        "updatedAt": "2022-05-22T00:34:45.980Z",
+        "publishedAt": "2022-05-22T00:34:45.980Z",
+        "capacity": 6,
+        "availableSeats": 6,
+        "productId": "prod_Lj5SeqU1cQYQqK",
+        "timezoneOffset": "-04:00"
+      }
+    }
+  ],
+  "meta": { "pagination": {} }
+}

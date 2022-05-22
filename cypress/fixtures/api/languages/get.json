@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "attributes": {
+        "name": "English",
+        "countryFlagCode": "us",
+        "link": "https://linguallama-store.mailchimpsites.com/english-classes",
+        "Image": { "data": null }
+      }
+    },
+    {
+      "id": 3,
+      "attributes": {
+        "name": "Esperanto",
+        "countryFlagCode": null,
+        "link": "https://linguallama-store.mailchimpsites.com/more-languages",
+        "Image": {
+          "data": {
+            "id": 21,
+            "attributes": { "url": "/uploads/esperanto_flag_db73ae9d96.svg" }
+          }
+        }
+      }
+    },
+    {
+      "id": 2,
+      "attributes": {
+        "name": "Spanish",
+        "countryFlagCode": "es",
+        "link": "https://linguallama-store.mailchimpsites.com/spanish-classes",
+        "Image": { "data": null }
+      }
+    }
+  ],
+  "meta": {
+    "pagination": { "page": 1, "pageSize": 25, "pageCount": 1, "total": 3 }
+  }
+}

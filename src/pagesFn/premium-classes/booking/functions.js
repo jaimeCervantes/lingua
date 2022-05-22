@@ -45,10 +45,10 @@ export function getDateFromDay(day, currentDay, currentDate) {
 export async function fetchSchedules(mappedEvents, productId) {
   try {
     const schedules = await fetchAPI('/schedules/find-or-create', undefined, {
+      method: 'POST',
       body: JSON.stringify({
         data: { events: mappedEvents, productId }
-      }),
-      method: 'POST'
+      })
     });
 
     return schedules

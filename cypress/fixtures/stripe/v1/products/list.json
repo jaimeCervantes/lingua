@@ -1,0 +1,239 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "prod_Lj5SeqU1cQYQqK",
+      "object": "product",
+      "active": true,
+      "attributes": [],
+      "created": 1653081799,
+      "default_price": "price_1L1dI4KJD6sdfheKV6w9Svyw",
+      "description": "English with Nico recurring price",
+      "images": [
+        "https://files.stripe.com/links/MDB8YWNjdF8xOFNkeUlLSkQ2c2RmaGVLfGZsX3Rlc3RfWTRFNjVxblBGdjU4NlROOGs4eTFFcVNU00PFeeIOIs"
+      ],
+      "livemode": false,
+      "metadata": {
+        "language": "English",
+        "flagCode": "us",
+        "priceId": "price_1L1dI4KJD6sdfheKV6w9Svyw",
+        "price": "15",
+        "schedules": "[{\"repeats\":true,\"daysOfWeek\":[1,2],\"startTime\":\"08:30\",\"endTime\":\"09:30\",\"timezoneOffset\":\"-04:00\"},{\"repeats\":true,\"daysOfWeek\":[1,2],\"startTime\":\"09:30\",\"endTime\":\"10:30\",\"timezoneOffset\":\"-04:00\"},{\"repeats\":true,\"daysOfWeek\":[1,3],\"startTime\":\"20:00\",\"endTime\":\"21:00\",\"timezoneOffset\":\"-04:00\"},{\"repeats\":true,\"daysOfWeek\":[3],\"startTime\":\"12:00\",\"endTime\":\"13:00\",\"timezoneOffset\":\"-04:00\"},{\"repeats\":true,\"daysOfWeek\":[6],\"startTime\":\"09:30\",\"endTime\":\"10:30\",\"timezoneOffset\":\"-04:00\"}]"
+      },
+      "name": "English with Nico recurring price",
+      "package_dimensions": null,
+      "shippable": null,
+      "statement_descriptor": null,
+      "tax_code": null,
+      "type": "service",
+      "unit_label": null,
+      "updated": 1653082126,
+      "url": null
+    },
+    {
+      "id": "prod_LWfophdX9tCsGv",
+      "object": "product",
+      "active": true,
+      "attributes": [],
+      "created": 1650218684,
+      "default_price": "price_1KpcSnKJD6sdfheKl9anK3nE",
+      "description": "English with Nico",
+      "images": [
+        "https://files.stripe.com/links/MDB8YWNjdF8xOFNkeUlLSkQ2c2RmaGVLfGZsX3Rlc3RfcUc3V3J3cFZxZ0l0blIxVktKTmJpMmpR00xaCA76nF"
+      ],
+      "livemode": false,
+      "metadata": {
+        "language": "English",
+        "flagCode": "us",
+        "priceId": "price_1KpcSnKJD6sdfheKl9anK3nE",
+        "price": "15",
+        "schedules": "[{\"repeats\":true,\"daysOfWeek\":[1,2],\"startTime\":\"08:30\",\"endTime\":\"09:30\",\"timezoneOffset\":\"-04:00\"},{\"repeats\":true,\"daysOfWeek\":[1,2],\"startTime\":\"09:30\",\"endTime\":\"10:30\",\"timezoneOffset\":\"-04:00\"},{\"repeats\":true,\"daysOfWeek\":[1,3],\"startTime\":\"20:00\",\"endTime\":\"21:00\",\"timezoneOffset\":\"-04:00\"},{\"repeats\":true,\"daysOfWeek\":[3],\"startTime\":\"12:00\",\"endTime\":\"13:00\",\"timezoneOffset\":\"-04:00\"},{\"repeats\":true,\"daysOfWeek\":[6],\"startTime\":\"09:30\",\"endTime\":\"10:30\",\"timezoneOffset\":\"-04:00\"}]"
+      },
+      "name": "English with Nico",
+      "package_dimensions": null,
+      "shippable": null,
+      "statement_descriptor": null,
+      "tax_code": null,
+      "type": "service",
+      "unit_label": null,
+      "updated": 1653082397,
+      "url": null
+    },
+    {
+      "id": "prod_LUU8WF0qYsCwxv",
+      "object": "product",
+      "active": true,
+      "attributes": [],
+      "created": 1649713986,
+      "default_price": "price_1KnVAUKJD6sdfheKQm1AzB0f",
+      "description": "Eight premium classes, monthly",
+      "images": [
+        "https://files.stripe.com/links/MDB8YWNjdF8xOFNkeUlLSkQ2c2RmaGVLfGZsX3Rlc3RfOG80OGw5WG5Zb3g1RVN2SUFyYmRaa3Rs00GTtlNbKm"
+      ],
+      "livemode": false,
+      "metadata": {
+        "priceId": "price_1KnVAUKJD6sdfheKQm1AzB0f",
+        "language": "English",
+        "flagCode": "us",
+        "schedules": "[\n  {\n    \"date\": \"2022-04-20\",\n    \"time\": \"09:00:00\"\n  },\n  {\n    \"date\": \"2022-04-19\",\n    \"time\": \"12:00:00\"\n  },\n  {\n    \"date\": \"2022-04-17\",\n    \"time\": \"19:00:00\"\n  }\n]",
+        "price": "80"
+      },
+      "name": "Premium Classes Monthly 8x",
+      "package_dimensions": null,
+      "shippable": null,
+      "statement_descriptor": null,
+      "tax_code": null,
+      "type": "service",
+      "unit_label": null,
+      "updated": 1651855560,
+      "url": null
+    },
+    {
+      "id": "prod_LUTv1GSA4qzGQq",
+      "object": "product",
+      "active": true,
+      "attributes": [],
+      "created": 1649713190,
+      "default_price": "price_1KnUxeKJD6sdfheKOErVou16",
+      "description": "Student pace cost per lesson",
+      "images": [
+        "https://files.stripe.com/links/MDB8YWNjdF8xOFNkeUlLSkQ2c2RmaGVLfGZsX3Rlc3RfVnZTaFEzTjRxMDhpcm1od2FHc2FJUjZW000otMYVcL"
+      ],
+      "livemode": false,
+      "metadata": {
+        "price": "5",
+        "priceId": "price_1KnUxeKJD6sdfheKOErVou16",
+        "flagCode": "us",
+        "language": "English",
+        "schedules": "[]"
+      },
+      "name": "Student pace",
+      "package_dimensions": null,
+      "shippable": null,
+      "statement_descriptor": null,
+      "tax_code": null,
+      "type": "service",
+      "unit_label": null,
+      "updated": 1651855561,
+      "url": null
+    },
+    {
+      "id": "prod_LUTtHxZzceDgsX",
+      "object": "product",
+      "active": true,
+      "attributes": [],
+      "created": 1649713066,
+      "default_price": "price_1KnUveKJD6sdfheKXnrDrE7x",
+      "description": "VIP Unlimited number of classes",
+      "images": [
+        "https://files.stripe.com/links/MDB8YWNjdF8xOFNkeUlLSkQ2c2RmaGVLfGZsX3Rlc3RfWTQ2eVhCM2V6OUF1a2hRd3V2NUxKcG9R00I1BD7mXB"
+      ],
+      "livemode": false,
+      "metadata": {
+        "price": "200",
+        "priceId": "price_1KnUveKJD6sdfheKXnrDrE7x",
+        "language": "English",
+        "flagCode": "us",
+        "schedules": "[]"
+      },
+      "name": "VIP Unlimited",
+      "package_dimensions": null,
+      "shippable": null,
+      "statement_descriptor": null,
+      "tax_code": null,
+      "type": "service",
+      "unit_label": null,
+      "updated": 1651855562,
+      "url": null
+    },
+    {
+      "id": "prod_LUTpfnyIKA0XUV",
+      "object": "product",
+      "active": true,
+      "attributes": [],
+      "created": 1649712822,
+      "default_price": "price_1KnUrjKJD6sdfheK9oYYYxFk",
+      "description": "Five private lessons",
+      "images": [
+        "https://files.stripe.com/links/MDB8YWNjdF8xOFNkeUlLSkQ2c2RmaGVLfGZsX3Rlc3RfcTlUaUIzT0dzbmpDNHZrSzMwUVdwVU1E00TDBpyYvS"
+      ],
+      "livemode": false,
+      "metadata": {
+        "price": "80",
+        "priceId": "price_1KnUrjKJD6sdfheK9oYYYxFk",
+        "language": "English",
+        "flagCode": "us",
+        "schedules": "[\n  {\n    \"date\": \"2022-04-20\",\n    \"time\": \"09:00:00\"\n  },\n  {\n    \"date\": \"2022-04-19\",\n    \"time\": \"12:00:00\"\n  },\n  {\n    \"date\": \"2022-04-17\",\n    \"time\": \"18:00:00\"\n  }\n]"
+      },
+      "name": "5 private lessons",
+      "package_dimensions": null,
+      "shippable": null,
+      "statement_descriptor": null,
+      "tax_code": null,
+      "type": "service",
+      "unit_label": null,
+      "updated": 1651855560,
+      "url": null
+    },
+    {
+      "id": "prod_LUTnccxS9SAJzw",
+      "object": "product",
+      "active": true,
+      "attributes": [],
+      "created": 1649712734,
+      "default_price": "price_1KnUqJKJD6sdfheKtKjwdnJU",
+      "description": "An hour of Spanish premium class",
+      "images": [
+        "https://files.stripe.com/links/MDB8YWNjdF8xOFNkeUlLSkQ2c2RmaGVLfGZsX3Rlc3RfOWRweW0zd3hoNUt6d3N3S2g2clF6aFF400Q6xdWOAw"
+      ],
+      "livemode": false,
+      "metadata": {
+        "price": "10",
+        "priceId": "price_1KnUqJKJD6sdfheKtKjwdnJU",
+        "language": "English",
+        "flagCode": "us",
+        "schedule": "[\n  {\n    \"date\": \"2022-04-20\",\n    \"time\": \"09:00:00\"\n  },\n  {\n    \"date\": \"2022-04-19\",\n    \"time\": \"12:00:00\"\n  },\n  {\n    \"date\": \"2022-04-17\",\n    \"time\": \"18:00:00\"\n  }\n]"
+      },
+      "name": "Spanish Premium class 1 hour",
+      "package_dimensions": null,
+      "shippable": null,
+      "statement_descriptor": null,
+      "tax_code": null,
+      "type": "service",
+      "unit_label": null,
+      "updated": 1651855559,
+      "url": null
+    },
+    {
+      "id": "prod_LThLc3PU40VcmF",
+      "object": "product",
+      "active": true,
+      "attributes": [],
+      "created": 1649532460,
+      "default_price": "price_1KnVCQKJD6sdfheK9Nf2JFqH",
+      "description": "An hour of English premium class",
+      "images": [
+        "https://files.stripe.com/links/MDB8YWNjdF8xOFNkeUlLSkQ2c2RmaGVLfGZsX3Rlc3RfNklmUElHUmpNbnlyRkxJZ09DVmRIYzlu00MNeddQbZ"
+      ],
+      "livemode": false,
+      "metadata": {
+        "priceId": "price_1KnVCQKJD6sdfheK9Nf2JFqH",
+        "flagCode": "us",
+        "price": "10",
+        "language": "English",
+        "schedules": "[\n  {\n    \"date\": \"2022-04-20\",\n    \"time\": \"09:00:00\"\n  },\n  {\n    \"date\": \"2022-04-19\",\n    \"time\": \"12:00:00\"\n  },\n  {\n    \"date\": \"2022-04-17\",\n    \"time\": \"18:00:00\"\n  }\n]"
+      },
+      "name": "English Premium Class 1 hour",
+      "package_dimensions": null,
+      "shippable": null,
+      "statement_descriptor": null,
+      "tax_code": null,
+      "type": "service",
+      "unit_label": null,
+      "updated": 1651855367,
+      "url": null
+    }
+  ],
+  "has_more": false,
+  "url": "/v1/products"
+}
