@@ -4,10 +4,11 @@ import LlamaChipLanguages from "components/LlamaChipLanguages/LlamaChipLanguages
 import LlamaBookingCalendar from "components/LlamaBookingCalendar/LlamaBookingCalendar";
 import LlamaSelectedClassSummary from 'components/LlamaClasses/LlamaSelectedClassSummary';
 
-import { useMatchedSchedules } from 'pagesFn/premium-classes/booking/hooks';
+import { useMatchedSchedules, useFetchClassPrices } from 'pagesFn/premium-classes/booking/hooks';
 import reduceBooking from 'pagesFn/premium-classes/booking/reducer';
 import { initialState, createInitState } from 'pagesFn/premium-classes/booking/state';
 import { showSchedulesOfCurrentWeek } from 'pagesFn/premium-classes/booking/functions';
+import { mapPricesToUI } from 'pagesFn/premium-classes/booking/mappers';
 
 export default function Booking({ languages }) {
   const [ state, dispatch ] = useReducer(reduceBooking, initialState, createInitState);
@@ -19,6 +20,7 @@ export default function Booking({ languages }) {
     fromDate,
   } = state;
   const { id, availableSchedules: recurringEvents } = selectedPaidClass;
+  const prices = useFetchClassPrices(id, mapPricesToUI);
 
   useEffect(() => {
     dispatch({ type: 'isRequestingSchedules', payload: true });
@@ -97,9 +99,8 @@ export default function Booking({ languages }) {
           left: 0,
         }}
         {...selectedPaidClass}
-        
         selectedSchedule={selectedSchedule}
-        
+        prices={prices}
       ></LlamaSelectedClassSummary>
     </>
   );

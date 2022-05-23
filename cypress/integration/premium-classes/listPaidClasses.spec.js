@@ -1,4 +1,4 @@
-import { stubPremiumClassesPage } from '../requestsStubs.js';
+import { stubPremiumClassesPage } from './requestsStubs.js';
 
 describe('Given an user in LinguaLlama.org/premium-classes', () => {
   beforeEach(() => {

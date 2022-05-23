@@ -1,4 +1,26 @@
-import { getDateFromDay } from './functions';
+import { getDateFromDay } from './dateFunctions';
+
+export function mapPricesToUI(json) {
+  const data = json.data
+
+  const actives = data.filter(price => Boolean(price.active));
+
+  return actives.map(price => {
+    const mappedPrice =  {
+      id: price.id,
+      type: price.type === 'recurring' ? 'subscription' : 'payment',
+      amount: price.unit_amount/100,
+      currency: price.currency.toUpperCase()
+    };
+
+    if (price.recurring) {
+      mappedPrice.interval = price.recurring.interval;
+      mappedPrice.interval_count = price.recurring.interval_count;
+    }
+
+    return mappedPrice;
+  })
+}
 
 export function mapSchedules(data) {
   return data.map(schedule => ({

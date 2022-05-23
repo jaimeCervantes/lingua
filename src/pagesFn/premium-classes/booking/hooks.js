@@ -24,3 +24,21 @@ export function useMatchedSchedules(id, recurringEvents, isRequestingSchedules, 
 
   return matches;
 }
+
+export function useFetchClassPrices(id, mapper) {
+  const [prices, setPrices] = useState([]);
+
+  useEffect(() => {
+    if (id) {
+      (async () => {
+        const response = await fetch(`/api/prices/search?id=${id}`);
+        if (response.ok) {
+          const json = await response.json();
+          setPrices(mapper(json));
+        }
+      })();
+    }
+  }, [id]);
+
+  return prices
+}

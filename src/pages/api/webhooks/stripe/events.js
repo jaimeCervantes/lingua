@@ -33,7 +33,7 @@ export default async function onChargeSucceeded(req, res) {
   try {
     await doActionBasedOnEvent(event);
   } catch(err) {
-    console.log(error);
+    console.log(err);
     // @TODO: notify to linguallama about the error, availableSeats cannot be updated
   }
   // retun a 200 response

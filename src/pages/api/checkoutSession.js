@@ -33,7 +33,7 @@ async function createCheckout(body, headers) {
 }
 
 async function createStripeCheckoutSession(body, headers) {
-  return await stripe.checkout.sessions.create({
+  const createPayload = {
     line_items: [
       {
         price: body.priceId,
@@ -42,11 +42,14 @@ async function createStripeCheckoutSession(body, headers) {
       }
     ],
     metadata: JSON.parse(body.metadata),
-    payment_intent_data: {
-      metadata: JSON.parse(body.metadata)
-    },
-    mode: 'payment',
+    mode: body.mode || 'payment',
     success_url: `${headers.origin}/premium-classes/payment/?success=true`,
     cancel_url: `${headers.origin}/premium-classes/payment/?canceled=true`,
-  });
+  };
+
+  if (body.mode !== 'subscription') {
+    createPayload.payment_intent_data = { metadata: JSON.parse(body.metadata) };
+  }
+
+  return await stripe.checkout.sessions.create(createPayload);
 }

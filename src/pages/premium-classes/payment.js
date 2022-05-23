@@ -9,16 +9,6 @@ import Link from "next/link";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
-const teacher = {
-  name: 'Jaime Cervantes',
-  avatar: 'https://res.cloudinary.com/jaime-lingua/image/upload/v1648078261/small_free_spanish_classes_1000_6e6adaf4a4.jpg',
-  slug: '/premium-classes/booking',
-  languages: [{ label: 'English', flagCode: 'us', img: null }],
-  intro: 'Hello I am jaime and and I like avocado',
-  scheduleAvailable: [{ date: '04-29-2022', time: '08:00 00' }],
-  price: '15.00'
-};
-
 export default function Payment({ languages }) {
   const router = useRouter();
   const theme = useTheme();
@@ -28,11 +18,11 @@ export default function Payment({ languages }) {
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
 
-    if(query.get('success')) {
+    if (query.get('success')) {
       console.log('Order placed! You will receive an email confirmation.');
     }
 
-    if(query.get('canceled')) {
+    if (query.get('canceled')) {
       console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
     }
 
@@ -81,7 +71,6 @@ export default function Payment({ languages }) {
 
 export async function getStaticProps() {
   const languages = await getLanguages();
-  //const teachers = await getTeachers();
 
   return {
     props: { languages: mapLanguagesToUI(languages.data), }

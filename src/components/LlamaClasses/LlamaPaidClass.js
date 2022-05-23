@@ -2,7 +2,7 @@ import { Box, Paper, Typography, Button, useTheme, useMediaQuery } from '@mui/ma
 import { LlamaChipLanguage } from 'components/LlamaChipLanguages/LlamaChipLanguages';
 import LlamaBookingCalendar from 'components/LlamaBookingCalendar/LlamaBookingCalendar';
 
-import { createDateTimesFromSchedules, createMiniCalendarMaxTime } from 'components/LlamaClasses/functions';
+import { createDateTimesFromSchedules, createMiniCalendarMaxTime } from 'pagesFn/premium-classes/dateFunctions';
 
 export default function LlamaPaidClass({ sx, schedules, onBook, ...rest }) {
   const { description, name, price, language, image, flagCode } = rest;
