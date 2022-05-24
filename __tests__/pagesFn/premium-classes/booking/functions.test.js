@@ -2,7 +2,8 @@ import {
   mapWeekRecurringEventsToEvents, 
   matchSchedulesWithEvents
 } from 'pagesFn/premium-classes/booking/mappers';
-import { fetchSchedules, calculateStartDateOfWeek } from 'pagesFn/premium-classes/booking/functions';
+import { fetchSchedules } from 'pagesFn/premium-classes/booking/functions';
+import { calculateStartDateOfWeek } from 'pagesFn/premium-classes/booking/dateFunctions';
 import recurringEvents from 'doubles/premium-classes/dummies/recurringEvents';
 import schedules from 'doubles/premium-classes/dummies/schedules';
 import mappedEvents from 'doubles/premium-classes/dummies/mappedEvents';

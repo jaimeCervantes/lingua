@@ -47,8 +47,12 @@ async function createStripeCheckoutSession(body, headers) {
     cancel_url: `${headers.origin}/premium-classes/payment/?canceled=true`,
   };
 
-  if (body.mode !== 'subscription') {
+  if (body.mode === 'payment') {
     createPayload.payment_intent_data = { metadata: JSON.parse(body.metadata) };
+  }
+
+  if (body.mode === 'subscription') {
+    createPayload.subscription_data = { metadata: JSON.parse(body.metadata) };
   }
 
   return await stripe.checkout.sessions.create(createPayload);

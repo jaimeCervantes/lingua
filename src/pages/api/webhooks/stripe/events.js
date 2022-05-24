@@ -13,7 +13,7 @@ export const config = {
   }
 }
 
-export default async function onChargeSucceeded(req, res) {
+export default async function onStripeEvent(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method not allowed');
@@ -72,7 +72,7 @@ function constructEvent(body, signature, endpointSecret) {
   }
 }
 
-async function doActionBasedOnEvent(event) {
+export async function doActionBasedOnEvent(event) {
   if (!event) {
     return;
   }
@@ -80,6 +80,9 @@ async function doActionBasedOnEvent(event) {
   switch (event.type) {
     case 'charge.succeeded':
       await updateSchedule(event.data?.object?.metadata);
+      break;
+    case 'invoice.payment_succeeded':
+      await updateSchedule(event.data?.object?.lines?.data[0]?.metadata);
       break;
     default:
       console.log(`Unhandle event type ${event.type}`);
@@ -89,8 +92,8 @@ async function doActionBasedOnEvent(event) {
 }
 
 
-async function updateSchedule(metadata) {
-  if (!metadata) {
+export async function updateSchedule(metadata) {
+  if (!metadata?.scheduleId) {
     return;
   }
 
