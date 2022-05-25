@@ -13,7 +13,7 @@ export function getLayout(page) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(ctx) {
   const [images, tours, index, languages ] = await Promise.all([
     fetchAPI('/home-images/', {
       populate: {
