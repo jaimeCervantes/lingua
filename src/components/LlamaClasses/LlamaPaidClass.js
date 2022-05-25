@@ -5,7 +5,7 @@ import LlamaBookingCalendar from 'components/LlamaBookingCalendar/LlamaBookingCa
 import { createDateTimesFromSchedules, createMiniCalendarMaxTime } from 'pagesFn/premium-classes/dateFunctions';
 
 export default function LlamaPaidClass({ sx, schedules, onBook, ...rest }) {
-  const { description, name, price, language, image, flagCode } = rest;
+  const { description, name, language, image, flagCode } = rest;
   const theme = useTheme();
   const isLessMd = useMediaQuery(theme.breakpoints.down('md'));
   const availableSchedules = createDateTimesFromSchedules(schedules);
@@ -51,8 +51,6 @@ export default function LlamaPaidClass({ sx, schedules, onBook, ...rest }) {
           flagCode={flagCode}
         >
         </LlamaChipLanguage>
-        <Typography variant="h6" component="p">Price</Typography>
-        ${price} USD
       </Box>
       <Box>
         <Box sx={{

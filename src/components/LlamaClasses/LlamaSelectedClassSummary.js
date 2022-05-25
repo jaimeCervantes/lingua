@@ -70,7 +70,7 @@ export default function LlamaSelectedClassSummary({ sx, prices = [], ...rest }) 
         <input type="hidden" name="priceId" value={price.id} />
         <input type="hidden" name="mode" value={price.type} />
         <input type="hidden" name="metadata" value={JSON.stringify(selectedSchedule)} />
-        <input type="hidden" name="description" defaultValue={createDescription(name, selectedSchedule)} />
+        <input type="hidden" name="description" value={createDescription(name, selectedSchedule)} />
 
         <Typography variant="h6" component="p"> ${price.amount} {price.currency}</Typography>
         <Button type="submit" variant="contained" color="primary" size="large">Pay</Button>
