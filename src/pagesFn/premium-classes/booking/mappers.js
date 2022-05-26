@@ -29,7 +29,7 @@ export function mapSchedules(data) {
     capacity: schedule.attributes.capacity,
     date: schedule.attributes.date,
     productId: schedule.attributes.productId,
-    time: schedule.attributes.time.replace(':00.000', ''),
+    time: schedule.attributes.time.replace(/:00(\.000)?$/, ''),
     timezoneOffset: schedule.attributes.timezoneOffset
   }));
 }
@@ -74,7 +74,7 @@ export function matchSchedulesWithEvents(schedules, events, productId) {
     });
 
     if (!schedule) {
-      console.error('Not matched schedule with event', schedule, event);
+      console.error('Not matched schedule with event', schedule, event, schedules);
       return {};
     }
 
