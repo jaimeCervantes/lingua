@@ -29,7 +29,7 @@ export function mapSchedules(data) {
     capacity: schedule.attributes.capacity,
     date: schedule.attributes.date,
     productId: schedule.attributes.productId,
-    time: schedule.attributes.time,
+    time: schedule.attributes.time.replace(/:00(\.000)?$/, ''),
     timezoneOffset: schedule.attributes.timezoneOffset
   }));
 }
@@ -73,6 +73,11 @@ export function matchSchedulesWithEvents(schedules, events, productId) {
       return false;
     });
 
+    if (!schedule) {
+      console.error('Not matched schedule with event', schedule, event, schedules);
+      return {};
+    }
+
     const start = new Date(`${schedule.date}T${event.startTimeUTC}${schedule.timezoneOffset}`);
     const end = new Date(`${schedule.date}T${event.endTimeUTC}${schedule.timezoneOffset}`);
     const availableSeats = schedule.availableSeats;
@@ -91,11 +96,9 @@ export function matchSchedulesWithEvents(schedules, events, productId) {
 }
 
 function hasMatchedScheduleWithEvent(schedule, event, productId) {
-  const scheduleTime = schedule.time.replace(':00.000','');
-
   if (
       schedule.date === event.date
-      && scheduleTime === event.startTimeUTC
+      && schedule.time === event.startTimeUTC
       && schedule.productId === productId
   ) {
     return true;

@@ -66,15 +66,20 @@ export default function LlamaSelectedClassSummary({ sx, prices = [], ...rest }) 
         {formatDate(selectedSchedule.start)} to {formatDate(selectedSchedule.end).split(' ')[4]}
       </Typography>
 
-      <form action="/api/checkoutSession" method="POST" style={{ visibility: selectedSchedule.start ? 'visible' : 'hidden'}}>
-        <input type="hidden" name="priceId" value={price.id} />
-        <input type="hidden" name="mode" value={price.type} />
-        <input type="hidden" name="metadata" value={JSON.stringify(selectedSchedule)} />
-        <input type="hidden" name="description" value={createDescription(name, selectedSchedule)} />
+      {
+        price?.id ? <form action="/api/checkoutSession" method="POST" style={{ visibility: selectedSchedule.start ? 'visible' : 'hidden'}}>
+          <input type="hidden" name="priceId" value={price.id} />
+          <input type="hidden" name="mode" value={price.type} />
+          <input type="hidden" name="metadata" value={JSON.stringify(selectedSchedule)} />
+          <input type="hidden" name="description" value={createDescription(name, selectedSchedule)} />
 
-        <Typography variant="h6" component="p"> ${price.amount} {price.currency}</Typography>
-        <Button type="submit" variant="contained" color="primary" size="large">Pay</Button>
-      </form>
+          <Typography variant="h6" component="p"> ${price.amount} {price.currency}</Typography>
+          <Button type="submit" variant="contained" color="primary" size="large">Pay</Button>
+        </form>
+        : ''
+      }
+
+      
      
     </Paper>
   );
