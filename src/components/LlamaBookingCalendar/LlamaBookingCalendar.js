@@ -22,7 +22,6 @@ export default function LlamaBookingCalendar(props) {
         prev: {
           text: 'Prev',
           click (e) {
-            calendar.current._calendarApi.prev();
             if (typeof onPrev === 'function') {
               onPrev(calendar.current);
             }
@@ -31,7 +30,6 @@ export default function LlamaBookingCalendar(props) {
         next: {
           text: 'Next',
           click(e) {
-            calendar.current._calendarApi.next();
             if (typeof onNext === 'function') {
               onNext(calendar.current);
             }

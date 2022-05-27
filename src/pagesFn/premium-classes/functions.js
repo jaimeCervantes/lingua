@@ -5,5 +5,8 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY, {
 });
 
 export async function getClasses() {
-  return await stripe.products.list();
+  return await stripe.products.search({
+    query: `active:'true' AND metadata['type']:'class'`,
+    limit: 20
+  });
 }
