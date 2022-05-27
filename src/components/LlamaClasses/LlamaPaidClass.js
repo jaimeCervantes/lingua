@@ -45,7 +45,6 @@ export default function LlamaPaidClass({ sx, schedules, onBook, ...rest }) {
       <Box>
         <Typography variant="h5">{name}</Typography>
         <Typography>{description}</Typography>
-        <Typography variant="h6" component="p"> I teach</Typography>
         <LlamaChipLanguage
           label={language}
           flagCode={flagCode}
