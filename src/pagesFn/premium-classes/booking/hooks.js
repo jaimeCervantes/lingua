@@ -5,7 +5,7 @@ export function useMatchedSchedules(id, mappedEvents, isRequestingSchedules, map
   const [matches, setMatches] = useState([])
 
   useEffect(() => {
-    if (isRequestingSchedules) {
+    if (isRequestingSchedules && mappedEvents.length) {
       (async () => {
         const response = await fetchSchedules(mappedEvents, id);
         const matched = mapper(response.data, mappedEvents, id);
@@ -13,7 +13,7 @@ export function useMatchedSchedules(id, mappedEvents, isRequestingSchedules, map
         setMatches(matched);
       })();
     }
-  }, [isRequestingSchedules]);
+  }, [isRequestingSchedules, mappedEvents]);
 
   return matches;
 }

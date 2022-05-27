@@ -29,7 +29,9 @@ export default function Booking({ languages }) {
   const mappedEvents = mapWeekRecurringEventsToEvents(fromDate, recurringEvents);
   
   useEffect(() => {
-    dispatch({ type: 'isRequestingSchedules', payload: true });
+    if (mappedEvents.length) {
+      dispatch({ type: 'isRequestingSchedules', payload: true });
+    }
   }, []);
 
   
@@ -90,14 +92,14 @@ export default function Booking({ languages }) {
               events={matchedSchedules[startDate]}
               eventClick={onSelectSchedule}
               onNext={(calendar) => {
-                if (isRequestingSchedules) {
+                if (isRequestingSchedules || !mappedEvents.length) {
                   return;
                 }
                 calendar._calendarApi.next();
                 showSchedulesOfCurrentWeek(fromDate, 'next', dispatch, matchedSchedules);
               }}
               onPrev={(calendar) => {
-                if (isRequestingSchedules) {
+                if (isRequestingSchedules || !mappedEvents.length) {
                   return;
                 }
                 calendar._calendarApi.prev();
