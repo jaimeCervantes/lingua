@@ -64,8 +64,10 @@ export default function LlamaPaidClass({ sx, schedules, onBook, ...rest }) {
         }}>
           <LlamaBookingCalendar
             height={200}
-            slotMaxTime={createMiniCalendarMaxTime()}
             events={availableSchedules}
+            slotDuration={'04:00:00'}
+            slotMinTime='00:00'
+            eventTextColor="#3788d8"
           ></LlamaBookingCalendar>
         </Box>
         
