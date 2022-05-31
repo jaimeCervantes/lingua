@@ -26,27 +26,7 @@ export default function Index({ homeImages, tours, index, languages }) {
 
   return (
     <Box>
-      <LlamaShowOnScrollAppBar elevation={0}>
-        <LlamaSocialNetworks sx={{ flexGrow: 1 }}>
-          <Button
-            sx={{
-              display: 'inline-block',
-              '&:hover': {
-                textDecoration: 'underline'
-              },
-              fontSize: { sm: '1.5rem', xs: '1rem' },
-              fontFamily: 'Bangers',
-              color: 'secondary.main'
-            }}
-            href="https://docs.google.com/forms/d/e/1FAIpQLSe1nXK4UCVgf9gpOYk52vVMBdEiUQh0qcEqgH_gvWkWsetOVg/viewform"
-            target="_blank"
-          >
-            Teachers
-          </Button>
-        </LlamaSocialNetworks>
-        <LlamaTelButton sx={{ padding: { xs: 0, sm: 'inherit' } }}></LlamaTelButton>
-      </LlamaShowOnScrollAppBar>
-      <header style={{ padding: '1rem', paddingBottom: 0, minHeight: '300px' }}>
+      <section style={{ padding: '1rem', paddingBottom: 0, minHeight: '300px' }}>
         <LlamaBalloons
           className={styles.backInDown}
           sx={{ marginTop: { xs: '2rem', sm: 'inherit' } }}
@@ -68,7 +48,7 @@ export default function Index({ homeImages, tours, index, languages }) {
             style={{ marginBottom: '0.5rem' }}
           />  
         </LlamaBalloons>
-      </header>
+      </section>
 
       <LlamaLanguages
         className={styles.LlamaLanguages}
