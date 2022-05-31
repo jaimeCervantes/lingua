@@ -15,11 +15,7 @@ export default function PremiumClasses({ languages, classes }) {
   return (
     <Box data-testid="premium-classes-content">
       <Box sx={{ marginBottom: '2rem' }}>
-        <LlamaLanguagesSelector
-          languages={languages}
-          value={selectedLanguage}
-          setValue={setSelectedLanguage}
-        ></LlamaLanguagesSelector>
+
       </Box>
 
       <LlamaPaidClassList classes={classes}></LlamaPaidClassList>
