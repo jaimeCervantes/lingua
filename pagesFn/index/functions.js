@@ -3,10 +3,12 @@ import { getLanguages } from '../shared/functions';
 import { mapHomeImagesToUI, mapToursToUI } from './mappers';
 import { mapLanguagesToUI } from '../shared/mappers';
 import LlamaPlacementTestButton from '../../components/Buttons/LlamaPlacementTestButton'
+import LLamaHeader from '../../components/LlamaHeader/LlamaHeader';
 
 export function getLayout(page) {
   return (
     <>
+      <LLamaHeader></LLamaHeader>
       {page}
       <LlamaPlacementTestButton></LlamaPlacementTestButton>
     </>

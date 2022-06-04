@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { Button } from '@mui/material';
 
-export default forwardRef(function LlamaButton({ sx, children, ...rest }, ref) {
+export default forwardRef(function LlamaButton({ sx, children, current, ...rest }, ref) {
   return (
     <Button
       ref={ref}
@@ -20,6 +20,7 @@ export default forwardRef(function LlamaButton({ sx, children, ...rest }, ref) {
         ...sx
       }}
 
+      current={current}
       {...rest}
     >
       {children}

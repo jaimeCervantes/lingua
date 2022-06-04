@@ -3,7 +3,7 @@ import {
   Facebook as FacebookIcon,
   YouTube as YouTubeIcon,
   Instagram as InstagramIcon,
-  WhatsApp as WhatsAppIcon,
+  Telegram as TelegramIcon
 } from '@mui/icons-material';
 import DiscordIcon from '../Icons/DiscordIcon';
 import MeetupIcon from '../Icons/MeetupIcon';
@@ -32,10 +32,10 @@ export default function LlamaSocialNetworks ({ sx, color, children }) {
         <IconButton
           sx={{ color: color || 'secondary.main' }}
           aria-label="WhatsApp"
-          href="https://linktr.ee/LinguaLlama "
+          href="https://t.me/linguallama"
           target="_blank"
         >
-          <WhatsAppIcon />
+          <TelegramIcon />
         </IconButton>
         <IconButton
           sx={{ color: color || 'secondary.main' }}
