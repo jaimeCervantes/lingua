@@ -100,18 +100,6 @@ export default function Index({ homeImages, tours, index, languages }) {
         color="secondary.main"
       >
       </LlamaFooter>
-
-      <LlamaDialog open={true} fullWidth={true} maxWidth={'xl'}>
-        <iframe
-          style={{ display: 'block', width: '100%', height: '100vh' }}
-          src="https://www.youtube.com/embed/xY-Xgevwq60?rel=0&autoplay=1"
-          title="Welcome to LinguaLlama"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          frameBorder="0"
-        >
-        </iframe>
-      </LlamaDialog>
     </>
   );
 }
