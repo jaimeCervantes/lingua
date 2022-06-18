@@ -28,7 +28,7 @@ describe('Given a booking screen, showing current week in calendar', () => {
       const { data } = await fetchSchedules(mappedEvents, productId);
 
       expect(data[0].date).toEqual(mappedEvents[0].date);
-      expect(data[0].time.replace(':00.000', '')).toEqual(mappedEvents[0].startTimeUTC);
+      expect(data[0].time).toEqual(mappedEvents[0].startTimeUTC);
     });
 
     it('Then capacity and available seats should be combined with current week events', () => {
@@ -36,9 +36,8 @@ describe('Given a booking screen, showing current week in calendar', () => {
 
       const lastSchedule = availableSchedules[availableSchedules.length - 1];
       const lastEvent = mappedEvents[mappedEvents.length - 1];
-      const scheduleTime = lastSchedule.time.replace(':00.000', '');
       expect(lastSchedule.date).toEqual(lastEvent.date);
-      expect(scheduleTime).toEqual(lastEvent.startTimeUTC);
+      expect(lastSchedule.time).toEqual(lastEvent.startTimeUTC);
     });
   });
 
