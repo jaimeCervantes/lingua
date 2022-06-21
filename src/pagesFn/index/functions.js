@@ -1,4 +1,4 @@
-import { fetchAPI } from 'util/api';
+import { fetchAPI, fetchGraphqlAPI } from 'util/api';
 import { getLanguages } from 'pagesFn/shared/functions';
 import { mapHomeImagesToUI, mapToursToUI } from './mappers';
 import { mapLanguagesToUI } from 'pagesFn/shared/mappers';
@@ -16,20 +16,60 @@ export function getLayout(page) {
 }
 
 export async function getStaticProps(ctx) {
-  const [images, tours, index, languages ] = await Promise.all([
-    fetchAPI('/home-images/', {
-      populate: {
-        Image: {
-          fields: ['formats', 'url']
+  const result = await fetchGraphqlAPI({
+    query: `query {
+      homeImages(sort: ["order", "id"]) {
+        data {
+          attributes {
+            title,
+            size,
+            Image {
+              data {
+                attributes {
+                  formats
+                }
+              }
+            }
+          }
         }
       },
-      fields: ['title', 'size'],
-      sort: ['order', 'id']
-    }),
-    fetchAPI('/tours/', { fields: ['title'], sort: ['order', 'id'] }),
-    fetchAPI('/index/'),
-    getLanguages()
-  ]);
+      tours(sort: ["order", "id"]) {
+        data {
+          id,
+          attributes {
+            title
+          }
+        }
+      },
+      index {
+        data {
+          attributes {
+            title,
+            bookText,
+            enterText
+          }
+        }
+      },
+      languages(sort: ["order", "name"]) {
+        data {
+          attributes {
+            name,
+            countryFlagCode,
+            link,
+            Image {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }`
+  });
+  
+  const { homeImages: images, tours, index, languages } = result.data;
 
   return {
     props: {

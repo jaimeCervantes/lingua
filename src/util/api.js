@@ -15,18 +15,50 @@ export async function fetchAPI(path, urlParamsObject = {}, options = {}) {
     ...options,
   }
 
-  const queryString = qs.stringify(urlParamsObject)
+  const queryString = qs.stringify(urlParamsObject);
   const requestUrl = `${getStrapiURL(
     `/api${path}${queryString ? `?${queryString}` : ""}`
   )}`
-
-  const response = await fetch(requestUrl, mergedOptions);
+  
+  let response;
+  try {
+    response = await fetch(requestUrl, mergedOptions);
+  } catch(err) {
+    console.error(err);
+    throw err;
+  }
 
   if (!response.ok) {
     console.error(response.statusText)
-    throw new Error(`An error occured please try again`)
+    throw new Error('An error ocurred, please try again', response);
   }
   
-  const data = await response.json()
-  return data
+  return await response.json();
+}
+
+export async function fetchGraphqlAPI(query, options = {}) {
+  const mergedOptions = {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: 'POST',
+    body: JSON.stringify(query),
+    ...options
+  };
+
+  const requestUrl = getStrapiURL('/graphql');
+  let response;
+  try {
+    response = await fetch(requestUrl, mergedOptions);
+  } catch(err) {
+    console.error(err);
+    throw err;
+  }
+  
+  if (!response.ok) {
+    console.error(JSON.stringify(response));
+    throw new Error('An error ocurred, please try again');
+  }
+
+  return await response.json();
 }
