@@ -20,7 +20,7 @@ export default forwardRef(function LlamaButton({ sx, children, current, ...rest 
         ...sx
       }}
 
-      current={current}
+      current={current ? current : undefined}
       {...rest}
     >
       {children}
