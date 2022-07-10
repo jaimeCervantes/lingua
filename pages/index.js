@@ -1,5 +1,4 @@
 import LlamaFooter from '../components/LlamaFooter/LlamaFooter';
-import LlamaPlacementTestButton from '../components/Buttons/LlamaPlacementTestButton'
 import LlamaCarousel from '../components/LlamaCarousel/LlamaCarousel';
 
 import styles from './index.module.css';
@@ -78,7 +77,6 @@ Index.getLayout = function (page) {
   return (
     <div className={styles.index}>
       {page}
-      <LlamaPlacementTestButton></LlamaPlacementTestButton>
     </div>
   );
 };
