@@ -3,18 +3,30 @@
 }
 
 body {
-  background-image: url(/backgrounds/mountains-down.svg), url(/backgrounds/mountains-red.svg);
-  background-repeat: repeat-x, repeat-x;
-  background-size: contain, contain;
-  background-position: top left, bottom left;
   height: 100%;
   min-height: 100vh;
 
-  --swiper-theme-color: #000000;
-  --swiper-pagination-color: #000000;
+  --swiper-theme-color: white;
+  --swiper-pagination-color: white;
+  --swiper-navigation-color: white;
   --swiper-pagination-bullet-inactive-color: gray;
 }
 
 main {
   padding: 1rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  text-shadow: 2px 0px 3px #000;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev:after {
+  transition: font-size ease-in-out 200ms;
+}
+
+.swiper-button-next:hover::after,
+.swiper-button-prev:hover::after {
+  font-size: 5rem;
 }

@@ -1,104 +1,84 @@
-import { useState } from 'react';
-import { Box, Button } from '@mui/material';
-import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
-
-import Link from 'next/link';
-
-import LlamaTourDates from '../components/LlamaTourDates/LlamaTourDates';
-import LlamaBalloons from '../components/LlamaBalloons/LlamaBalloons';
-import LlamaLanguages from '../components/LlamaLanguages/LlamaLanguages';
 import LlamaFooter from '../components/LlamaFooter/LlamaFooter';
-import DoorSlidingIcon from '@mui/icons-material/DoorSliding';
+import LlamaPlacementTestButton from '../components/Buttons/LlamaPlacementTestButton'
+import LlamaCarousel from '../components/LlamaCarousel/LlamaCarousel';
 
 import styles from './index.module.css';
 
-import { getLayout } from '../pagesFn/index/functions';
-import LlamaCarousel from '../components/LlamaCarousel/LlamaCarousel';
-import LlamaDialog from '../components/LlamaDialog/LlamaDialog';
-
 export { getStaticProps } from '../pagesFn/index/functions';
 
-export default function Index({ homeImages, tours, index, languages }) {
-  const [ language, setLanguage ] = useState(() => languages[0]);
-  const [ isOpen, setIsOpen ] = useState(false);
 
+export default function Index({ homeImages, index }) {
   return (
     <>
-      <section style={{ padding: '1rem', paddingBottom: 0, minHeight: '300px' }}>
-        <LlamaBalloons
-          className={styles.backInDown}
-          sx={{ marginTop: { xs: '2rem', sm: 'inherit' } }}
-          moreLanguages={
-            <Button
-              className={styles.languagesButton}
-              variant="contained"
-              color="secondary"
-              onClick={() => setIsOpen(!isOpen)}
-              endIcon={isOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
-            >
-              {`I'm learning ${language ? language.label : ''}`}
-            </Button>
-          }
-        >
-          <img src="/logo.svg"
-            alt="Linguallama Logo"
-            className={styles.logo}
-            style={{ marginBottom: '0.5rem', minHeight: '200px' }}
-          />  
-        </LlamaBalloons>
-      </section>
+      <header className={styles.header}>
+        <img src="/logo-white.svg"
+          alt="Linguallama Logo"
+          className={styles.logo}
+        />
+        <div style={{ textAlign: 'center' }}>
+          <h1 className={styles.title}>Welcome to lingua llama</h1>
+          <p style={{ margin: 0 }}>Serving all languages worldwide</p>
+        </div>
+        
+        <img src="/illustrations/flags.svg"
+          alt="Linguallama face and flags"
+          className={styles.flags}
+        />
+      </header>
 
-      <LlamaLanguages
-        className={styles.LlamaLanguages}
-        languages={languages}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        value={language}
-        setValue={setLanguage}
-      >
-      </LlamaLanguages>
-
-      <Box sx={{ padding: '0' }}>
-        <div className={styles.fadeIn}>
-          <LlamaTourDates
-            tours={tours}
-            title={index.title}
-            bookText={index.bookText}
-          ></LlamaTourDates>
+      <section className={styles.menu}>
+        <div className={styles.item}>
+          <span className={styles.itemEmoji}>📅🙋</span>
+          <p className={styles.itemText}>Daily Schedule</p>
         </div>
 
-        <LlamaCarousel items={homeImages} 
-          sx={{
-            marginTop: '2rem',
-            '& .swiper': { padding: '4rem' },
-          }}
-        ></LlamaCarousel>
+        <div className={styles.item}>
+          <span className={styles.itemEmoji}>🥳💬</span>
+          <p className={styles.itemText}>Fun events</p>
+        </div>
+        
+        <div className={styles.item}>
+          <span className={styles.itemEmoji}>🌎🧑‍🏫</span>
+          <p className={styles.itemText}>Tours</p>
+        </div>
+        
+        <div className={styles.item}>
+          <span className={styles.itemEmoji}>👩‍🎓🇪🇸</span>
+          <p className={styles.itemText}>Spanish classes</p>
+        </div>
+        
+        <div className={styles.item}>
+          <span className={styles.itemEmoji}>👨‍🎓🇺🇸</span>
+          <p className={styles.itemText}>English classes</p>
+        </div>
 
-        <Box sx={{ textAlign: 'center', marginBottom: '4rem', marginTop: '4rem' }}>
-          <Link href="/home">
-            <Button
-              className="text-bold"
-              variant="contained"
-              color="primary"
-              size="large"
-              sx={{ height: '60px' }}
-              startIcon={<DoorSlidingIcon />}
-              href="https://linguallama-store.mailchimpsites.com/"
-            >
-              {index.enterText}
-            </Button>
-          </Link>
-        </Box>
-      </Box>
+        <div className={styles.item}>
+          <span className={styles.itemEmoji}>💬🗺️</span>
+          <p className={styles.itemText}>More languages</p>
+        </div>
+      </section>
+
+      <LlamaCarousel items={homeImages} 
+        sx={{
+          marginTop: '2rem',
+          '& .swiper': { padding: '4rem' },
+        }}
+      ></LlamaCarousel>
 
       <LlamaFooter
         copyRight={index.copyRight}
-        hasFadeIn
-        color="secondary.main"
+        color="white"
       >
       </LlamaFooter>
     </>
   );
 }
 
-Index.getLayout = getLayout;
+Index.getLayout = function (page) {
+  return (
+    <div className={styles.index}>
+      {page}
+      <LlamaPlacementTestButton></LlamaPlacementTestButton>
+    </div>
+  );
+};

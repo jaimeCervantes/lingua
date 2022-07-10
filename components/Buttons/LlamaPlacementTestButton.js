@@ -1,9 +1,9 @@
 import { Box, Button } from '@mui/material';
 import QuizIcon from '@mui/icons-material/Quiz';
 
-export default function LlamaPlacementTestButton() {
+export default function LlamaPlacementTestButton({ sx }) {
   return (
-    <Box sx={{
+    <Box sx={ sx || {
       position: 'fixed',
       bottom: '30px',
       width: '100%',

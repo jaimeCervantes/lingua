@@ -1,34 +1,94 @@
-.logo {
-  display: block;
-  max-inline-size: 100%;
-  align-self: center;
-  margin: 0 auto;
+.index {
+  background: radial-gradient(#950101, #0f0f0f);
+  color: white;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.fadeIn {
-  animation-name: fadeIn;
-  animation-delay: 0s;
-  animation-duration: 2s;
-}
-
-.enterContainer {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  text-align: center;
-  opacity: 0;
-  animation-fill-mode: forwards;
-}
-
-.languagesButton {
+.header {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
   font-family: Bangers;
+  letter-spacing: 1px;
+}
+
+.logo {
+  height: 100px;
+}
+
+.flags {
+  height: 150px;
+}
+
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 3px;
+}
+
+.menu {
+  display: flex;
+  gap: 3rem;
+  max-width: 70%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item {
+  cursor: pointer;
+  position: relative;
+}
+
+.itemEmoji {
+  font-size: 100px;
+}
+
+.itemText {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-family: Bangers;
+  letter-spacing: 1px;
+  margin: 0;
+  padding:0;
+  transition: font-size ease-in-out 300ms;
+}
+
+.item:hover .itemText {
+  font-size: 2rem;
+}
+
+@media (max-width: 920px) {
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .menu {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    height: 50px;
+  }
+  
+  .flags {
+    height: 75px;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .item {
+    font-size: 50px;
+  }
 }

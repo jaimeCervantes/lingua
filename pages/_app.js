@@ -23,7 +23,6 @@ export default function Lingua(props) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
         <title>{global.seo.metaTitle}</title>
         <meta name="robots" content={global.seo.metaRobots} />
         <meta name="description" content={global.seo.metaDescription} />

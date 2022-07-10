@@ -1,22 +1,8 @@
 import { fetchAPI } from '../../util/api';
-import { getLanguages } from '../shared/functions';
-import { mapHomeImagesToUI, mapToursToUI } from './mappers';
-import { mapLanguagesToUI } from '../shared/mappers';
-import LlamaPlacementTestButton from '../../components/Buttons/LlamaPlacementTestButton'
-import LLamaHeader from '../../components/LlamaHeader/LlamaHeader';
-
-export function getLayout(page) {
-  return (
-    <>
-      <LLamaHeader></LLamaHeader>
-      {page}
-      <LlamaPlacementTestButton></LlamaPlacementTestButton>
-    </>
-  );
-}
+import { mapHomeImagesToUI } from './mappers';
 
 export async function getStaticProps(ctx) {
-  const [images, tours, index, languages ] = await Promise.all([
+  const [images, index ] = await Promise.all([
     fetchAPI('/home-images/', {
       populate: {
         Image: {
@@ -26,17 +12,13 @@ export async function getStaticProps(ctx) {
       fields: ['title', 'size'],
       sort: ['order', 'id']
     }),
-    fetchAPI('/tours/', { fields: ['title'], sort: ['order', 'id'] }),
-    fetchAPI('/index/'),
-    getLanguages()
+    fetchAPI('/index/')
   ]);
 
   return {
     props: {
       homeImages: mapHomeImagesToUI(images.data),
-      tours: mapToursToUI(tours.data),
       index: index.data.attributes,
-      languages: mapLanguagesToUI(languages.data)
     }
   }
 }
