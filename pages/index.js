@@ -15,7 +15,7 @@ export default function Index({ homeImages, index }) {
           className={styles.logo}
         />
         <div style={{ textAlign: 'center' }}>
-          <h1 className={styles.title}>Welcome to lingua llama</h1>
+          <h1 className={styles.title}>Welcome to LinguaLlama</h1>
           <p style={{ margin: 0 }}>Serving all languages worldwide</p>
         </div>
         
@@ -30,10 +30,18 @@ export default function Index({ homeImages, index }) {
           <img className={styles.iLoveIt} src="/illustrations/iLoveIt.svg" width="120"/>
         </div>
         <div className={styles.item}>
-          <span className={styles.itemEmoji}>📅🙋</span>
-          <p className={styles.itemText}>Daily Schedule</p>
+          <a
+            className={styles.link}
+            href="https://linktr.ee/LinguaLlama"
+            target="__blank"
+          >
+            <span className={styles.itemEmoji}>📅🙋</span>
+          </a>
+          <p className={styles.itemText}>
+            <a className={styles.link} href="https://linktr.ee/LinguaLlama" target="__blank">Daily Schedule</a>
+          </p>
         </div>
-
+        
         <div className={styles.item}>
           <a
             className={styles.link}
@@ -48,7 +56,7 @@ export default function Index({ homeImages, index }) {
         </div>
         
         <div className={styles.item}>
-          <span className={styles.itemEmoji}>🌎🏖️</span>
+          <span className={styles.itemEmoji}>🌎✈️</span>
           <p className={styles.itemText}>Tours</p>
         </div>
         
