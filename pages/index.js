@@ -45,12 +45,14 @@ export default function Index({ homeImages, index }) {
         </div>
         
         <div className={styles.item}>
-          <span className={styles.itemEmoji}>👩‍🎓🇪🇸</span>
+          <span className={styles.itemEmoji}>👩‍🎓</span>
+          <img className={styles.itemFlag} src="https://flagcdn.com/es.svg" width="100"/>
           <p className={styles.itemText}>Spanish classes</p>
         </div>
         
         <div className={styles.item}>
-          <span className={styles.itemEmoji}>👨‍🎓🇺🇸</span>
+          <span className={styles.itemEmoji}>👨‍🎓</span>
+          <img className={styles.itemFlag} src="https://flagcdn.com/us.svg" width="100"/>
           <p className={styles.itemText}>English classes</p>
         </div>
 

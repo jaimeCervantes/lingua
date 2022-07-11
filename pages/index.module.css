@@ -102,6 +102,10 @@
     font-size: 50px;
   }
 
+  .itemFlag {
+    width: 60px;
+  }
+
   .item:hover .itemText {
     font-size: 1rem;
   }
