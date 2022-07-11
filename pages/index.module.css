@@ -43,6 +43,11 @@
   position: relative;
 }
 
+.link, .link:visited, .link:active, .link:hover {
+  text-decoration: none;
+  color: white;
+}
+
 .itemEmoji {
   font-size: 100px;
 }

@@ -35,8 +35,16 @@ export default function Index({ homeImages, index }) {
         </div>
 
         <div className={styles.item}>
-          <span className={styles.itemEmoji}>🥳💬</span>
-          <p className={styles.itemText}>Fun events</p>
+          <a
+            className={styles.link}
+            href="https://discord.com/invite/aaqNMfX77T"
+            target="__blank"
+          >
+            <span className={styles.itemEmoji}>🥳💬</span>
+          </a>
+          <p className={styles.itemText}>
+            <a className={styles.link} href="https://discord.com/invite/aaqNMfX77T" target="__blank">Fun events</a>
+          </p>
         </div>
         
         <div className={styles.item}>
@@ -45,20 +53,62 @@ export default function Index({ homeImages, index }) {
         </div>
         
         <div className={styles.item}>
-          <span className={styles.itemEmoji}>👩‍🎓</span>
-          <img className={styles.itemFlag} src="https://flagcdn.com/es.svg" width="100"/>
-          <p className={styles.itemText}>Spanish classes</p>
+          <a
+            className={styles.link}
+            href="https://linguallama-store.mailchimpsites.com/spanish-classes"
+            target="__blank"
+          >
+            <span className={styles.itemEmoji}>👩‍🎓</span>
+            <img className={styles.itemFlag} src="https://flagcdn.com/es.svg" width="100"/>
+          </a>
+          <p className={styles.itemText}>
+            <a
+              className={styles.link}
+              href="https://linguallama-store.mailchimpsites.com/spanish-classes"
+              target="__blank"
+            >
+              Spanish classes
+            </a>
+          </p>
         </div>
         
         <div className={styles.item}>
-          <span className={styles.itemEmoji}>👨‍🎓</span>
-          <img className={styles.itemFlag} src="https://flagcdn.com/us.svg" width="100"/>
-          <p className={styles.itemText}>English classes</p>
+          <a
+            className={styles.link}
+            href="https://linguallama-store.mailchimpsites.com/english-classes"
+            target="__blank"
+          >
+            <span className={styles.itemEmoji}>👨‍🎓</span>
+            <img className={styles.itemFlag} src="https://flagcdn.com/us.svg" width="100"/>
+          </a>
+          <p className={styles.itemText}>
+            <a
+              className={styles.link}
+              href="https://linguallama-store.mailchimpsites.com/english-classes"
+              target="__blank"
+            >
+              English classes
+            </a>
+          </p>
         </div>
 
         <div className={styles.item}>
-          <span className={styles.itemEmoji}>💬🗺️</span>
-          <p className={styles.itemText}>More languages</p>
+          <a
+            className={styles.link}
+            href="https://linguallama-store.mailchimpsites.com/more-languages"
+            target="__blank"
+          >
+            <span className={styles.itemEmoji}>💬🗺️</span>
+          </a>
+          <p className={styles.itemText}>
+            <a
+              className={styles.link}
+              href="https://linguallama-store.mailchimpsites.com/more-languages"
+              target="__blank"
+            >
+              More languages
+            </a>
+          </p>
         </div>
       </section>
 
