@@ -9,8 +9,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
-          <meta charset='UTF-8' />
+          <meta charSet='UTF-8' />
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link rel="shortcut icon" href="/favicon.ico" />

@@ -26,6 +26,9 @@ export default function Index({ homeImages, index }) {
       </header>
 
       <section className={styles.menu}>
+        <div>
+          <img className={styles.iLoveIt} src="/illustrations/iLoveIt.svg" width="120"/>
+        </div>
         <div className={styles.item}>
           <span className={styles.itemEmoji}>📅🙋</span>
           <p className={styles.itemText}>Daily Schedule</p>

@@ -32,7 +32,7 @@
 .menu {
   display: flex;
   gap: 3rem;
-  max-width: 70%;
+  max-width: 80%;
   margin: 0 auto;
   flex-wrap: wrap;
   justify-content: center;
@@ -62,6 +62,12 @@
   font-size: 2rem;
 }
 
+@media (max-width: 450px) {
+  .menu {
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 920px) {
   .title {
     font-size: 1.5rem;
@@ -86,6 +92,10 @@
 
   .title {
     font-size: 1.2rem;
+  }
+
+  .iLoveIt {
+    width: 50px;
   }
 
   .itemEmoji {
