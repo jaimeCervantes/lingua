@@ -55,7 +55,7 @@
   letter-spacing: 1px;
   margin: 0;
   padding:0;
-  transition: font-size ease-in-out 300ms;
+  transition: font-size ease 200ms;
 }
 
 .item:hover .itemText {

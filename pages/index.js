@@ -40,7 +40,7 @@ export default function Index({ homeImages, index }) {
         </div>
         
         <div className={styles.item}>
-          <span className={styles.itemEmoji}>🌎🧑‍🏫</span>
+          <span className={styles.itemEmoji}>🌎🏖️</span>
           <p className={styles.itemText}>Tours</p>
         </div>
         
