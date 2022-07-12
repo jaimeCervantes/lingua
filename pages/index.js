@@ -114,7 +114,7 @@ export default function Index({ homeImages, index }) {
             href="https://linguallama-store.mailchimpsites.com/more-languages"
             target="__blank"
           >
-            <span className={styles.itemEmoji}>💬🗺️</span>
+            <img className={styles.itemImg} src="/illustrations/more-languages.png" width="250" />
           </a>
           <p className={styles.itemText}>
             <a
