@@ -56,8 +56,16 @@ export default function Index({ homeImages, index }) {
         </div>
         
         <div className={styles.item}>
-          <span className={styles.itemEmoji}>🌎✈️</span>
-          <p className={styles.itemText}>Tours</p>
+          <a
+            className={styles.link}
+            href="https://linguallama-store.mailchimpsites.com/"
+            target="__blank"
+          >
+            <span className={styles.itemEmoji}>🌎✈️</span>
+          </a>
+          <p className={styles.itemText}>
+            <a className={styles.link} href="https://linguallama-store.mailchimpsites.com/" target="__blank">Tours</a>
+          </p>
         </div>
         
         <div className={styles.item}>
