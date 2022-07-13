@@ -18,7 +18,6 @@ export default function Index({ homeImages, index }) {
         <div style={{ textAlign: 'center' }}>
           <h1 className={styles.title}>Welcome to LinguaLlama</h1>
           <p style={{ margin: 0 }}>Serving all languages worldwide</p>
-          <LlamaSocialNetworks color={'white'}></LlamaSocialNetworks>
         </div>
         
         <img src="/illustrations/flags.svg"
@@ -26,6 +25,8 @@ export default function Index({ homeImages, index }) {
           className={styles.flags}
         />
       </header>
+
+      <LlamaSocialNetworks color={'white'} sx={{ textAlign: 'center'}}></LlamaSocialNetworks>
 
       <section className={styles.menu}>
         <div>
