@@ -2,6 +2,7 @@ import LlamaFooter from '../components/LlamaFooter/LlamaFooter';
 import LlamaCarousel from '../components/LlamaCarousel/LlamaCarousel';
 
 import styles from './index.module.css';
+import LlamaSocialNetworks from '../components/LlamaSocialNetworks/LlamaSocialNetworks';
 
 export { getStaticProps } from '../pagesFn/index/functions';
 
@@ -17,6 +18,7 @@ export default function Index({ homeImages, index }) {
         <div style={{ textAlign: 'center' }}>
           <h1 className={styles.title}>Welcome to LinguaLlama</h1>
           <p style={{ margin: 0 }}>Serving all languages worldwide</p>
+          <LlamaSocialNetworks color={'white'}></LlamaSocialNetworks>
         </div>
         
         <img src="/illustrations/flags.svg"
