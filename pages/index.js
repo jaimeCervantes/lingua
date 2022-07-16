@@ -166,7 +166,7 @@ export default function Index({ homeImages, index, languages }) {
             '& .swiper': { padding: '4rem' },
           }}
         ></LlamaCarousel>
-        <div style={{ position: 'absolute', top: '16px', width: '100%', zIndex: 11, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <div style={{ position: 'absolute', top: '16px', width: '100%', zIndex: 22, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <div ref={languagesRef} style={{ textAlign: 'center' }}>
             <Button
               variant="contained"
