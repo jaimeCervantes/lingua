@@ -37,14 +37,15 @@ export default function EnterSiteLanguagesCarousel({ languages, homeImages, ente
           '& .swiper': { padding: '4rem' },
         }}
       ></LlamaCarousel>
-      <div style={{
-        position: 'absolute',
-        top: '16px',
-        width: '100%',
-        zIndex: 22,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
+      <div
+        style={{
+          position: 'absolute',
+          top: '16px',
+          width: '100%',
+          zIndex: 22,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
         }}
       >
         <div ref={languagesRef} style={{ textAlign: 'center' }}>
@@ -68,14 +69,15 @@ export default function EnterSiteLanguagesCarousel({ languages, homeImages, ente
           </LlamaLanguages>
         </div>
       </div>
-      <div style={{
-        position: 'absolute',
-        width: '100%',
-        bottom: '100px',
-        zIndex: 11,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
+      <div
+        style={{
+          position: 'absolute',
+          width: '100%',
+          bottom: '40px',
+          zIndex: 11,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
         }}
       >
         <Link href="/home">
