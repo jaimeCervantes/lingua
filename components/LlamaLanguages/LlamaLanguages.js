@@ -22,6 +22,7 @@ export default function LlamaLanguages({ languages, isOpen, setIsOpen, value, se
   return (
     <Autocomplete
       id="language"
+      disablePortal
       className={styles.container}
       sx={{...sx, height: isOpen ? 'auto' : '0px'}}
       freeSolo

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@mui/material';
 import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
@@ -16,6 +16,25 @@ export { getStaticProps } from '../pagesFn/index/functions';
 export default function Index({ homeImages, index, languages }) {
   const [ language, setLanguage ] = useState(() => languages[0]);
   const [ isOpen, setIsOpen ] = useState(false);
+  const languagesRef = useRef();
+
+  function clickCloseHandler(e) {
+    if (languagesRef.current.contains(e.target) && languagesRef.current !== e.target) {
+      return;
+    }
+
+    setIsOpen(false);
+  }
+
+  useEffect(() => {
+    if(isOpen) {
+      document.addEventListener('click', clickCloseHandler);
+
+      return () => {
+        document.removeEventListener('click', clickCloseHandler);
+      }
+    }
+  }, [isOpen])
 
   return (
     <>
@@ -148,24 +167,26 @@ export default function Index({ homeImages, index, languages }) {
           }}
         ></LlamaCarousel>
         <div style={{ position: 'absolute', top: '16px', width: '100%', zIndex: 11, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-          <Button
-            variant="contained"
-            color="tertiary"
-            onClick={() => setIsOpen(!isOpen)}
-            endIcon={isOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
-          >
-            {`I'm learning ${language ? language.label : ''}`}
-          </Button>
+          <div ref={languagesRef} style={{ textAlign: 'center' }}>
+            <Button
+              variant="contained"
+              color="tertiary"
+              onClick={() => setIsOpen(!isOpen)}
+              endIcon={isOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
+            >
+              {`I'm learning ${language ? language.label : ''}`}
+            </Button>
           
-          <LlamaLanguages
-            languages={languages}
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            value={language}
-            setValue={setLanguage}
-            sx={{ background: 'white' }}
-          >
-          </LlamaLanguages>
+            <LlamaLanguages
+              languages={languages}
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              value={language}
+              setValue={setLanguage}
+              sx={{ background: 'white' }}
+            >
+            </LlamaLanguages>
+          </div>
         </div>
         <div style={{ position: 'absolute', width: '100%', bottom: '100px', zIndex: 11, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Link href="/home">
@@ -183,6 +204,7 @@ export default function Index({ homeImages, index, languages }) {
           </Link>
         </div>
       </section>
+
       <LlamaFooter
         copyRight={index.copyRight}
         color="white"
