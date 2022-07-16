@@ -10,7 +10,7 @@ import styles from './LlamaLanguages.module.css';
 import { useEffect, useState } from "react";
 
 
-export default function LlamaLanguages({ languages, isOpen, setIsOpen, value, setValue }) {
+export default function LlamaLanguages({ languages, isOpen, setIsOpen, value, setValue, sx = {} }) {
   const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function LlamaLanguages({ languages, isOpen, setIsOpen, value, se
     <Autocomplete
       id="language"
       className={styles.container}
-      sx={{height: isOpen ? 'auto' : '0px'}}
+      sx={{...sx, height: isOpen ? 'auto' : '0px'}}
       freeSolo
       onChange={(event, newValue) => {
         if (newValue) {
