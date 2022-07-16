@@ -30,60 +30,9 @@
   letter-spacing: 3px;
 }
 
-.menu {
-  display: flex;
-  gap: 3rem;
-  max-width: 80%;
-  margin: 0 auto;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.item {
-  cursor: pointer;
-  position: relative;
-}
-
-.link, .link:visited, .link:active, .link:hover {
-  text-decoration: none;
-  color: white;
-}
-
-.itemEmoji {
-  font-size: 100px;
-}
-
-.itemText {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  font-family: Bangers;
-  letter-spacing: 1px;
-  margin: 0;
-  padding:0;
-  transition: font-size ease 200ms;
-}
-
-.item:hover .itemText {
-  font-size: 2rem;
-}
-
-@media (max-width: 450px) {
-  .menu {
-    gap: 1.5rem;
-  }
-}
-
 @media (max-width: 920px) {
   .title {
     font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 1200px) {
-  .menu {
-    max-width: 100%;
-    padding: 1rem;
   }
 }
 
@@ -98,25 +47,5 @@
 
   .title {
     font-size: 1.2rem;
-  }
-
-  .iLoveIt {
-    width: 50px;
-  }
-
-  .itemEmoji {
-    font-size: 50px;
-  }
-
-  .itemFlag {
-    width: 60px;
-  }
-
-  .itemImg {
-    width: 130px;
-  }
-
-  .item:hover .itemText {
-    font-size: 1rem;
   }
 }
