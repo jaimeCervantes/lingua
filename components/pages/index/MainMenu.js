@@ -91,7 +91,12 @@ export default function MainMenu() {
           href="https://linguallama-store.mailchimpsites.com/more-languages"
           target="__blank"
         >
-          <img className={styles.itemImg} src="/illustrations/more-languages.png" width="250" />
+          <img
+            className={styles.itemImg}
+            src="/illustrations/more-languages.png"
+            srcset="/illustrations/more-languages.png 130w, /illustrations/more-languages.png 200w, /illustrations/more-languages.png 450w"
+            sizes="(max-width: 800px) 130px, (max-width: 1900px) 250px, (min-width: 1901px) 450px"
+          />
         </a>
         <p className={styles.itemText}>
           <a

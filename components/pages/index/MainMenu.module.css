@@ -50,7 +50,6 @@
 }
 
 @media (max-width: 800px) {
-
   .iLoveIt {
     width: 50px;
   }
@@ -63,11 +62,35 @@
     width: 60px;
   }
 
-  .itemImg {
-    width: 130px;
-  }
-
   .item:hover .itemText {
     font-size: 1rem;
+  }
+}
+
+@media (min-width: 1636px) {
+  .itemEmoji {
+    font-size: 150px;
+  }
+
+  .iLoveIt {
+    width: 150px;
+  }
+
+  .itemFlag {
+    width: 150px;
+  }
+}
+
+@media (min-width: 1901px) {
+  .itemEmoji {
+    font-size: 200px;
+  }
+
+  .iLoveIt {
+    width: 200px;
+  }
+
+  .itemFlag {
+    width: 200px;
   }
 }
