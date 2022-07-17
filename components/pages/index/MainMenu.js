@@ -94,8 +94,6 @@ export default function MainMenu() {
           <img
             className={styles.itemImg}
             src="/illustrations/more-languages.png"
-            width="250"
-            height="150"
             srcSet="/illustrations/more-languages.png 130w, /illustrations/more-languages.png 200w, /illustrations/more-languages.png 450w"
             sizes="(max-width: 800px) 130px, (max-width: 1900px) 250px, (min-width: 1901px) 450px"
           />
