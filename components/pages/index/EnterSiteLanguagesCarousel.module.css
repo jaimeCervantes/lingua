@@ -1,0 +1,29 @@
+.languageSelectorWrapper {
+  position: absolute;
+  top: 16px;
+  width: 100%;
+  z-index: 22;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.enterSiteWrapper {
+  position: absolute;
+  width: 100%;
+  bottom: 40px;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .languageSelectorWrapper {
+    top: 30%;
+  }
+
+  .enterSiteWrapper {
+    bottom: 30%;
+  }
+}

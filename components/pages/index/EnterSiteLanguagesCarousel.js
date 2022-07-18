@@ -7,6 +7,8 @@ import DoorSlidingIcon from '@mui/icons-material/DoorSliding';
 import LlamaCarousel from '../../LlamaCarousel/LlamaCarousel';
 import LlamaLanguages from '../../LlamaLanguages/LlamaLanguages';
 
+import styles from './EnterSiteLanguagesCarousel.module.css';
+
 export default function EnterSiteLanguagesCarousel({ languages, homeImages, enterText }) {
   const [ language, setLanguage ] = useState(() => languages[0]);
   const [ isOpen, setIsOpen ] = useState(false);
@@ -37,17 +39,7 @@ export default function EnterSiteLanguagesCarousel({ languages, homeImages, ente
           '& .swiper': { padding: '4rem' },
         }}
       ></LlamaCarousel>
-      <div
-        style={{
-          position: 'absolute',
-          top: '16px',
-          width: '100%',
-          zIndex: 22,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center'
-        }}
-      >
+      <div className={styles.languageSelectorWrapper}>
         <div ref={languagesRef} style={{ textAlign: 'center' }}>
           <Button
             variant="contained"
@@ -69,17 +61,7 @@ export default function EnterSiteLanguagesCarousel({ languages, homeImages, ente
           </LlamaLanguages>
         </div>
       </div>
-      <div
-        style={{
-          position: 'absolute',
-          width: '100%',
-          bottom: '40px',
-          zIndex: 11,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center'
-        }}
-      >
+      <div className={styles.enterSiteWrapper}>
         <Link href="/home">
           <Button
             className="text-bold"
