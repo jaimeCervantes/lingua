@@ -7,8 +7,6 @@ import DoorSlidingIcon from '@mui/icons-material/DoorSliding';
 import LlamaCarousel from '../../LlamaCarousel/LlamaCarousel';
 import LlamaLanguages from '../../LlamaLanguages/LlamaLanguages';
 
-import styles from './EnterSiteLanguagesCarousel.module.css';
-
 export default function EnterSiteLanguagesCarousel({ languages, homeImages, enterText }) {
   const [ language, setLanguage ] = useState(() => languages[0]);
   const [ isOpen, setIsOpen ] = useState(false);
@@ -30,17 +28,16 @@ export default function EnterSiteLanguagesCarousel({ languages, homeImages, ente
         document.removeEventListener('click', clickCloseHandler);
       }
     }
-  }, [isOpen])
+  }, [isOpen]);
+  
   return (
-    <section style={{ position: 'relative' }}>
-      <LlamaCarousel items={homeImages} 
-        sx={{
-          marginTop: '2rem',
-          '& .swiper': { padding: '4rem' },
-        }}
-      ></LlamaCarousel>
-      <div className={styles.languageSelectorWrapper}>
-        <div ref={languagesRef} style={{ textAlign: 'center' }}>
+    <section style={{ position: 'relative', marginBlockStart: '4rem' }}>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }}>
+        <div ref={languagesRef} style={{ textAlign: 'center', position: 'absolute', zIndex: 11 }}>
           <Button
             variant="contained"
             color="tertiary"
@@ -60,15 +57,13 @@ export default function EnterSiteLanguagesCarousel({ languages, homeImages, ente
           >
           </LlamaLanguages>
         </div>
-      </div>
-      <div className={styles.enterSiteWrapper}>
         <Link href="/home">
           <Button
             className="text-bold"
             variant="contained"
             color="tertiary"
             size="large"
-            sx={{ height: '60px' }}
+            sx={{ height: '60px', marginBlockStart: '60px' }}
             startIcon={<DoorSlidingIcon />}
             href="https://linguallama-store.mailchimpsites.com/"
           >
@@ -76,6 +71,12 @@ export default function EnterSiteLanguagesCarousel({ languages, homeImages, ente
           </Button>
         </Link>
       </div>
+
+      <LlamaCarousel items={homeImages} 
+        sx={{
+          '& .swiper': { padding: '5rem' },
+        }}
+      ></LlamaCarousel>
     </section>
   );
 }

@@ -65,7 +65,7 @@ export default function LlamaCarousel({ items, sx }) {
             <img src={item.img}  style={{ maxWidth: '100%', maxHeight: '500px', display: 'block' }}/>
             <Typography variant="h4" sx={{
                 position: 'absolute',
-                bottom: '0rem',
+                top: '-4rem',
                 width: 'auto',
                 padding: '1rem',
                 color: 'white',
