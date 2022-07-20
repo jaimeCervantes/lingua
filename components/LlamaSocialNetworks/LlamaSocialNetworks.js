@@ -7,6 +7,7 @@ import {
 } from '@mui/icons-material';
 import DiscordIcon from '../Icons/DiscordIcon';
 import MeetupIcon from '../Icons/MeetupIcon';
+import TiktokIcon from '../Icons/TiktokIcon';
 
 export default function LlamaSocialNetworks ({ sx, color, children }) {
   return (
@@ -19,6 +20,18 @@ export default function LlamaSocialNetworks ({ sx, color, children }) {
           target="_blank"
           >
           <FacebookIcon />
+        </IconButton>
+
+        <IconButton
+          sx={{ color: color || 'secondary.main' }}
+          aria-label="TikTok"
+          href="https://www.tiktok.com/@linguallama"
+          target="_blank"
+        >
+          <TiktokIcon
+            viewBox="0 0 16 16"
+          >
+          </TiktokIcon>
         </IconButton>
       
         <IconButton
