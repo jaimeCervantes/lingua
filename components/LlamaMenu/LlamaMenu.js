@@ -48,6 +48,7 @@ export default function LlamaMenu({ sx, onClick }) {
           key={item.url}
         >
           <LlamaButton
+            sx={{ color: sx.color }}
             target={item.isOut ? '_blank' : '_self'}
             onClick={onClick}
             current={router.pathname === item.url ? true : false}>

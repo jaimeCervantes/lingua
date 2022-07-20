@@ -40,7 +40,7 @@ export default function EnterSiteLanguagesCarousel({ languages, homeImages, ente
         <div ref={languagesRef} style={{ textAlign: 'center', position: 'absolute', zIndex: 11 }}>
           <Button
             variant="contained"
-            color="tertiary"
+            color="primary"
             onClick={() => setIsOpen(!isOpen)}
             endIcon={isOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
           >
@@ -61,7 +61,7 @@ export default function EnterSiteLanguagesCarousel({ languages, homeImages, ente
           <Button
             className="text-bold"
             variant="contained"
-            color="tertiary"
+            color="primary"
             size="large"
             sx={{ height: '60px', marginBlockStart: '60px' }}
             startIcon={<DoorSlidingIcon />}

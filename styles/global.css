@@ -10,6 +10,8 @@ body {
   --swiper-pagination-color: white;
   --swiper-navigation-color: white;
   --swiper-pagination-bullet-inactive-color: gray;
+
+  background: radial-gradient(#950101, #0f0f0f);
 }
 
 main {

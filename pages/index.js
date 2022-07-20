@@ -4,12 +4,21 @@ import styles from './index.module.css';
 import LlamaSocialNetworks from '../components/LlamaSocialNetworks/LlamaSocialNetworks';
 import MainMenu from '../components/pages/index/MainMenu';
 import EnterSiteLanguagesCarousel from '../components/pages/index/EnterSiteLanguagesCarousel';
+import LlamaMenu from '../components/LlamaMenu/LlamaMenu';
 
 export { getStaticProps } from '../pagesFn/index/functions';
 
 export default function Index({ homeImages, index, languages }) {
   return (
     <>
+      <LlamaMenu sx={{
+        color: "primary.main", 
+        flexGrow: 1,
+        marginLeft: '0.3rem',
+        '@media (max-width: 480px)': {
+          display: 'none'
+        }
+      }}></LlamaMenu>
       <header className={styles.header}>
         <img src="/logo-white.svg"
           alt="Linguallama Logo"
@@ -26,7 +35,7 @@ export default function Index({ homeImages, index, languages }) {
         />
       </header>
 
-      <LlamaSocialNetworks color={'white'} sx={{ textAlign: 'center'}}></LlamaSocialNetworks>
+      <LlamaSocialNetworks color="primary.main" sx={{ textAlign: 'center'}}></LlamaSocialNetworks>
 
       <MainMenu></MainMenu>
 
@@ -34,7 +43,7 @@ export default function Index({ homeImages, index, languages }) {
 
       <LlamaFooter
         copyRight={index.copyRight}
-        color="white"
+        color="primary.main"
       >
       </LlamaFooter>
     </>

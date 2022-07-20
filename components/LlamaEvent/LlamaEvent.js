@@ -67,11 +67,11 @@ export default function LlamaEvent({ event, renderActions }) {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            color: 'white'
+            color: (theme) => theme.palette.secondary.main
           }}
         >
           <Typography variant="h4">{event.title}</Typography>
-          <Typography>
+          <Typography color="secondary">
             {event.shortDescription}
           </Typography>
           {renderActions}

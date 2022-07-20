@@ -40,7 +40,7 @@ export default function LlamaLanguages({ languages, isOpen, setIsOpen, value, se
       autoHighlight
       getOptionLabel={(option) => option.label}
       renderOption={(props, option) => (
-        <a href={option.link} style={{ textDecoration: 'none', color: 'unset' }} key={option.label}>
+        <a href={option.link} style={{ textDecoration: 'none', color: 'initial' }} key={option.label}>
           <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
             <img
               loading="lazy"
@@ -63,6 +63,7 @@ export default function LlamaLanguages({ languages, isOpen, setIsOpen, value, se
             {...params}
             label="Search target language"
             variant="filled"
+            color="tertiary"
             sx={{ visibility: isOpen ? 'visible' : 'hidden' }}
             focused={isOpen}
           />

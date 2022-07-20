@@ -8,27 +8,13 @@ import LlamaTelButton from '../LlamaTelButton/LlamaTelButton';
 
 export default function LlamaShowOnScrollAppBar(props) {
   const { children, scrollTrigerProps, opacity, sx, ...rest } = props;
-  const trigger = useScrollTrigger({
-    threshold: 70,
-    disableHysteresis: true,
-    ...scrollTrigerProps 
-  });
 
   return (
     <AppBar
       component="div"
       color="primary"
       position="fixed"
-      sx={ 
-        sx ? sx(trigger) : ({
-            backgroundColor: trigger ? 'white' : 'transparent',
-            opacity: {xs: 1, sm: trigger ? 0.7 : 1 },
-            transition: `background-color 1s, opacity 1s`,
-            '&:hover': {
-              opacity: 1
-            }
-          })
-        }
+      sx={sx} 
       {...rest}
     >
       <Toolbar disableGutters sx={{ paddingLeft: '1rem', paddingRight: '1rem' }}>

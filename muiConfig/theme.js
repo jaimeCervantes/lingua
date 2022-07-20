@@ -4,10 +4,16 @@ import { red } from '@mui/material/colors';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#950101',
+      main: '#fff',
+      light: '#950101',
+      dark: '#d8d8d8',
+      contrastText: '#000000'
     },
     secondary: {
       main: '#110000',
+      light: '#cccccc',
+      dark: '#d8d8d8',
+      contrastText: '#ffffff'
     },
     warning: {
       main: '#FFC900'
@@ -16,7 +22,7 @@ const theme = createTheme({
       main: red.A400,
     },
     tertiary: {
-      main: '#FAF7F4',
+      main: '#950101',
       light: '#ffffff',
       dark: '#d8d8d8',
       contrastText: '#000000'
@@ -35,6 +41,12 @@ const theme = createTheme({
       '"Helvetica Neue"',
       'Arial',
     ].join(','),
+    body1: {
+      color: '#fff'
+    },
+    body2: {
+      color: "#fafafa"
+    },
     h1: {
       fontFamily: "Bangers",
       textAlign: "center",
