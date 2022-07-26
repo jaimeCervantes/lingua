@@ -1,4 +1,5 @@
 import styles from './MainMenu.module.css';
+import Link from 'next/link';
 
 export default function MainMenu() {
   return (
@@ -33,15 +34,17 @@ export default function MainMenu() {
       </div>
       
       <div className={styles.item}>
-        <a
-          className={styles.link}
-          href="https://linguallama-store.mailchimpsites.com/"
-          target="__blank"
-        >
-          <span className={styles.itemEmoji}>🌎✈️</span>
-        </a>
+        <Link href="/tours">
+          <a
+            className={styles.link}
+          >
+            <span className={styles.itemEmoji}>🌎✈️</span>
+          </a>
+        </Link>
         <p className={styles.itemText}>
-          <a className={styles.link} href="https://linguallama-store.mailchimpsites.com/" target="__blank">Tours</a>
+          <Link href="/tours">
+            <a className={styles.link}>Tours</a>
+          </Link>
         </p>
       </div>
       
