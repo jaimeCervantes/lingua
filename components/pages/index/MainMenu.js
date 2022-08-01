@@ -21,15 +21,15 @@ export default function MainMenu() {
       </div>
       
       <div className={styles.item}>
-        <a
-          className={styles.link}
-          href="https://discord.com/invite/aaqNMfX77T"
-          target="__blank"
-        >
-          <span className={styles.itemEmoji}>🥳💬</span>
-        </a>
+        <Link href="/events">
+          <a className={styles.link}>
+            <span className={styles.itemEmoji}>🥳💬</span>
+          </a>
+        </Link>
         <p className={styles.itemText}>
-          <a className={styles.link} href="https://discord.com/invite/aaqNMfX77T" target="__blank">Fun events</a>
+          <Link href="/events">
+            <a className={styles.link}>Fun events</a>
+          </Link>
         </p>
       </div>
       

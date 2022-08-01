@@ -10,8 +10,8 @@ const menuItems = [
   },
   {
     text: 'Events',
-    url: 'https://discord.gg/aaqNMfX77T',
-    isOut: true
+    url: '/events',
+    isOut: false
   },
   {
     text: 'About',
