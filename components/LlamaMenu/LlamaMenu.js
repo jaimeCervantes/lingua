@@ -18,6 +18,10 @@ const menuItems = [
     url: '/about'
   },
   {
+    text: 'Tours',
+    url: '/tours'
+  },
+  {
     text: 'Join our team',
     url: 'https://docs.google.com/forms/d/e/1FAIpQLSe1nXK4UCVgf9gpOYk52vVMBdEiUQh0qcEqgH_gvWkWsetOVg/viewform',
     isOut: true
