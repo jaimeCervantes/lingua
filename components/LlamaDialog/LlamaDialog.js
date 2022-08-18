@@ -11,7 +11,7 @@ export default function LlamaDialog({ open, children, ...rest }) {
     >
       {children}
       <DialogActions>
-        <Button onClick={() => setIsOpen(false)}>Close</Button>
+        <Button color="tertiary" onClick={() => setIsOpen(false)}>Close</Button>
       </DialogActions>
     </Dialog>
   );

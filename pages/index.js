@@ -5,6 +5,7 @@ import LlamaSocialNetworks from '../components/LlamaSocialNetworks/LlamaSocialNe
 import MainMenu from '../components/pages/index/MainMenu';
 import EnterSiteLanguagesCarousel from '../components/pages/index/EnterSiteLanguagesCarousel';
 import LlamaMenu from '../components/LlamaMenu/LlamaMenu';
+import LlamaDialog from '../components/LlamaDialog/LlamaDialog';
 
 export { getStaticProps } from '../pagesFn/index/functions';
 
@@ -46,6 +47,18 @@ export default function Index({ homeImages, index, languages }) {
         color="primary.main"
       >
       </LlamaFooter>
+
+      <LlamaDialog open={true} fullWidth={true} maxWidth={'xl'}>
+        <iframe
+          style={{ display: 'block', width: '100%', minHeight: '80vh' }}
+          src="https://www.youtube.com/embed/oUUSBPlS0RA?rel=0&autoplay=1"
+          title="22 Perú Immersion Trip Lima & Cuzco December 18-30"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          frameBorder="0"
+        >
+        </iframe>
+      </LlamaDialog>
     </>
   );
 }
