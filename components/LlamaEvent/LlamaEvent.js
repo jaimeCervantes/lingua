@@ -31,7 +31,8 @@ export default function LlamaEvent({ event, renderActions }) {
       onMouseEnter={() => setTrigger(true)}
       onMouseLeave={() => setTrigger(false)}
     >
-      <img src={event.img}
+      <img
+        src={event.img}
         style={{ objectFit: 'cover', width: '100%', height: '100%' }}
         alt={event.title}
         loading="lazy"

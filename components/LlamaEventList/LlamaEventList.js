@@ -28,17 +28,27 @@ export default function LlamaEventList({ events }) {
             key={item.img}
             renderActions={
               <CardActions sx={{ justifyContent: "center" }}>
-                <Link
-                  href="/events#calendars"
-                  passHref={true}
-                >
-                  <Button
-                    color="secondary"
-                    variant="contained"
+                {
+                  item.link ? <Button
+                      color="secondary"
+                      variant="contained"
+                      href={item.link}
+                      target="_blank"
+                    >
+                      More details
+                    </Button>
+                  : <Link
+                    href="/events#calendars"
+                    passHref={true}
                   >
-                    More details
-                  </Button>
-                </Link>
+                    <Button
+                      color="secondary"
+                      variant="contained"
+                    >
+                      More details
+                    </Button>
+                  </Link>
+                }
               </CardActions>
             }
           />

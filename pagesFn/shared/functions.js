@@ -19,7 +19,7 @@ export async function getEvents() {
         fields: ['formats', 'url']
       }
     },
-    fields: ['title', 'shortDescription'],
+    fields: ['title', 'shortDescription', 'link'],
     sort: ['order', 'id']
   });
 }

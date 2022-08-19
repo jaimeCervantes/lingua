@@ -9,6 +9,7 @@ export function mapEventsToUI(events) {
       title: item.attributes.title,
       img: getStrapiMedia(url || item.attributes.Image.data.attributes.url),
       shortDescription: item.attributes.shortDescription,
+      link: item.attributes.link
     };
   });
 }
