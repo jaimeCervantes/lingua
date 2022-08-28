@@ -48,7 +48,8 @@ export default function Index({ homeImages, index, languages }) {
       >
       </LlamaFooter>
 
-      <LlamaDialog open={true} fullWidth={true} maxWidth={'xl'}>
+{
+  /*<LlamaDialog open={true} fullWidth={true} maxWidth={'xl'}>
         <iframe
           style={{ display: 'block', width: '100%', minHeight: '80vh' }}
           src="https://www.youtube.com/embed/oUUSBPlS0RA?rel=0&autoplay=1"
@@ -59,6 +60,8 @@ export default function Index({ homeImages, index, languages }) {
         >
         </iframe>
       </LlamaDialog>
+      */
+}
     </>
   );
 }
