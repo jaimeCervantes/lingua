@@ -6,6 +6,7 @@ import MainMenu from '../components/pages/index/MainMenu';
 import EnterSiteLanguagesCarousel from '../components/pages/index/EnterSiteLanguagesCarousel';
 import LlamaMenu from '../components/LlamaMenu/LlamaMenu';
 import LlamaDialog from '../components/LlamaDialog/LlamaDialog';
+import { DialogContent } from '@mui/material';
 
 export { getStaticProps } from '../pagesFn/index/functions';
 
@@ -49,11 +50,13 @@ export default function Index({ homeImages, index, languages }) {
       </LlamaFooter>
 
 
-      <LlamaDialog open={true} fullWidth={true} maxWidth={'xl'}>
-        <section className={styles.programs}>
-          <img className={styles.programs__img} src="/illustrations/ielts-english.jpeg"/>
-          <img className={styles.programs__img} src="/illustrations/dele-spanish.jpeg"/>
-        </section>
+      <LlamaDialog open={true} fullWidth={true} maxWidth={'xl'} scroll={'paper'}>
+        <DialogContent dividers={true}>
+          <section className={styles.programs}>
+            <img className={styles.programs__img} src="/illustrations/ielts-english.jpeg"/>
+            <img className={styles.programs__img} src="/illustrations/dele-spanish.jpeg"/>
+          </section>
+        </DialogContent>
       </LlamaDialog>
     </>
   );
