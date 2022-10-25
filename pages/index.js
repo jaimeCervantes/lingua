@@ -48,20 +48,13 @@ export default function Index({ homeImages, index, languages }) {
       >
       </LlamaFooter>
 
-{
-  /*<LlamaDialog open={true} fullWidth={true} maxWidth={'xl'}>
-        <iframe
-          style={{ display: 'block', width: '100%', minHeight: '80vh' }}
-          src="https://www.youtube.com/embed/oUUSBPlS0RA?rel=0&autoplay=1"
-          title="22 Perú Immersion Trip Lima & Cuzco December 18-30"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          frameBorder="0"
-        >
-        </iframe>
+
+      <LlamaDialog open={true} fullWidth={true} maxWidth={'xl'}>
+        <section className={styles.programs}>
+          <img className={styles.programs__img} src="/illustrations/ielts-english.jpeg"/>
+          <img className={styles.programs__img} src="/illustrations/dele-spanish.jpeg"/>
+        </section>
       </LlamaDialog>
-      */
-}
     </>
   );
 }

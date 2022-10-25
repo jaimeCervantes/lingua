@@ -48,3 +48,14 @@
     font-size: 1.2rem;
   }
 }
+
+.programs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.programs__img {
+  display: block;
+  width: 100%;
+}
