@@ -22,7 +22,7 @@ export default function Index({ homeImages, index, languages }) {
         }
       }}></LlamaMenu>
       <header className={styles.header}>
-        <img src="/logo-white.svg"
+        <img src="/logo.png"
           alt="Linguallama Logo"
           className={styles.logo}
         />

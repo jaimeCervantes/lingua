@@ -9,7 +9,7 @@ export default function LlamaLogo({ img, sx, children, url, onClick }) {
       sx={{ width: '100px', cursor: 'pointer', ...sx }}>
       <Link href={url || '/'}>
         <img
-          src={ img || '/logo.svg'}
+          src={ img || '/logo.png'}
           style={{ width: '100%'}}
           alt={'LinguaLlama Logo'}
         />
