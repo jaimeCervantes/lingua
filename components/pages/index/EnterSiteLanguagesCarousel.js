@@ -57,7 +57,7 @@ export default function EnterSiteLanguagesCarousel({ languages, homeImages, ente
           >
           </LlamaLanguages>
         </div>
-        <Link href="/home">
+        <Link href="/home" legacyBehavior>
           <Button
             className="text-bold"
             variant="contained"

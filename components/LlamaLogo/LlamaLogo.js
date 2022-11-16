@@ -6,11 +6,12 @@ export default function LlamaLogo({ img, sx, children, url, onClick }) {
   return (
     <Box
       onClick={onClick}
-      sx={{ width: '100px', cursor: 'pointer', ...sx }}>
-      <Link href={url || '/'}>
+      sx={{ cursor: 'pointer', ...sx }}>
+      <Link href={url || '/'} legacyBehavior>
         <img
           src={ img || '/logo.png'}
-          style={{ width: '100%'}}
+          width="50"
+          height="50"
           alt={'LinguaLlama Logo'}
         />
       </Link>

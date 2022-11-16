@@ -37,10 +37,7 @@ export default function LlamaEventList({ events }) {
                     >
                       More details
                     </Button>
-                  : <Link
-                    href="/events#calendars"
-                    passHref={true}
-                  >
+                  : <Link href="/events#calendars" passHref={true} legacyBehavior>
                     <Button
                       color="secondary"
                       variant="contained"

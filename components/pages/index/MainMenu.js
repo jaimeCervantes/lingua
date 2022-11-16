@@ -21,29 +21,27 @@ export default function MainMenu() {
       </div>
       
       <div className={styles.item}>
-        <Link href="/events">
-          <a className={styles.link}>
-            <span className={styles.itemEmoji}>🥳💬</span>
-          </a>
+        <Link href="/events" className={styles.link}>
+
+          <span className={styles.itemEmoji}>🥳💬</span>
+
         </Link>
         <p className={styles.itemText}>
-          <Link href="/events">
-            <a className={styles.link}>Fun events</a>
+          <Link href="/events" className={styles.link}>
+            Fun events
           </Link>
         </p>
       </div>
       
       <div className={styles.item}>
-        <Link href="/tours">
-          <a
-            className={styles.link}
-          >
-            <span className={styles.itemEmoji}>🌎✈️</span>
-          </a>
+        <Link href="/tours" className={styles.link}>
+
+          <span className={styles.itemEmoji}>🌎✈️</span>
+
         </Link>
         <p className={styles.itemText}>
-          <Link href="/tours">
-            <a className={styles.link}>Tours</a>
+          <Link href="/tours" className={styles.link}>
+            Tours
           </Link>
         </p>
       </div>

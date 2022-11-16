@@ -46,11 +46,7 @@ export default function LlamaMenu({ sx, onClick }) {
       sx={sx}
     >
       {menuItems.map((item) => (
-        <Link
-          href={item.url}
-          passHref={true}
-          key={item.url}
-        >
+        <Link href={item.url} passHref={true} key={item.url} legacyBehavior>
           <LlamaButton
             sx={{ color: sx.color }}
             target={item.isOut ? '_blank' : '_self'}
