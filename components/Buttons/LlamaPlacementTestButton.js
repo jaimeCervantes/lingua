@@ -13,7 +13,7 @@ export default function LlamaPlacementTestButton({ sx }) {
       <Button
         color="secondary"
         variant="contained"
-        href="https://app.nearpod.com/?pin=6mwjg"
+        href="https://app.nearpod.com/?pin=LPDTU"
         target="__blank"
         sx={{
           fontFamily: 'Bangers',
