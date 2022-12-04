@@ -1,6 +1,6 @@
 import { getStrapiMedia } from '../../util/media';
 
-export function mapLanguagesToUI(languages) {
+export function mapLanguagesToUI(languages = []) {
   return languages.map(item => {
     const img = item.attributes.Image.data?.attributes.url;
 

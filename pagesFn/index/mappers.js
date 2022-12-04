@@ -1,7 +1,7 @@
 import { FormatSizeRounded } from '@mui/icons-material';
 import { getStrapiMedia } from '../../util/media';
 
-export function mapHomeImagesToUI(images) {
+export function mapHomeImagesToUI(images = []) {
   return images.map(item => {
     const formats = item.attributes.Image?.data?.attributes?.formats;
     let url = '';
@@ -17,6 +17,6 @@ export function mapHomeImagesToUI(images) {
   });
 }
 
-export function mapToursToUI(tours) {
+export function mapToursToUI(tours = []) {
   return tours.map(item => ({ title: item.attributes.title }));
 }
