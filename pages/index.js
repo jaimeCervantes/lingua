@@ -3,14 +3,31 @@ import LlamaFooter from "../components/LlamaFooter/LlamaFooter";
 import styles from "./index.module.css";
 import LlamaSocialNetworks from "../components/LlamaSocialNetworks/LlamaSocialNetworks";
 import MainMenu from "../components/pages/index/MainMenu";
-import EnterSiteLanguagesCarousel from "../components/pages/index/EnterSiteLanguagesCarousel";
+import LanguagesAndCarousel from "../components/pages/index/LanguagesAndCarousel";
 import LlamaMenu from "../components/LlamaMenu/LlamaMenu";
 import LlamaDialog from "../components/LlamaDialog/LlamaDialog";
 import { DialogContent } from "@mui/material";
+import LlamaPlacementTestButton from "../components/Buttons/LlamaPlacementTestButton";
+import { useEffect, useRef } from "react";
 
 export { getStaticProps } from "../pagesFn/index/functions";
 
 export default function Index({ homeImages, index, languages }) {
+  const linguahouseContainer = useRef(null);
+  
+  useEffect(() => {
+    let elem = null;
+    if (linguahouseContainer?.current) {
+      elem = document.createElement('script');
+      elem.src = 'https://www.linguahouse.com/widgets/profile/2a623461-65ed-5b1e-10f7-ffb9724618ed';
+      linguahouseContainer.current.appendChild(elem);
+    }
+
+    return () => {
+      elem?.remove();
+    }
+  }, [linguahouseContainer])
+
   return (
     <>
       <LlamaMenu
@@ -47,13 +64,16 @@ export default function Index({ homeImages, index, languages }) {
         sx={{ textAlign: "center" }}
       ></LlamaSocialNetworks>
 
-      <MainMenu></MainMenu>
+      <MainMenu enterText={index.enterText}></MainMenu>
 
-      <EnterSiteLanguagesCarousel
+      <LanguagesAndCarousel
         homeImages={homeImages}
         languages={languages}
-        enterText={index.enterText}
-      ></EnterSiteLanguagesCarousel>
+      ></LanguagesAndCarousel>
+
+      <section ref={linguahouseContainer}>
+
+      </section>
 
       <LlamaFooter
         copyRight={index.copyRight}
@@ -98,5 +118,8 @@ export default function Index({ homeImages, index, languages }) {
 }
 
 Index.getLayout = function (page) {
-  return <div className={styles.index}>{page}</div>;
+  return <div className={styles.index}>
+    {page}
+    <LlamaPlacementTestButton></LlamaPlacementTestButton>
+  </div>;
 };

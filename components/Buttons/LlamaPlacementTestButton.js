@@ -8,7 +8,7 @@ export default function LlamaPlacementTestButton({ sx }) {
       bottom: '30px',
       width: '100%',
       textAlign: 'center',
-      zIndex: 10
+      zIndex: 20
     }}>
       <Button
         color="secondary"

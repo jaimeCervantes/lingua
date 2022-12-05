@@ -7,7 +7,7 @@ import DoorSlidingIcon from '@mui/icons-material/DoorSliding';
 import LlamaCarousel from '../../LlamaCarousel/LlamaCarousel';
 import LlamaLanguages from '../../LlamaLanguages/LlamaLanguages';
 
-export default function EnterSiteLanguagesCarousel({ languages, homeImages, enterText }) {
+export default function LanguagesAndCarousel({ languages, homeImages, enterText }) {
   const [ language, setLanguage ] = useState(() => languages[0]);
   const [ isOpen, setIsOpen ] = useState(false);
   const languagesRef = useRef();
@@ -57,19 +57,6 @@ export default function EnterSiteLanguagesCarousel({ languages, homeImages, ente
           >
           </LlamaLanguages>
         </div>
-        <Link href="/home" legacyBehavior>
-          <Button
-            className="text-bold"
-            variant="contained"
-            color="primary"
-            size="large"
-            sx={{ height: '60px', marginBlockStart: '60px' }}
-            startIcon={<DoorSlidingIcon />}
-            href="https://linguallama-store.mailchimpsites.com/"
-          >
-            {enterText}
-          </Button>
-        </Link>
       </div>
 
       <LlamaCarousel items={homeImages} 

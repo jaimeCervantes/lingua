@@ -1,7 +1,7 @@
 import styles from './MainMenu.module.css';
 import Link from 'next/link';
 
-export default function MainMenu() {
+export default function MainMenu({ enterText }) {
   return (
     <section className={styles.menu}>
       <div>
@@ -63,6 +63,17 @@ export default function MainMenu() {
           >
             Spanish classes
           </a>
+        </p>
+      </div>
+
+      <div className={styles.item}>
+        <Link href="/home" className={styles.link}>
+          <span className={styles.itemEmoji}>🚪🤗</span>
+        </Link>
+        <p className={styles.itemText}>
+          <Link href="/home" className={styles.link}>
+            {enterText}
+          </Link>
         </p>
       </div>
       
