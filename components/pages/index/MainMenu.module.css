@@ -12,7 +12,8 @@
   position: relative;
 }
 
-.link, .link:visited, .link:active, .link:hover {
+.link, .link:hover, .link:active, .link:visited,
+.link a, .link a:hover, .link a:active, .link a:visited {
   text-decoration: none;
   color: white;
 }
