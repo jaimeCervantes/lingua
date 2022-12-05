@@ -13,7 +13,7 @@
 }
 
 .link, .link:hover, .link:active, .link:visited,
-.link a, .link a:hover, .link a:active, .link a:visited {
+.item a, .item a:hover, .item a:active, .item a:visited {
   text-decoration: none;
   color: white;
 }
