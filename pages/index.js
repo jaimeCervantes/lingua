@@ -9,7 +9,7 @@ import LlamaDialog from "../components/LlamaDialog/LlamaDialog";
 import { DialogContent } from "@mui/material";
 import LlamaPlacementTestButton from "../components/Buttons/LlamaPlacementTestButton";
 import { useRef } from "react";
-import useLinguaHouseWidget from "../components/pages/index/useLinguaHouse";
+import useLinguaHouseWidget from "../components/pages/index/useLinguaHouseWidget";
 
 export { getStaticProps } from "../pagesFn/index/functions";
 export default function Index({ homeImages, index, languages }) {
