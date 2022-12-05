@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import Image from "next/image.js";
 import LlamaChipLanguages from "../components/LlamaChipLanguages/LlamaChipLanguages.js";
 import { getLanguages } from "../pagesFn/shared/functions.js";
 import { mapLanguagesToUI } from "../pagesFn/shared/mappers.js";
@@ -24,9 +23,10 @@ export default function About({ languages }) {
           among themselves
         </Typography>
       </Box>
-
-      <Image src="/illustrations/people.svg" width="100%" alt="Peple of any mental and phisical sitation" />
-
+      <picture>
+        <source srcSet="/illustrations/people.svg" type="image/svg"/>
+        <img src="/illustrations/people.svg" width="100%" alt="Peple of any mental and phisical sitation"/>
+      </picture>
       <Typography variant="h5"
                 sx={{
                   padding: "1rem",
