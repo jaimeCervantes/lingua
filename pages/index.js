@@ -8,13 +8,13 @@ import LlamaMenu from "../components/LlamaMenu/LlamaMenu";
 import LlamaPlacementTestButton from "../components/Buttons/LlamaPlacementTestButton";
 import { useRef, Suspense } from "react";
 import useLinguaHouseWidget from "../components/pages/index/useLinguaHouseWidget";
-import useShowDialogBanner from "../components/pages/index/useShowDialogBanner";
+//import useShowDialogBanner from "../components/pages/index/useShowDialogBanner";
 
 export { getStaticProps } from "../pagesFn/index/functions";
 export default function Index({ homeImages, index, languages }) {
   const linguahouseContainer = useRef(null);
 
-  const DialogBanner = useShowDialogBanner(2000);
+  //const DialogBanner = useShowDialogBanner(2000);
   useLinguaHouseWidget(linguahouseContainer)
 
   return (
@@ -69,9 +69,12 @@ export default function Index({ homeImages, index, languages }) {
         color="primary.main"
       ></LlamaFooter>
 
-      <Suspense fallback={<p hidden>Loading</p>}>
+      {/*
+        <Suspense fallback={<p hidden>Loading</p>}>
         {DialogBanner ? (<DialogBanner />) : null}
       </Suspense>
+      */}
+      
     </>
   );
 }
