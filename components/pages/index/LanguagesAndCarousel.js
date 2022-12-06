@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
-import Link from 'next/link';
 import { Button } from '@mui/material';
 import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
-import DoorSlidingIcon from '@mui/icons-material/DoorSliding';
 
 import LlamaCarousel from '../../LlamaCarousel/LlamaCarousel';
 import LlamaLanguages from '../../LlamaLanguages/LlamaLanguages';
 
-export default function LanguagesAndCarousel({ languages, homeImages, enterText }) {
+export default function LanguagesAndCarousel({ languages, homeImages }) {
   const [ language, setLanguage ] = useState(() => languages[0]);
   const [ isOpen, setIsOpen ] = useState(false);
   const languagesRef = useRef();

@@ -5,16 +5,16 @@ import LlamaSocialNetworks from "../components/LlamaSocialNetworks/LlamaSocialNe
 import MainMenu from "../components/pages/index/MainMenu";
 import LanguagesAndCarousel from "../components/pages/index/LanguagesAndCarousel";
 import LlamaMenu from "../components/LlamaMenu/LlamaMenu";
-import LlamaDialog from "../components/LlamaDialog/LlamaDialog";
-import { DialogContent } from "@mui/material";
 import LlamaPlacementTestButton from "../components/Buttons/LlamaPlacementTestButton";
 import { useRef } from "react";
 import useLinguaHouseWidget from "../components/pages/index/useLinguaHouseWidget";
+import useShowDialogBanner from "../components/pages/index/useShowDialogBanner";
 
 export { getStaticProps } from "../pagesFn/index/functions";
 export default function Index({ homeImages, index, languages }) {
   const linguahouseContainer = useRef(null);
-  
+
+  const DialogBanner = useShowDialogBanner(2000);
   useLinguaHouseWidget(linguahouseContainer)
 
   return (
@@ -69,39 +69,7 @@ export default function Index({ homeImages, index, languages }) {
         color="primary.main"
       ></LlamaFooter>
 
-      <LlamaDialog
-        open={true}
-        fullWidth={true}
-        maxWidth={"xl"}
-        scroll={"paper"}
-      >
-        <DialogContent dividers={true}>
-          <section className={styles.programs}>
-            <picture className={styles.programs__img}>
-              <source
-                srcSet="/illustrations/ielts-english.jpeg"
-                type="image/jpeg"
-              />
-              <img
-                src="/illustrations/ielts-english.jpeg"
-                alt="IELTS english"
-                className={styles.programs__img}
-              />
-            </picture>
-            <picture className={styles.programs__img}>
-              <source
-                srcSet="/illustrations/dele-spanish.jpeg"
-                type="image/jpeg"
-              />
-              <img
-                src="/illustrations/dele-spanish.jpeg"
-                alt="DELE Spanish"
-                className={styles.programs__img}
-              />
-            </picture>
-          </section>
-        </DialogContent>
-      </LlamaDialog>
+      {DialogBanner ? (<DialogBanner />) : null}
     </>
   );
 }
