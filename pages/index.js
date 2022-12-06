@@ -6,18 +6,13 @@ import MainMenu from "../components/pages/index/MainMenu";
 import LanguagesAndCarousel from "../components/pages/index/LanguagesAndCarousel";
 import LlamaMenu from "../components/LlamaMenu/LlamaMenu";
 import LlamaPlacementTestButton from "../components/Buttons/LlamaPlacementTestButton";
-import { useRef, Suspense, lazy } from "react";
+import DialogBanner from "../components/pages/index/DialogBanner";
+import { useRef } from "react";
 import useLinguaHouseWidget from "../components/pages/index/useLinguaHouseWidget";
-import useShowDialogBanner from "../components/pages/index/useShowDialogBanner";
 
 export { getStaticProps } from "../pagesFn/index/functions";
-
-const loadDialogBanner = () => import('../components/pages/index/DialogBanner');
-const DialogBanner = lazy(loadDialogBanner);
 export default function Index({ homeImages, index, languages }) {
   const linguahouseContainer = useRef(null);
-
-  const showDialogBanner = useShowDialogBanner(loadDialogBanner, 2000);
   useLinguaHouseWidget(linguahouseContainer)
 
   return (
@@ -72,9 +67,7 @@ export default function Index({ homeImages, index, languages }) {
         color="primary.main"
       ></LlamaFooter>
 
-      <Suspense fallback={<p>Loading</p>}>
-        {showDialogBanner ? <DialogBanner /> : null}
-      </Suspense>
+      <DialogBanner />
     </>
   );
 }
