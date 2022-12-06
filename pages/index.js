@@ -6,7 +6,7 @@ import MainMenu from "../components/pages/index/MainMenu";
 import LanguagesAndCarousel from "../components/pages/index/LanguagesAndCarousel";
 import LlamaMenu from "../components/LlamaMenu/LlamaMenu";
 import LlamaPlacementTestButton from "../components/Buttons/LlamaPlacementTestButton";
-import { useRef } from "react";
+import { useRef, Suspense } from "react";
 import useLinguaHouseWidget from "../components/pages/index/useLinguaHouseWidget";
 import useShowDialogBanner from "../components/pages/index/useShowDialogBanner";
 
@@ -39,9 +39,9 @@ export default function Index({ homeImages, index, languages }) {
           <p style={{ margin: 0 }}>Serving all languages worldwide</p>
         </div>
         <picture className={styles.flags}>
-          <source srcSet="/illustrations/flags.svg" type="image/svg" />
+          <source srcSet="/illustrations/flags.png" type="image/png" />
           <img
-            src="/illustrations/flags.svg"
+            src="/illustrations/flags.png"
             alt="Linguallama face and flags"
             className={styles.flags}
           />
@@ -69,7 +69,9 @@ export default function Index({ homeImages, index, languages }) {
         color="primary.main"
       ></LlamaFooter>
 
-      {DialogBanner ? (<DialogBanner />) : null}
+      <Suspense fallback={null}>
+        {DialogBanner ? (<DialogBanner />) : null}
+      </Suspense>
     </>
   );
 }

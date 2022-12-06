@@ -5,7 +5,7 @@ export default function MainMenu({ enterText }) {
   return (
     <section className={styles.menu}>
       <div>
-        <img className={styles.iLoveIt} src="/illustrations/iLoveIt.svg" width="120"/>
+        <img className={styles.iLoveIt} src="/illustrations/iLoveIt.png" width="120"/>
       </div>
       <div className={styles.item}>
         <a
