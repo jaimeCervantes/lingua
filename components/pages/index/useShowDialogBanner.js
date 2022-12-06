@@ -1,18 +1,16 @@
-import { lazy, useEffect, useState } from "react";
-const loadDialogBanner = () => import('./DialogBanner');
-const DialogBanner = lazy(loadDialogBanner);
+import { useEffect, useState } from "react";
 
-export default function useShowDialogBanner(delay = 2000) {
-  const [dialog, setDialog] = useState(null);
+export default function useShowDialogBanner(callback, delay = 2000) {
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
-    if (!dialog) {
+    if(!show) {
       setTimeout(() => {
-        loadDialogBanner()
-        setDialog(DialogBanner);
-      }, delay)
+        callback()
+        setShow(true);
+      }, delay);
     }
-  }, [delay, dialog]);
+  }, [callback, delay, show]);
 
-  return dialog;
+  return show;
 }
