@@ -3,12 +3,19 @@ import LlamaDialog from "../../LlamaDialog/LlamaDialog";
 import { DialogContent } from "@mui/material";
 import styles from "./DialogBanner.module.css";
 import Slide from "@mui/material/Slide";
+import useShowDialogBanner from './useShowDialogBanner';
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide in={true} direction="down" ref={ref} {...props} />;
 });
 
 export default function DialogBanner() {
+  const shouldShow = useShowDialogBanner(2000);
+
+  if(!shouldShow) {
+    return null;
+  }
+
   return (
     <LlamaDialog
       open={true}

@@ -48,21 +48,3 @@
     font-size: 1.2rem;
   }
 }
-
-.programs {
-  min-height: 50%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.programs__img {
-  display: block;
-  width: 100%;
-}
-
-@media (max-width: 500px) {
-  .programs {
-    grid-template-columns: 1fr;
-  }
-}
