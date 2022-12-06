@@ -69,7 +69,7 @@ export default function Index({ homeImages, index, languages }) {
         color="primary.main"
       ></LlamaFooter>
 
-      <Suspense fallback={null}>
+      <Suspense fallback={<p hidden>Loading</p>}>
         {DialogBanner ? (<DialogBanner />) : null}
       </Suspense>
     </>
