@@ -7,13 +7,9 @@ import LanguagesAndCarousel from "../components/pages/index/LanguagesAndCarousel
 import LlamaMenu from "../components/LlamaMenu/LlamaMenu";
 import LlamaPlacementTestButton from "../components/Buttons/LlamaPlacementTestButton";
 import DialogBanner from "../components/pages/index/DialogBanner";
-import { useRef } from "react";
-import useLinguaHouseWidget from "../components/pages/index/useLinguaHouseWidget";
 
 export { getStaticProps } from "../pagesFn/index/functions";
 export default function Index({ homeImages, index, languages }) {
-  const linguahouseContainer = useRef(null);
-  useLinguaHouseWidget(linguahouseContainer)
 
   return (
     <>
@@ -57,10 +53,6 @@ export default function Index({ homeImages, index, languages }) {
         homeImages={homeImages}
         languages={languages}
       ></LanguagesAndCarousel>
-
-      <section ref={linguahouseContainer}>
-
-      </section>
 
       <LlamaFooter
         copyRight={index.copyRight}

@@ -1,37 +1,16 @@
 import { useEffect } from "react";
 
-
 export default function useLinguaHouseWidget(container) {
 
   useEffect(() => {
-    let iframe;
-    function scrollListener(e) {
-      if (container?.current && isVisible(container?.current)) {
-        iframe = createLinguaHouseIframe();
-        container.current.appendChild(iframe);
-        document.removeEventListener('scroll', scrollListener);
-      }
+    if(container?.current) {
+      const iframe = createLinguaHouseIframe();
+      container.current.appendChild(iframe);
     }
+  }, [container])
 
-    document.addEventListener('scroll', scrollListener)
-
-    return () => {
-      document.removeEventListener('scroll', scrollListener);
-    };
-  }, [container]);
 }
 
-function isVisible(container) {
-  const domRect = container.getBoundingClientRect();
-
-  return (
-    domRect.top >= 0 &&
-    domRect.left >= 0 &&
-    domRect.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight) &&
-    domRect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
-}
 
 function createLinguaHouseIframe() {
   let url =
