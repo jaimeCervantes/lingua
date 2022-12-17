@@ -26,28 +26,17 @@ export default function DialogBanner() {
     >
       <DialogContent dividers={true}>
         <section className={styles.programs}>
-          <picture className={styles.programs__img}>
-            <source
-              srcSet="/illustrations/ielts-english.jpeg"
-              type="image/jpeg"
-            />
-            <img
-              src="/illustrations/ielts-english.jpeg"
-              alt="IELTS english"
-              className={styles.programs__img}
-            />
-          </picture>
-          <picture className={styles.programs__img}>
-            <source
-              srcSet="/illustrations/dele-spanish.jpeg"
-              type="image/jpeg"
-            />
-            <img
-              src="/illustrations/dele-spanish.jpeg"
-              alt="DELE Spanish"
-              className={styles.programs__img}
-            />
-          </picture>
+          <img
+            className={styles.programs__img}
+            src="illustrations/ielts-english.jpg"
+            alt="English IELTS and Spanish DELE certifications"
+          />
+
+          <img
+            className={styles.programs__img}
+            src="illustrations/dele-spanish.jpg"
+            alt="English IELTS and Spanish DELE certifications"
+          />
         </section>
       </DialogContent>
     </LlamaDialog>
