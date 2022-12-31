@@ -28,14 +28,8 @@ export default function DialogBanner() {
         <section className={styles.programs}>
           <img
             className={styles.programs__img}
-            src="illustrations/ielts-english.jpg"
-            alt="English IELTS and Spanish DELE certifications"
-          />
-
-          <img
-            className={styles.programs__img}
-            src="illustrations/dele-spanish.jpg"
-            alt="English IELTS and Spanish DELE certifications"
+            src="illustrations/crash-course.jpeg"
+            alt="Foreign Language Crash course"
           />
         </section>
       </DialogContent>
