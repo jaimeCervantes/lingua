@@ -6,7 +6,9 @@ import MainMenu from "../components/pages/index/MainMenu";
 import LanguagesAndCarousel from "../components/pages/index/LanguagesAndCarousel";
 import LlamaMenu from "../components/LlamaMenu/LlamaMenu";
 import LlamaPlacementTestButton from "../components/Buttons/LlamaPlacementTestButton";
-import DialogBanner from "../components/pages/index/DialogBanner";
+import dynamic from "next/dynamic";
+
+const DynamicDialogBanner  = dynamic(() => import("../components/pages/index/DialogBanner"));
 
 export { getStaticProps } from "../pagesFn/index/functions";
 export default function Index({ homeImages, index, languages }) {
@@ -59,7 +61,7 @@ export default function Index({ homeImages, index, languages }) {
         color="primary.main"
       ></LlamaFooter>
 
-      <DialogBanner />
+      <DynamicDialogBanner />
     </>
   );
 }
