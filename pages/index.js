@@ -40,7 +40,7 @@ export default function Index({ homeImages, index, languages }) {
             target="__blank"
             className={styles.joinHere}
           >
-            Join here 🤗
+            Join mighty network here 🤗
           </a>
         </div>
         <picture className={styles.flags}>
