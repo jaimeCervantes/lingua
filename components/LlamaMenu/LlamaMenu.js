@@ -44,7 +44,12 @@ const menuItems = [
     text: 'Reviews',
     url: 'https://disboard.org/server/reviews/762367346890768394',
     isOut: true
-  }
+  },
+  {
+    text: 'Join here',
+    url: 'https://linguallama-academy.mn.co/share/ZrlA98LrWWkL97PT?utm_source=manual',
+    isOut: true
+  },
 ];
 
 export default function LlamaMenu({ sx, onClick }) {

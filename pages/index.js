@@ -34,6 +34,15 @@ export default function Index({ homeImages, index, languages }) {
           <h1 className={styles.title}>Welcome to LinguaLlama</h1>
           <p style={{ margin: 0 }}>Serving all languages worldwide</p>
         </div>
+        <div>
+          <a
+            href="https://linguallama-academy.mn.co/share/ZrlA98LrWWkL97PT?utm_source=manual"
+            target="__blank"
+            className={styles.joinHere}
+          >
+            Join here 🤗
+          </a>
+        </div>
         <picture className={styles.flags}>
           <source srcSet="/illustrations/flags.png" type="image/png" />
           <img

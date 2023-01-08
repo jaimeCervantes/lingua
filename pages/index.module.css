@@ -29,6 +29,12 @@
   letter-spacing: 3px;
 }
 
+.joinHere, .joinHere:hover, .joinHere:active, .joinHere:visited {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
 @media (max-width: 920px) {
   .title {
     font-size: 1.5rem;
