@@ -29,10 +29,18 @@
   letter-spacing: 3px;
 }
 
+.joinHere {
+  transition: font-size ease 200ms;
+}
+
 .joinHere, .joinHere:hover, .joinHere:active, .joinHere:visited {
   text-decoration: none;
   color: white;
   font-size: 1.5rem;
+}
+
+.joinHere:hover {
+  font-size: 2rem;
 }
 
 @media (max-width: 920px) {
